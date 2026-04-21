@@ -1,7 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://ilknpyfpgtol"]
+[gd_scene load_steps=7 format=3 uid="uid://ilknpyfpgtol"]
 
 [ext_resource type="Texture2D" uid="uid://dw7osoejcpmge" path="res://assets/sprites/icon.svg" id="1_480mm"]
-[ext_resource type="Script" path="res://scenes/player.gd" id="1_ykvec"]
+[ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="2_qco6i"]
+[ext_resource type="Script" path="res://scripts/player/states/idle.gd" id="3_ss8mn"]
+[ext_resource type="Script" path="res://scripts/player/states/move.gd" id="4_a838m"]
+
+[sub_resource type="GDScript" id="GDScript_pxejf"]
+script/source = "extends CharacterBody2D
+
+
+@export var speed = 400
+
+func _physics_process(delta):
+	var direction = Input.get_vector(\"move_left\",\"move_right\",\"move_up\",\"move_down\")
+	velocity = direction*speed
+
+	move_and_slide()
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27g2b"]
 size = Vector2(127.5, 127)
@@ -9,7 +24,7 @@ size = Vector2(127.5, 127)
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(-8, -10)
 scale = Vector2(0.64, 0.64)
-script = ExtResource("1_ykvec")
+script = SubResource("GDScript_pxejf")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -19,3 +34,12 @@ shape = SubResource("RectangleShape2D_27g2b")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(74, 78)
 texture = ExtResource("1_480mm")
+
+[node name="State_Machine" type="Node" parent="."]
+script = ExtResource("2_qco6i")
+
+[node name="Idle" type="Node" parent="State_Machine"]
+script = ExtResource("3_ss8mn")
+
+[node name="Move" type="Node" parent="State_Machine"]
+script = ExtResource("4_a838m")
