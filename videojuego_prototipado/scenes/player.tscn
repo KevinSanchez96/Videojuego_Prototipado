@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://cxhmxyij54owx" path="res://scripts/player/states/idle.gd" id="3_ss8mn"]
 [ext_resource type="Script" uid="uid://b0v2lbc3ad7av" path="res://scripts/player/states/move.gd" id="4_a838m"]
 [ext_resource type="Texture2D" uid="uid://duq4s4i46xorx" path="res://assets/sprites/Espada.png" id="5_sysii"]
-[ext_resource type="Script" uid="uid://bpcuqfgsq18c2" path="res://scenes/attack.gd" id="5_yedyl"]
+[ext_resource type="Script" uid="uid://bpcuqfgsq18c2" path="res://scripts/player/states/attack.gd" id="5_yedyl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27g2b"]
 size = Vector2(127.5, 127)
