@@ -1,47 +1,45 @@
-[gd_scene load_steps=9 format=3 uid="uid://ilknpyfpgtol"]
+[gd_scene format=3 uid="uid://ilknpyfpgtol"]
 
 [ext_resource type="Texture2D" uid="uid://dw7osoejcpmge" path="res://assets/sprites/icon.svg" id="1_480mm"]
-[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_qo1am"]
-[ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="2_qco6i"]
-[ext_resource type="Script" path="res://scripts/player/states/idle.gd" id="3_ss8mn"]
-[ext_resource type="Script" path="res://scripts/player/states/move.gd" id="4_a838m"]
+[ext_resource type="Script" uid="uid://c33euxkvvj0ni" path="res://scripts/player/player.gd" id="1_qo1am"]
+[ext_resource type="Script" uid="uid://c2ccwc58k8230" path="res://scripts/state_machine/state_machine.gd" id="2_qco6i"]
+[ext_resource type="Script" uid="uid://cxhmxyij54owx" path="res://scripts/player/states/idle.gd" id="3_ss8mn"]
+[ext_resource type="Script" uid="uid://b0v2lbc3ad7av" path="res://scripts/player/states/move.gd" id="4_a838m"]
 [ext_resource type="Texture2D" uid="uid://duq4s4i46xorx" path="res://assets/sprites/Espada.png" id="5_sysii"]
-[ext_resource type="Script" path="res://scenes/attack.gd" id="5_yedyl"]
+[ext_resource type="Script" uid="uid://bpcuqfgsq18c2" path="res://scenes/attack.gd" id="5_yedyl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27g2b"]
 size = Vector2(127.5, 127)
 
-[node name="Player" type="CharacterBody2D"]
-position = Vector2(-8, -10)
-scale = Vector2(0.64, 0.64)
+[node name="Player" type="CharacterBody2D" unique_id=1408671919]
 script = ExtResource("1_qo1am")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=859508430]
 position = Vector2(74.25, 77.5)
 shape = SubResource("RectangleShape2D_27g2b")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1045880015]
 position = Vector2(74, 78)
 texture = ExtResource("1_480mm")
 
-[node name="State_Machine" type="Node" parent="."]
+[node name="State_Machine" type="Node" parent="." unique_id=1936231923]
 script = ExtResource("2_qco6i")
 
-[node name="Idle" type="Node" parent="State_Machine"]
+[node name="Idle" type="Node" parent="State_Machine" unique_id=959415757]
 script = ExtResource("3_ss8mn")
 
-[node name="Move" type="Node" parent="State_Machine"]
+[node name="Move" type="Node" parent="State_Machine" unique_id=587228036]
 script = ExtResource("4_a838m")
 
-[node name="Attack" type="Node" parent="State_Machine"]
+[node name="Attack" type="Node" parent="State_Machine" unique_id=436829339]
 script = ExtResource("5_yedyl")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=964986331]
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
 
-[node name="Sword" type="Sprite2D" parent="."]
+[node name="Sword" type="Sprite2D" parent="." unique_id=587177641]
 visible = false
 z_index = 1
 position = Vector2(178.125, 53.125)
