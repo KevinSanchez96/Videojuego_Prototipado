@@ -10,16 +10,18 @@ var timer
 
 func enter():
 	timer = attack_duration
-	entity.sword.visible = true
+	entity.sword.get_node("Sprite2D").visible = true
+	entity.sword.monitoring = true
+	entity.can_hit = true
 	
 #creamos una variable en player para obtener la ultima direccion en la que quedo el player
 # y posicionamos la sword
 	if entity.last_direction.x > 0:
-		entity.sword.position = Vector2(180,50)
-		entity.sword.flip_v = false
+		entity.sword.position = Vector2(5,0)
+		entity.sword.get_node("Sprite2D").flip_v = false
 	else:
-		entity.sword.position = Vector2(-30,50)
-		entity.sword.flip_v = true
+		entity.sword.position = Vector2(-210,0)
+		entity.sword.get_node("Sprite2D").flip_v = true
 		
 #una vez el comienza la "animacion", empieza el conteo del timer
 #creamos el pequeño desplazamiento dependiendo donde quedo el last direction
@@ -32,5 +34,7 @@ func update(delta):
 
 #sale del estado de Attack , se vuelve invisible de nuevo la sword
 func exit():
-	entity.sword.visible = false
+	entity.sword.get_node("Sprite2D").visible = false
+	entity.sword.monitoring = false
+	entity.can_hit = false
 	

@@ -9,10 +9,10 @@
 [ext_resource type="Script" uid="uid://dp7tm7odl7ywq" path="res://scripts/enemy/states/death.gd" id="7_nenq2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5uy6h"]
-size = Vector2(24, 13)
+size = Vector2(128, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c4w8v"]
-size = Vector2(127.5, 126)
+size = Vector2(127.375, 126.5)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1571177986]
 collision_layer = 2
@@ -24,14 +24,14 @@ texture = ExtResource("2_4ra3w")
 offset = Vector2(-1, -54)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=365302352]
+position = Vector2(-1, -53)
 shape = SubResource("RectangleShape2D_5uy6h")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1015114141]
-visible = false
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1409615153]
-position = Vector2(-1, -54)
+position = Vector2(0, -54)
 shape = SubResource("RectangleShape2D_c4w8v")
 
 [node name="State_Machine" type="Node" parent="." unique_id=571602481]
