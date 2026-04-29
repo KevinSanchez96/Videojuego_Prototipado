@@ -4,30 +4,34 @@
 [ext_resource type="Texture2D" uid="uid://dw7osoejcpmge" path="res://assets/sprites/icon.svg" id="2_4ra3w"]
 [ext_resource type="Script" uid="uid://c2ccwc58k8230" path="res://scripts/state_machine/state_machine.gd" id="3_5uy6h"]
 [ext_resource type="Script" uid="uid://c2tui0loebhbt" path="res://scripts/enemy/states/idle.gd" id="4_c4w8v"]
+[ext_resource type="Script" uid="uid://rcav1i4w2t2d" path="res://scripts/enemy/states/chase.gd" id="5_c4w8v"]
+[ext_resource type="Script" uid="uid://g2w128mais65" path="res://scripts/enemy/states/hurt.gd" id="6_xwavj"]
+[ext_resource type="Script" uid="uid://dp7tm7odl7ywq" path="res://scripts/enemy/states/death.gd" id="7_nenq2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5uy6h"]
-size = Vector2(127, 20)
+size = Vector2(24, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c4w8v"]
-size = Vector2(127, 128)
+size = Vector2(127.5, 126)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1571177986]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_md0e3")
-metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=477120180]
-position = Vector2(1, 54)
 texture = ExtResource("2_4ra3w")
 offset = Vector2(-1, -54)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=365302352]
-position = Vector2(0.5, 53)
 shape = SubResource("RectangleShape2D_5uy6h")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1015114141]
+visible = false
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1409615153]
-position = Vector2(0, -1)
+position = Vector2(-1, -54)
 shape = SubResource("RectangleShape2D_c4w8v")
 
 [node name="State_Machine" type="Node" parent="." unique_id=571602481]
@@ -37,7 +41,10 @@ script = ExtResource("3_5uy6h")
 script = ExtResource("4_c4w8v")
 
 [node name="Chase" type="Node" parent="State_Machine" unique_id=657923585]
+script = ExtResource("5_c4w8v")
 
 [node name="Hurt" type="Node" parent="State_Machine" unique_id=2080431516]
+script = ExtResource("6_xwavj")
 
 [node name="Death" type="Node" parent="State_Machine" unique_id=2099058415]
+script = ExtResource("7_nenq2")

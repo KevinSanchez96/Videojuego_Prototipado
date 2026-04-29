@@ -9,14 +9,14 @@
 [ext_resource type="Script" uid="uid://bpcuqfgsq18c2" path="res://scripts/player/states/attack.gd" id="5_yedyl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27g2b"]
-size = Vector2(127.5, 127)
+size = Vector2(15, 12)
 
 [node name="Player" type="CharacterBody2D" unique_id=1408671919]
 script = ExtResource("1_qo1am")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=859508430]
-position = Vector2(74.25, 77.5)
+position = Vector2(74.5, 135)
 shape = SubResource("RectangleShape2D_27g2b")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1045880015]
