@@ -1,8 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dktang8q5ge21"]
+[gd_scene format=3 uid="uid://dktang8q5ge21"]
 
 [ext_resource type="PackedScene" uid="uid://ilknpyfpgtol" path="res://scenes/player.tscn" id="1_n6egq"]
+[ext_resource type="PackedScene" uid="uid://clc3tc0870b0r" path="res://scenes/enemy.tscn" id="2_0wfyh"]
 
-[node name="main" type="Node2D"]
+[node name="main" type="Node2D" unique_id=2093691251]
 
-[node name="Player" parent="." instance=ExtResource("1_n6egq")]
+[node name="Player" parent="." unique_id=1002440942 instance=ExtResource("1_n6egq")]
+scale = Vector2(0.5, 0.5)
 speed = 350
+
+[node name="Enemy" parent="." unique_id=1571177986 node_paths=PackedStringArray("player") instance=ExtResource("2_0wfyh")]
+position = Vector2(512, 67)
+scale = Vector2(0.5, 0.508)
+player = NodePath("../Player")
+metadata/_edit_group_ = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Enemy" unique_id=749380374]

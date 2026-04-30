@@ -9,14 +9,18 @@
 [ext_resource type="Script" uid="uid://bpcuqfgsq18c2" path="res://scripts/player/states/attack.gd" id="5_yedyl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27g2b"]
-size = Vector2(127.5, 127)
+size = Vector2(15, 12)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fjrip"]
+radius = 9.0
+height = 66.52702
 
 [node name="Player" type="CharacterBody2D" unique_id=1408671919]
+collision_mask = 2
 script = ExtResource("1_qo1am")
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=859508430]
-position = Vector2(74.25, 77.5)
+position = Vector2(74.5, 135)
 shape = SubResource("RectangleShape2D_27g2b")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1045880015]
@@ -39,10 +43,22 @@ script = ExtResource("5_yedyl")
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
 
-[node name="Sword" type="Sprite2D" parent="." unique_id=587177641]
+[node name="Sword" type="Area2D" parent="." unique_id=20233686]
+collision_layer = 4
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Sword" unique_id=587177641]
 visible = false
 z_index = 1
 position = Vector2(178.125, 53.125)
 rotation = 1.5708
 scale = Vector2(0.21, 0.21)
 texture = ExtResource("5_sysii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword" unique_id=870779556]
+position = Vector2(185, 46.999996)
+rotation = 0.7978657
+scale = Vector2(-1.5987996, 1.6135448)
+shape = SubResource("CapsuleShape2D_fjrip")
+
+[connection signal="body_entered" from="Sword" to="." method="_on_sword_body_entered"]
