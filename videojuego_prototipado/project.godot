@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Videojuego_Prototipado"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="uid://t0ub31bf2dxy"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://assets/sprites/icon.svg"
 
