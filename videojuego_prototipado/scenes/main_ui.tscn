@@ -1,36 +1,114 @@
 [gd_scene format=3 uid="uid://t0ub31bf2dxy"]
 
 [ext_resource type="Texture2D" uid="uid://dw7osoejcpmge" path="res://assets/sprites/icon.svg" id="1_513t2"]
-[ext_resource type="Script" uid="uid://b3kmqre6i4r5m" path="res://scripts/card.gd" id="2_e6fyy"]
 
 [node name="MainUI" type="Control" unique_id=1280682809]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Card" type="TextureRect" parent="." unique_id=1680794535]
-layout_mode = 0
-offset_left = 519.0
-offset_top = 4.0
-offset_right = 647.0
-offset_bottom = 132.0
+[node name="ShopPanel" type="PanelContainer" parent="." unique_id=331156967]
+custom_minimum_size = Vector2(700, 250)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -350.0
+offset_right = 350.0
+offset_bottom = 250.0
+grow_horizontal = 2
+
+[node name="RewardSelection" type="HBoxContainer" parent="ShopPanel" unique_id=823425052]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Slot1" type="Panel" parent="ShopPanel/RewardSelection" unique_id=280490820]
+custom_minimum_size = Vector2(100, 170)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Card" type="TextureRect" parent="ShopPanel/RewardSelection/Slot1" unique_id=1680794535]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 0
 texture = ExtResource("1_513t2")
-script = ExtResource("2_e6fyy")
+expand_mode = 1
 
-[node name="Deck" type="Panel" parent="." unique_id=1189429609]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 287.0
-offset_right = 1152.0
-offset_bottom = 654.0
-mouse_filter = 2
+[node name="Slot2" type="Panel" parent="ShopPanel/RewardSelection" unique_id=2048657468]
+custom_minimum_size = Vector2(100, 170)
+layout_mode = 2
+size_flags_vertical = 4
 
-[node name="Hand" type="Panel" parent="." unique_id=1555368066]
-layout_mode = 0
-offset_left = 267.0
-offset_top = 1.0
-offset_right = 903.0
-offset_bottom = 234.0
+[node name="Card2" type="TextureRect" parent="ShopPanel/RewardSelection/Slot2" unique_id=59702374]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("1_513t2")
+expand_mode = 1
+
+[node name="DeckPanel" type="PanelContainer" parent="." unique_id=340394479]
+custom_minimum_size = Vector2(700, 250)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -160.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Deck" type="HBoxContainer" parent="DeckPanel" unique_id=1628104174]
+layout_mode = 2
 mouse_filter = 2
+theme_override_constants/separation = 120
+alignment = 1
+
+[node name="Slot1" type="Panel" parent="DeckPanel/Deck" unique_id=1976565890 groups=["deck_slot"]]
+custom_minimum_size = Vector2(100, 170)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Card" type="TextureRect" parent="DeckPanel/Deck/Slot1" unique_id=341550627]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("1_513t2")
+expand_mode = 1
+
+[node name="Slot2" type="Panel" parent="DeckPanel/Deck" unique_id=1465353326 groups=["deck_slot"]]
+custom_minimum_size = Vector2(100, 170)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Card" type="TextureRect" parent="DeckPanel/Deck/Slot2" unique_id=2096689408]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("1_513t2")
+expand_mode = 1
+
+[node name="Slot3" type="Panel" parent="DeckPanel/Deck" unique_id=64642115 groups=["deck_slot"]]
+custom_minimum_size = Vector2(100, 170)
+layout_mode = 2
+size_flags_vertical = 4
