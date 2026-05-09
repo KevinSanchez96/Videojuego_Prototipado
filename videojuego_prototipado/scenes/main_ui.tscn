@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://t0ub31bf2dxy"]
 
 [ext_resource type="Texture2D" uid="uid://dw7osoejcpmge" path="res://assets/sprites/icon.svg" id="1_513t2"]
+[ext_resource type="Script" uid="uid://b3kmqre6i4r5m" path="res://scripts/card.gd" id="2_513t2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e6fyy"]
+line_spacing = 2.825
+font_size = 19
+outline_size = 4
+shadow_size = 14
 
 [node name="MainUI" type="Control" unique_id=1280682809]
 layout_mode = 3
@@ -9,6 +16,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=31855069]
+layout_mode = 0
+offset_right = 218.0
+offset_bottom = 128.0
+text = "AZUL = ATAQUE DEBIL
+ROJO = ATAQUE FUERTE"
+label_settings = SubResource("LabelSettings_e6fyy")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ShopPanel" type="PanelContainer" parent="." unique_id=331156967]
 custom_minimum_size = Vector2(700, 250)
@@ -42,6 +59,8 @@ grow_vertical = 2
 mouse_filter = 0
 texture = ExtResource("1_513t2")
 expand_mode = 1
+script = ExtResource("2_513t2")
+tipo_carta = "ataque_debil"
 
 [node name="Slot2" type="Panel" parent="ShopPanel/RewardSelection" unique_id=2048657468]
 custom_minimum_size = Vector2(100, 170)
@@ -58,6 +77,8 @@ grow_vertical = 2
 mouse_filter = 0
 texture = ExtResource("1_513t2")
 expand_mode = 1
+script = ExtResource("2_513t2")
+tipo_carta = "ataque_fuerte"
 
 [node name="DeckPanel" type="PanelContainer" parent="." unique_id=340394479]
 custom_minimum_size = Vector2(700, 250)
@@ -91,6 +112,8 @@ grow_vertical = 2
 mouse_filter = 0
 texture = ExtResource("1_513t2")
 expand_mode = 1
+script = ExtResource("2_513t2")
+tipo_carta = "ataque_debil"
 
 [node name="Slot2" type="Panel" parent="DeckPanel/Deck" unique_id=1465353326 groups=["deck_slot"]]
 custom_minimum_size = Vector2(100, 170)
@@ -107,6 +130,8 @@ grow_vertical = 2
 mouse_filter = 0
 texture = ExtResource("1_513t2")
 expand_mode = 1
+script = ExtResource("2_513t2")
+tipo_carta = "ataque_debil"
 
 [node name="Slot3" type="Panel" parent="DeckPanel/Deck" unique_id=64642115 groups=["deck_slot"]]
 custom_minimum_size = Vector2(100, 170)
