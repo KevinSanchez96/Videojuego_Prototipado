@@ -7,7 +7,7 @@
 
 [node name="Player" parent="." unique_id=1002440942 instance=ExtResource("1_n6egq")]
 scale = Vector2(0.5, 0.5)
-speed = 350
+speed = 500
 
 [node name="Enemy" parent="." unique_id=1571177986 node_paths=PackedStringArray("player") instance=ExtResource("2_0wfyh")]
 position = Vector2(512, 67)
