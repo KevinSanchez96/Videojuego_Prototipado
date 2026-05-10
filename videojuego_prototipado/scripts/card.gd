@@ -68,7 +68,4 @@ func snapear():
 	
 func destruir_carta_reward():
 	for reward_slot in reward_selection.get_children():
-		if reward_slot.get_child_count() > 0:
-			var carta = reward_selection.get_child(0)
-			if carta!=self:
-				carta.queue_free()
+		reward_slot.queue_free()
