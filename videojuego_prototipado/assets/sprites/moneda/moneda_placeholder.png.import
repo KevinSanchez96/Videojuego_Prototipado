@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw7osoejcpmge"
-path="res://.godot/imported/icon.svg-00a55f41757400f7387d4069be498893.ctex"
+uid="uid://cmjuxxjvrnoah"
+path="res://.godot/imported/moneda_placeholder.png-5bfba411b6707b15e94d9bce1d6b9273.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-00a55f41757400f7387d4069be498893.ctex"]
+source_file="res://assets/sprites/moneda/moneda_placeholder.png"
+dest_files=["res://.godot/imported/moneda_placeholder.png-5bfba411b6707b15e94d9bce1d6b9273.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
