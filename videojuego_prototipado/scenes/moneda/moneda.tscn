@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ajvxf"]
 radius = 13.0
 
-[node name="Moneda" type="Area2D" unique_id=1926382274]
+[node name="Moneda" type="Area2D" unique_id=1926382274 groups=["monedas"]]
 script = ExtResource("1_ajvxf")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2117979604]

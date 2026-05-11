@@ -3,7 +3,8 @@ extends CharacterBody2D
 @export var speed = 400
 @onready var state_machine = $State_Machine
 @onready var sword = $Sword
-var monedas = 0
+var monedas_counter = 0
+
 
 var last_direction = Vector2.RIGHT
 var can_hit = false
@@ -26,3 +27,13 @@ func _on_sword_body_entered(body: Node2D) -> void:
 	if body.has_method("take_damage") and can_hit:
 		body.take_damage(20)
 		can_hit = false
+
+
+func set_moneda(new_moneda_count: int) -> void:
+	monedas_counter = new_moneda_count
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("monedas"):
+		set_moneda(monedas_counter + 1)
+		print(monedas_counter)
+		
