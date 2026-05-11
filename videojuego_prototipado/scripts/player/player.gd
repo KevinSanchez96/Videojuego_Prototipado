@@ -35,5 +35,5 @@ func set_moneda(new_moneda_count: int) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("monedas"):
 		set_moneda(monedas_counter + 1)
-		print(monedas_counter)
+		#print(monedas_counter)
 		
