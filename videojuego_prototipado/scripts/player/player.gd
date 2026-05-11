@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed = 400
 @onready var state_machine = $State_Machine
 @onready var sword = $Sword
+var monedas = 0
 
 var last_direction = Vector2.RIGHT
 var can_hit = false

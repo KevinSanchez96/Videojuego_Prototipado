@@ -15,6 +15,9 @@ size = Vector2(15, 12)
 radius = 9.0
 height = 66.52702
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjrip"]
+size = Vector2(128, 127)
+
 [node name="Player" type="CharacterBody2D" unique_id=1408671919]
 collision_mask = 2
 script = ExtResource("1_qo1am")
@@ -60,5 +63,11 @@ position = Vector2(185, 46.999996)
 rotation = 0.7978657
 scale = Vector2(-1.5987996, 1.6135448)
 shape = SubResource("CapsuleShape2D_fjrip")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2128306376]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1828201107]
+position = Vector2(74, 77.5)
+shape = SubResource("RectangleShape2D_fjrip")
 
 [connection signal="body_entered" from="Sword" to="." method="_on_sword_body_entered"]
