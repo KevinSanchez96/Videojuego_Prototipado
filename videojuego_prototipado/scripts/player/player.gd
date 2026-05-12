@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var state_machine = $State_Machine
 @onready var sword = $Sprite2D/Sword
 
-var mouse_position = get_global_mouse_position()
+@onready var mouse_position = get_global_mouse_position()
 #var last_direction = get_global_mouse_position()
 var can_hit = false
 
