@@ -30,6 +30,24 @@ shape = SubResource("RectangleShape2D_27g2b")
 position = Vector2(74, 78)
 texture = ExtResource("1_480mm")
 
+[node name="Sword" type="Area2D" parent="Sprite2D" unique_id=20233686]
+position = Vector2(-74, -78)
+collision_layer = 4
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Sword" unique_id=587177641]
+z_index = 1
+position = Vector2(178.125, 53.125)
+rotation = 1.5708
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("5_sysii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Sword" unique_id=870779556]
+position = Vector2(185, 46.999996)
+rotation = 0.7978657
+scale = Vector2(-1.5987996, 1.6135448)
+shape = SubResource("CapsuleShape2D_fjrip")
+
 [node name="State_Machine" type="Node" parent="." unique_id=1936231923]
 script = ExtResource("2_qco6i")
 
@@ -46,29 +64,4 @@ script = ExtResource("5_yedyl")
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
 
-[node name="Sword" type="Area2D" parent="." unique_id=20233686]
-collision_layer = 4
-collision_mask = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Sword" unique_id=587177641]
-visible = false
-z_index = 1
-position = Vector2(178.125, 53.125)
-rotation = 1.5708
-scale = Vector2(0.21, 0.21)
-texture = ExtResource("5_sysii")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword" unique_id=870779556]
-position = Vector2(185, 46.999996)
-rotation = 0.7978657
-scale = Vector2(-1.5987996, 1.6135448)
-shape = SubResource("CapsuleShape2D_fjrip")
-
-[node name="Area2D" type="Area2D" parent="." unique_id=2128306376]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1828201107]
-position = Vector2(74, 77.5)
-shape = SubResource("RectangleShape2D_fjrip")
-
-[connection signal="body_entered" from="Sword" to="." method="_on_sword_body_entered"]
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Sprite2D/Sword" to="." method="_on_sword_body_entered"]
