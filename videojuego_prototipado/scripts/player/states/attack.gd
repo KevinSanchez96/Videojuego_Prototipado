@@ -2,6 +2,7 @@ extends State
 
 #se crea una variable para poder determinar el tiempo del ataque
 @export var attack_duration := 0.2
+@export var inertia = 150
 var timer
 
 #comienza el conteo de la duracion del ataque
@@ -16,18 +17,19 @@ func enter():
 	
 #creamos una variable en player para obtener la ultima direccion en la que quedo el player
 # y posicionamos la sword
-	if entity.last_direction.x > 0:
-		entity.sword.position = Vector2(5,0)
-		entity.sword.get_node("Sprite2D").flip_v = false
-	else:
-		entity.sword.position = Vector2(-210,0)
-		entity.sword.get_node("Sprite2D").flip_v = true
+	#if entity.last_direction > 0:
+		#entity.sword.position = Vector2(5,0)
+		#entity.sword.get_node("Sprite2D").flip_v = false
+	#else:
+		#entity.sword.position = Vector2(-210,0)
+		#entity.sword.get_node("Sprite2D").flip_v = true
 		
 #una vez el comienza la "animacion", empieza el conteo del timer
 #creamos el pequeño desplazamiento dependiendo donde quedo el last direction
 func update(delta):
+	var dir = (entity.get_global_mouse_position() - entity.global_position).normalized()
 	timer -= delta
-	entity.velocity = entity.last_direction * 150
+	entity.velocity = dir * inertia
 #cuando se termina el timer , queda en idle el player
 	if(timer <= 0):
 		get_parent().change_state(get_parent().get_node("Idle"))
@@ -37,4 +39,3 @@ func exit():
 	entity.sword.get_node("Sprite2D").visible = false
 	entity.sword.monitoring = false
 	entity.can_hit = false
-	
