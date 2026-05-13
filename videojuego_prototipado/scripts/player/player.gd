@@ -3,11 +3,14 @@ extends CharacterBody2D
 @export var speed = 400
 @onready var state_machine = $State_Machine
 @onready var sword = $Sprite2D/Sword
+@onready var HUD = get_tree().current_scene.get_node("CanvasLayer/HUD")
+
 
 @onready var mouse_position = get_global_mouse_position()
 #var last_direction = get_global_mouse_position()
 var can_hit = false
 var control_habilitado = true
+var coins = 0
 
 func _ready():
 	for state in state_machine.get_children():
@@ -28,7 +31,7 @@ func _process(delta):
 	if !control_habilitado:
 		velocity = Vector2.ZERO
 		return
-	
+		
 	
 	if Input.is_action_just_pressed("attack"):
 		state_machine.change_state($State_Machine/Attack)
@@ -52,3 +55,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func _look_at_mouse(mouse_pos):
 	#var mouse_pos = get_global_mouse_position()
 	get_node("Sprite2D").look_at(mouse_pos)
+
+func add_coin(amount):
+	coins += amount
+	print(HUD)
+	HUD.actualizar_coins(coins)
+	

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://eg2oow8e7wma"]
 
 [ext_resource type="Texture2D" uid="uid://cmjuxxjvrnoah" path="res://assets/sprites/moneda_placeholder.png" id="1_7anew"]
-[ext_resource type="Script" uid="uid://coihnhvjf0wbg" path="res://scenes/moneda/moneda.gd" id="1_ajvxf"]
+[ext_resource type="Script" uid="uid://coihnhvjf0wbg" path="res://scripts/moneda.gd" id="1_ajvxf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ajvxf"]
 radius = 13.0
