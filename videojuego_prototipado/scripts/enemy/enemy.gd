@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var player : Node2D # para tener una referencia del player y conocer su ubicacion por ejemplo.
 @export var max_health = 100 # vida maxima editable
+@onready var coin = preload("res://scenes/moneda/moneda.tscn")
 
 var health = 0
 var hurt_time = 0.0
@@ -27,6 +28,9 @@ func take_damage(amount):
 
 func die():
 	$State_Machine.change_state($State_Machine/Death)
+	var new_coin = coin.instantiate()
+	new_coin.global_position = global_position
+	get_parent().call_deferred("add_child", new_coin)
 
 func is_on_screen():
 	return $VisibleOnScreenNotifier2D.is_on_screen()

@@ -9,18 +9,18 @@
 [ext_resource type="Script" uid="uid://bpcuqfgsq18c2" path="res://scripts/player/states/attack.gd" id="5_yedyl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27g2b"]
-size = Vector2(15, 12)
+size = Vector2(129, 126)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fjrip"]
 radius = 9.0
 height = 66.52702
 
-[node name="Player" type="CharacterBody2D" unique_id=1408671919]
-collision_mask = 2
+[node name="Player" type="CharacterBody2D" unique_id=1408671919 groups=["monedas"]]
+collision_mask = 3
 script = ExtResource("1_qo1am")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=859508430]
-position = Vector2(74.5, 135)
+position = Vector2(73.5, 78)
 shape = SubResource("RectangleShape2D_27g2b")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1045880015]

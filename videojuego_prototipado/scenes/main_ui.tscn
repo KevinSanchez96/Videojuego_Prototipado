@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://t0ub31bf2dxy"]
 
 [ext_resource type="Texture2D" uid="uid://dw7osoejcpmge" path="res://assets/sprites/icon.svg" id="1_513t2"]
+[ext_resource type="Script" uid="uid://crf4814v0a41i" path="res://scripts/main_ui.gd" id="1_e6fyy"]
 [ext_resource type="Script" uid="uid://b3kmqre6i4r5m" path="res://scripts/card.gd" id="2_513t2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_e6fyy"]
@@ -16,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_e6fyy")
 
 [node name="Label" type="Label" parent="." unique_id=31855069]
 layout_mode = 0
