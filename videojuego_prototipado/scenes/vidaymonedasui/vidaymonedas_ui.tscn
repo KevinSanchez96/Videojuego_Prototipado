@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://chohutpyyjea8"]
 
 [ext_resource type="Script" uid="uid://hf7ec8i5cmnq" path="res://scenes/vidaymonedasui/vidaymonedas_ui.gd" id="1_4vc48"]
-[ext_resource type="Texture2D" uid="uid://cmjuxxjvrnoah" path="res://assets/sprites/moneda/moneda_placeholder.png" id="2_2iake"]
+[ext_resource type="Texture2D" uid="uid://cmjuxxjvrnoah" path="res://assets/sprites/moneda_placeholder.png" id="2_2iake"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_b6tg7"]
 

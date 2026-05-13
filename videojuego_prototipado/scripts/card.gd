@@ -27,6 +27,7 @@ func _ready() -> void:
 	posicion_original = slot_original.global_position
 	
 func _gui_input(event: InputEvent) -> void:
+	print("RECIBI INPUT")
 	if event is InputEventMouseButton: ## es un evento de input de mouse?
 		if event.button_index == MOUSE_BUTTON_LEFT: ## lo que se apreta es el boton izquierdo? 
 			if event.pressed: ## el evento es presionar dicho click? 
