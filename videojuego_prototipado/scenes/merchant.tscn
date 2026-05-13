@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://8tx6pmwj5vj8"]
+
+[ext_resource type="Script" uid="uid://r6f3acmw6vls" path="res://scripts/merchant.gd" id="1_7rnkl"]
+[ext_resource type="Texture2D" uid="uid://dw7osoejcpmge" path="res://assets/sprites/icon.svg" id="2_1xj0k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xj0k"]
+size = Vector2(97, 97)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krsg3"]
+size = Vector2(104, 105)
+
+[node name="Merchant" type="StaticBody2D" unique_id=273819640]
+collision_mask = 0
+script = ExtResource("1_7rnkl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2023323910]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_1xj0k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2015037163]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_1xj0k")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=209659920]
+position = Vector2(-1, 11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1702154555]
+position = Vector2(1, -11.5)
+shape = SubResource("RectangleShape2D_krsg3")
+
+[node name="Label" type="Label" parent="." unique_id=1392910212]
+visible = false
+offset_left = -46.0
+offset_top = -78.0
+offset_right = 46.0
+offset_bottom = -55.0
+text = "[E] Comprar"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

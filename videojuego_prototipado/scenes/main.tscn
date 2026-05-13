@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://ilknpyfpgtol" path="res://scenes/player.tscn" id="1_n6egq"]
 [ext_resource type="PackedScene" uid="uid://clc3tc0870b0r" path="res://scenes/enemy.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://eg2oow8e7wma" path="res://scenes/moneda/moneda.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://8tx6pmwj5vj8" path="res://scenes/merchant.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://t0ub31bf2dxy" path="res://scenes/main_ui.tscn" id="5_tbgi4"]
 
 [node name="main" type="Node2D" unique_id=2093691251]
 
@@ -19,4 +21,12 @@ metadata/_edit_group_ = true
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Enemy" unique_id=749380374]
 
 [node name="Moneda" parent="." unique_id=1926382274 instance=ExtResource("3_sugp2")]
-position = Vector2(229, 179)
+position = Vector2(515, 122)
+
+[node name="Merchant" parent="." unique_id=738760687 instance=ExtResource("4_jyhfs")]
+position = Vector2(120, -227)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=596574903]
+
+[node name="MainUI" parent="CanvasLayer" unique_id=1280682809 node_paths=PackedStringArray("player") instance=ExtResource("5_tbgi4")]
+player = NodePath("../../Player")

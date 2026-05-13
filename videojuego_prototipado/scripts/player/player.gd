@@ -4,9 +4,10 @@ extends CharacterBody2D
 @onready var state_machine = $State_Machine
 @onready var sword = $Sprite2D/Sword
 
-var mouse_position = get_global_mouse_position()
+@onready var mouse_position = get_global_mouse_position()
 #var last_direction = get_global_mouse_position()
 var can_hit = false
+var control_habilitado = true
 
 func _ready():
 	for state in state_machine.get_children():
@@ -15,11 +16,20 @@ func _ready():
 	state_machine.change_state($State_Machine/Idle)
 	
 func _physics_process(delta):
+	if !control_habilitado:
+		velocity = Vector2.ZERO
+		return
+	
 	var mouse_pos = get_global_mouse_position()
 	move_and_slide()
 	_look_at_mouse(mouse_pos)
 
 func _process(delta):
+	if !control_habilitado:
+		velocity = Vector2.ZERO
+		return
+	
+	
 	if Input.is_action_just_pressed("attack"):
 		state_machine.change_state($State_Machine/Attack)
 
