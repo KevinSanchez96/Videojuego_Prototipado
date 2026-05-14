@@ -13,6 +13,7 @@ var control_habilitado = true
 var coins = 0
 var attack_damage : int
 
+
 func _ready():
 	for state in state_machine.get_children():
 		state.entity = self
@@ -58,6 +59,7 @@ func add_coin(amount):
 
 func ataque_debil(): #Funciones para sabe cuanto daño se hace
 	attack_damage = 10
-
 func ataque_fuerte():
 	attack_damage = 20
+func ataque_combo():
+	attack_damage = 100

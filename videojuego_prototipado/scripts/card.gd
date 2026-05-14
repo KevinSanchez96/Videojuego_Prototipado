@@ -1,4 +1,5 @@
 extends TextureRect
+class_name Card
 
 enum CardType{ataque_debil, ataque_fuerte}
 
