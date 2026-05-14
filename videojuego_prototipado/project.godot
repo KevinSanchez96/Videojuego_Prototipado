@@ -19,6 +19,11 @@ run/main_scene="uid://dktang8q5ge21"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://assets/sprites/icon.svg"
 
+[autoload]
+
+Deck="*uid://sbl1sueugw52"
+DeckManager="*uid://dewwy4k0kokfp"
+
 [input]
 
 move_left={

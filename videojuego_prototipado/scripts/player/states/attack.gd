@@ -11,19 +11,11 @@ var timer
 
 func enter():
 	timer = attack_duration
+	_use_next_attack()
 	entity.sword.get_node("Sprite2D").visible = true
 	entity.sword.monitoring = true
 	entity.can_hit = true
 	
-#creamos una variable en player para obtener la ultima direccion en la que quedo el player
-# y posicionamos la sword
-	#if entity.last_direction > 0:
-		#entity.sword.position = Vector2(5,0)
-		#entity.sword.get_node("Sprite2D").flip_v = false
-	#else:
-		#entity.sword.position = Vector2(-210,0)
-		#entity.sword.get_node("Sprite2D").flip_v = true
-		
 #una vez el comienza la "animacion", empieza el conteo del timer
 #creamos el pequeño desplazamiento dependiendo donde quedo el last direction
 func update(delta):
@@ -39,3 +31,15 @@ func exit():
 	entity.sword.get_node("Sprite2D").visible = false
 	entity.sword.monitoring = false
 	entity.can_hit = false
+
+func _use_next_attack(): #Función que devuelve, según el tipo de carta cuanto daño hacemos
+	var card = DeckManager.get_next_card()
+	if card == null:
+		return
+	match card.tipo_carta:
+		card.CardType.ataque_debil:
+			entity.ataque_debil()
+			
+		card.CardType.ataque_fuerte:
+			entity.ataque_fuerte()
+		

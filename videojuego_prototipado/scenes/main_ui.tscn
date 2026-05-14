@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://t0ub31bf2dxy"]
 
 [ext_resource type="Texture2D" uid="uid://dw7osoejcpmge" path="res://assets/sprites/icon.svg" id="1_513t2"]
-[ext_resource type="Script" uid="uid://crf4814v0a41i" path="res://scripts/main_ui.gd" id="1_e6fyy"]
+[ext_resource type="Script" path="res://scripts/main_ui.gd" id="1_e6fyy"]
 [ext_resource type="Script" uid="uid://b3kmqre6i4r5m" path="res://scripts/card.gd" id="2_513t2"]
+[ext_resource type="Script" uid="uid://sbl1sueugw52" path="res://scenes/deck.gd" id="4_j6a7c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_e6fyy"]
 line_spacing = 2.825
@@ -62,7 +63,6 @@ mouse_filter = 0
 texture = ExtResource("1_513t2")
 expand_mode = 1
 script = ExtResource("2_513t2")
-tipo_carta = "ataque_debil"
 
 [node name="Slot2" type="Panel" parent="ShopPanel/RewardSelection" unique_id=2048657468]
 custom_minimum_size = Vector2(100, 170)
@@ -80,7 +80,7 @@ mouse_filter = 0
 texture = ExtResource("1_513t2")
 expand_mode = 1
 script = ExtResource("2_513t2")
-tipo_carta = "ataque_fuerte"
+tipo_carta = 1
 
 [node name="DeckPanel" type="PanelContainer" parent="." unique_id=340394479]
 custom_minimum_size = Vector2(700, 250)
@@ -98,6 +98,7 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 120
 alignment = 1
+script = ExtResource("4_j6a7c")
 
 [node name="Slot1" type="Panel" parent="DeckPanel/Deck" unique_id=1976565890 groups=["deck_slot"]]
 custom_minimum_size = Vector2(100, 170)
@@ -115,7 +116,6 @@ mouse_filter = 0
 texture = ExtResource("1_513t2")
 expand_mode = 1
 script = ExtResource("2_513t2")
-tipo_carta = "ataque_debil"
 
 [node name="Slot2" type="Panel" parent="DeckPanel/Deck" unique_id=1465353326 groups=["deck_slot"]]
 custom_minimum_size = Vector2(100, 170)
@@ -133,7 +133,6 @@ mouse_filter = 0
 texture = ExtResource("1_513t2")
 expand_mode = 1
 script = ExtResource("2_513t2")
-tipo_carta = "ataque_debil"
 
 [node name="Slot3" type="Panel" parent="DeckPanel/Deck" unique_id=64642115 groups=["deck_slot"]]
 custom_minimum_size = Vector2(100, 170)

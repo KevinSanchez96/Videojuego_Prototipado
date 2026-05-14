@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://clc3tc0870b0r" path="res://scenes/enemy.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://eg2oow8e7wma" path="res://scenes/moneda/moneda.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://8tx6pmwj5vj8" path="res://scenes/merchant.tscn" id="4_jyhfs"]
-[ext_resource type="Script" uid="uid://byqs4v4hc7187" path="res://scripts/hud.gd" id="5_o6xl0"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="5_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://t0ub31bf2dxy" path="res://scenes/main_ui.tscn" id="5_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://cmjuxxjvrnoah" path="res://assets/sprites/moneda_placeholder.png" id="6_tefeu"]
 

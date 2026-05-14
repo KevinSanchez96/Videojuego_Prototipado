@@ -1,27 +1,20 @@
 extends TextureRect
 
+enum CardType{ataque_debil, ataque_fuerte}
+
 var sostener = false
 var offset = Vector2.ZERO
 var posicion_original
-@export var tipo_carta = ""
+@export var tipo_carta : CardType
 
 @onready var deck = $"../../../../DeckPanel/Deck" ## sube 4 niveles para llegar a MainUI y luego toma al hijo Deck panel y por ultimo al Deck. Toma referencia al DECK
 @onready var slot_original = $".."
 @onready var reward_selection = $"../../"
 
 func _ready() -> void:
-	#var random = randi_range(0,1)
-	#
-	#if random == 0:
-		#tipo_carta = "ataque_debil"
-		#modulate = Color.BLUE
-	#else:
-		#tipo_carta = "ataque_fuerte"
-		#modulate = Color.RED
-		#
-	if tipo_carta == "ataque_debil":
+	if tipo_carta == 0:
 		modulate = Color.BLUE
-	elif tipo_carta == "ataque_fuerte":
+	elif tipo_carta == 1:
 		modulate = Color.RED
 		
 	posicion_original = slot_original.global_position
