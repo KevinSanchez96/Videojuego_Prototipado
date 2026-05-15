@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://csi2lkxs6hnvi"]
+
+[ext_resource type="Script" uid="uid://cnfgq4qwigw5" path="res://scripts/door.gd" id="1_hpvv5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5f452"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpvv5"]
+size = Vector2(46, 45)
+
+[node name="Door" type="StaticBody2D" unique_id=461972240]
+script = ExtResource("1_hpvv5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=15182228]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_5f452")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=157513770]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=833621510]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1889477832]
+position = Vector2(20, 19.5)
+shape = SubResource("RectangleShape2D_hpvv5")
+
+[node name="Label" type="Label" parent="." unique_id=657619783]
+offset_left = -18.0
+offset_top = -26.0
+offset_right = 55.0
+offset_bottom = -3.0
+text = "[E] Entrar"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b0bfb4c2do17w"]
+
+[ext_resource type="PackedScene" uid="uid://dktang8q5ge21" path="res://scenes/scene1.tscn" id="2_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://b7kleoa6j2s1" path="res://scenes/hud.tscn" id="3_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://ilknpyfpgtol" path="res://scenes/player.tscn" id="3_71j4m"]
+[ext_resource type="PackedScene" uid="uid://bystg4w4j3fwl" path="res://scenes/scene2.tscn" id="4_k0juu"]
+
+[node name="World" type="Node2D" unique_id=1982828696]
+
+[node name="Player" parent="." unique_id=1408671919 instance=ExtResource("3_71j4m")]
+scale = Vector2(0.5, 0.5)
+speed = 700
+
+[node name="Scene1" parent="." unique_id=2093691251 instance=ExtResource("2_rwgxs")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=652061768]
+offset = Vector2(30, 10)
+transform = Transform2D(1, 0, 0, 1, 30, 10)
+
+[node name="HUD" parent="CanvasLayer" unique_id=174504701 instance=ExtResource("3_4wyf3")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 8
+
+[node name="Scene2" parent="." unique_id=734379990 instance=ExtResource("4_k0juu")]
+position = Vector2(4812, -361)
