@@ -27,6 +27,7 @@ func take_damage(amount):
 	$State_Machine.change_state($State_Machine/Hurt)
 
 func die():
+
 	var new_coin = coin.instantiate()
 	new_coin.global_position = global_position
 	get_tree().current_scene.add_child(new_coin)
