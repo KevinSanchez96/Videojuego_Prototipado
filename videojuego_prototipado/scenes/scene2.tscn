@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bystg4w4j3fwl"]
+
+[ext_resource type="PackedScene" uid="uid://clc3tc0870b0r" path="res://scenes/enemy.tscn" id="1_2nwup"]
+[ext_resource type="Script" uid="uid://ds5crgf7c8cw5" path="res://scripts/scene_2.gd" id="1_m8b6f"]
+
+[node name="Scene2" type="Node2D" unique_id=734379990]
+script = ExtResource("1_m8b6f")
+
+[node name="SpawnPlayer" type="Marker2D" parent="." unique_id=1613937357]
+position = Vector2(27, 298)
+
+[node name="Enemy" parent="." unique_id=1571177986 instance=ExtResource("1_2nwup")]
+position = Vector2(776, 187)
+
+[node name="Enemy2" parent="." unique_id=1311627888 instance=ExtResource("1_2nwup")]
+position = Vector2(848, 612)
+
+[node name="Enemy3" parent="." unique_id=157446378 instance=ExtResource("1_2nwup")]
+position = Vector2(1089, 283)
+
+[node name="Enemy4" parent="." unique_id=1388331641 instance=ExtResource("1_2nwup")]
+position = Vector2(1085, 121)
+
+[node name="Timer" type="Timer" parent="." unique_id=332570173]
+
+[node name="Label" type="Label" parent="." unique_id=693975882]
+visible = false
+offset_left = 533.0
+offset_top = 15.0
+offset_right = 573.0
+offset_bottom = 38.0
+theme_override_font_sizes/font_size = 100
+text = "3"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

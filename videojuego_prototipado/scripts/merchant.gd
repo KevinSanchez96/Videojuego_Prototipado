@@ -3,7 +3,7 @@ extends StaticBody2D
 var player_cerca = false
 
 @onready var label = $Label
-@onready var shopUI = get_tree().current_scene.get_node("CanvasLayer/MainUI")
+@onready var shopUI = $"../CanvasLayer/MainUI"
 
 func _ready() -> void:
 	label.visible = false

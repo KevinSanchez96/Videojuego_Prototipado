@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://t0ub31bf2dxy"]
 
 [ext_resource type="Texture2D" uid="uid://dw7osoejcpmge" path="res://assets/sprites/icon.svg" id="1_513t2"]
-[ext_resource type="Script" path="res://scripts/main_ui.gd" id="1_e6fyy"]
+[ext_resource type="Script" uid="uid://crf4814v0a41i" path="res://scripts/main_ui.gd" id="1_e6fyy"]
 [ext_resource type="Script" uid="uid://b3kmqre6i4r5m" path="res://scripts/card.gd" id="2_513t2"]
 [ext_resource type="Script" uid="uid://sbl1sueugw52" path="res://scenes/deck.gd" id="4_j6a7c"]
 

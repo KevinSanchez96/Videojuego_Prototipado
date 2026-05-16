@@ -1,7 +1,5 @@
 extends State
 
-
-
 func enter():
 	var enemy = get_parent().get_parent()
 	
