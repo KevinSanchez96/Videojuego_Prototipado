@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b7kleoa6j2s1" path="res://scenes/hud.tscn" id="3_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://ilknpyfpgtol" path="res://scenes/player.tscn" id="3_71j4m"]
 [ext_resource type="PackedScene" uid="uid://bystg4w4j3fwl" path="res://scenes/scene2.tscn" id="4_k0juu"]
+[ext_resource type="Script" uid="uid://dsih2p4dnsp6e" path="res://scripts/color_rect.gd" id="5_71j4m"]
 
 [node name="World" type="Node2D" unique_id=1982828696]
 
@@ -24,8 +25,6 @@ transform = Transform2D(1, 0, 0, 1, 30, 10)
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_top = 5.0
-offset_bottom = 5.0
 grow_horizontal = 1
 grow_vertical = 1
 size_flags_horizontal = 8
@@ -41,7 +40,6 @@ offset_right = -30.0
 offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 metadata/_edit_group_ = true
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" unique_id=2143451716]
@@ -52,5 +50,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 color = Color(0, 0, 0, 1)
+script = ExtResource("5_71j4m")

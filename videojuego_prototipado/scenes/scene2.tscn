@@ -6,25 +6,17 @@
 [node name="Scene2" type="Node2D" unique_id=734379990]
 script = ExtResource("1_m8b6f")
 
-[node name="Enemy" parent="." unique_id=1571177986 instance=ExtResource("1_2nwup")]
-position = Vector2(1089, 274)
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Enemy" unique_id=362342253]
-
-[node name="Enemy2" parent="." unique_id=280956246 instance=ExtResource("1_2nwup")]
-position = Vector2(1087, 564)
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Enemy2" unique_id=1187096877]
-
-[node name="Enemy3" parent="." unique_id=268209661 instance=ExtResource("1_2nwup")]
-position = Vector2(1089, 416)
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Enemy3" unique_id=426251764]
-
-[node name="Enemy4" parent="." unique_id=297362011 instance=ExtResource("1_2nwup")]
-position = Vector2(1089, 120)
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Enemy4" unique_id=1569124649]
-
 [node name="SpawnPlayer" type="Marker2D" parent="." unique_id=1613937357]
 position = Vector2(27, 298)
+
+[node name="Enemy" parent="." unique_id=1571177986 instance=ExtResource("1_2nwup")]
+position = Vector2(776, 187)
+
+[node name="Enemy2" parent="." unique_id=1311627888 instance=ExtResource("1_2nwup")]
+position = Vector2(848, 612)
+
+[node name="Enemy3" parent="." unique_id=157446378 instance=ExtResource("1_2nwup")]
+position = Vector2(1089, 283)
+
+[node name="Enemy4" parent="." unique_id=1388331641 instance=ExtResource("1_2nwup")]
+position = Vector2(1085, 121)

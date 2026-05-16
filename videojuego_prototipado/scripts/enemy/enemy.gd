@@ -21,7 +21,7 @@ func take_damage(amount):
 	$Sprite2D.modulate = Color(1,0,0)
 	
 	if health <= 0:
-		die()
+		call_deferred("die")
 		return
 	
 	$State_Machine.change_state($State_Machine/Hurt)
@@ -31,7 +31,6 @@ func die():
 	new_coin.global_position = global_position
 	get_tree().current_scene.add_child(new_coin)
 	$State_Machine.change_state($State_Machine/Death)
-
 
 func _physics_process(delta):
 	move_and_slide()
