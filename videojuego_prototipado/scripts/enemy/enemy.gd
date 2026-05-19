@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
-@onready var player =get_tree().get_first_node_in_group("player") # para tener una referencia del player y conocer su ubicacion por ejemplo.
-@export var max_health = 100 # vida maxima editable
+@onready var player = get_tree().get_first_node_in_group("player") # para tener una referencia del player y conocer su ubicacion por ejemplo.
 @onready var coin = preload("res://scenes/moneda/moneda.tscn")
+
+@export var max_health = 100 # vida maxima editable
 
 var health = 0
 var hurt_time = 0.0
@@ -43,3 +44,7 @@ func _physics_process(delta):
 		
 		if hurt_time <= 0:
 			$Sprite2D.modulate = Color(1,1,1)
+
+func _on_detection_spawn_body_entered(body: Node2D) -> void:
+	if body.name == "player":
+		$State_Machine.change_state($State_Machine/Spawn)

@@ -10,16 +10,16 @@ script = ExtResource("1_m8b6f")
 position = Vector2(27, 298)
 
 [node name="Enemy" parent="." unique_id=1571177986 instance=ExtResource("1_2nwup")]
-position = Vector2(776, 187)
+position = Vector2(1049, -102)
 
 [node name="Enemy2" parent="." unique_id=1311627888 instance=ExtResource("1_2nwup")]
-position = Vector2(848, 612)
+position = Vector2(1863, 984)
 
 [node name="Enemy3" parent="." unique_id=157446378 instance=ExtResource("1_2nwup")]
-position = Vector2(1089, 283)
+position = Vector2(2342, 367)
 
 [node name="Enemy4" parent="." unique_id=1388331641 instance=ExtResource("1_2nwup")]
-position = Vector2(1085, 121)
+position = Vector2(1824, -848)
 
 [node name="Timer" type="Timer" parent="." unique_id=332570173]
 
