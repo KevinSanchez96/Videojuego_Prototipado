@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
 @onready var player = get_tree().get_first_node_in_group("player") # para tener una referencia del player y conocer su ubicacion por ejemplo.
-@onready var coin = preload("res://scenes/moneda/moneda.tscn")
+@onready var state_machine = $State_Machine
 
 @export var max_health = 100 # vida maxima editable
+@onready var coin = preload("res://scenes/moneda/moneda.tscn")
 
 var health = 0
 var hurt_time = 0.0
@@ -11,7 +12,15 @@ var hurt_duration = 0.15
 
 func _ready():
 	health = max_health
-	$State_Machine.change_state($State_Machine/Idle)
+	for state in state_machine.get_children():
+		if state is State:
+			state.entity = self
+			state.state_machine = state_machine
+	
+	$CollisionShape2D.disabled = true
+	$Sprite2D.visible = false
+	state_machine.change_state($State_Machine/Sleep)
+	
 
 func take_damage(amount):
 	if health <= 0:
@@ -46,5 +55,5 @@ func _physics_process(delta):
 			$Sprite2D.modulate = Color(1,1,1)
 
 func _on_detection_spawn_body_entered(body: Node2D) -> void:
-	if body.name == "player":
+	if body.name == "Player":
 		$State_Machine.change_state($State_Machine/Spawn)
