@@ -3,16 +3,17 @@
 [ext_resource type="Script" uid="uid://djy40op74tgnt" path="res://scripts/enemy/enemy.gd" id="1_md0e3"]
 [ext_resource type="Texture2D" uid="uid://dw7osoejcpmge" path="res://assets/sprites/icon.svg" id="2_4ra3w"]
 [ext_resource type="Script" uid="uid://c2ccwc58k8230" path="res://scripts/state_machine/state_machine.gd" id="3_5uy6h"]
-[ext_resource type="Script" uid="uid://c2tui0loebhbt" path="res://scripts/enemy/states/idle.gd" id="4_c4w8v"]
+[ext_resource type="Script" uid="uid://c2tui0loebhbt" path="res://scripts/enemy/states/sleep.gd" id="4_c4w8v"]
 [ext_resource type="Script" uid="uid://rcav1i4w2t2d" path="res://scripts/enemy/states/chase.gd" id="5_c4w8v"]
+[ext_resource type="Script" uid="uid://bscjrxg3iye23" path="res://scripts/enemy/states/spawn.gd" id="5_md484"]
 [ext_resource type="Script" uid="uid://g2w128mais65" path="res://scripts/enemy/states/hurt.gd" id="6_xwavj"]
 [ext_resource type="Script" uid="uid://dp7tm7odl7ywq" path="res://scripts/enemy/states/death.gd" id="7_nenq2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5uy6h"]
 size = Vector2(128, 128)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4w8v"]
-size = Vector2(127.375, 126.5)
+[sub_resource type="CircleShape2D" id="CircleShape2D_nenq2"]
+radius = 253.11
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1571177986 groups=["enemigos"]]
 collision_layer = 2
@@ -27,18 +28,21 @@ offset = Vector2(-1, -54)
 position = Vector2(-1, -53)
 shape = SubResource("RectangleShape2D_5uy6h")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1015114141]
+[node name="DetectionSpawn" type="Area2D" parent="." unique_id=1015114141]
 collision_layer = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1409615153]
-position = Vector2(0, -54)
-shape = SubResource("RectangleShape2D_c4w8v")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionSpawn" unique_id=1409615153]
+position = Vector2(-0.84375, -59.375)
+shape = SubResource("CircleShape2D_nenq2")
 
 [node name="State_Machine" type="Node" parent="." unique_id=571602481]
 script = ExtResource("3_5uy6h")
 
-[node name="Idle" type="Node" parent="State_Machine" unique_id=1688025978]
+[node name="Sleep" type="Node" parent="State_Machine" unique_id=1688025978]
 script = ExtResource("4_c4w8v")
+
+[node name="Spawn" type="Node" parent="State_Machine" unique_id=121765665]
+script = ExtResource("5_md484")
 
 [node name="Chase" type="Node" parent="State_Machine" unique_id=657923585]
 script = ExtResource("5_c4w8v")
@@ -48,3 +52,8 @@ script = ExtResource("6_xwavj")
 
 [node name="Death" type="Node" parent="State_Machine" unique_id=2099058415]
 script = ExtResource("7_nenq2")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=419714590]
+position = Vector2(0, -51)
+
+[connection signal="body_entered" from="DetectionSpawn" to="." method="_on_detection_spawn_body_entered"]

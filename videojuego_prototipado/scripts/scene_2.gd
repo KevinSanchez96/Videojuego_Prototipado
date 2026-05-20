@@ -4,7 +4,7 @@ extends Node2D
 @onready var fade = get_tree().current_scene.get_node("CanvasLayer/Control/ColorRect")
 @onready var camera = get_viewport().get_camera_2d()
 @onready var timer = $Timer
-@onready var label = $Label
+@onready var label = $CanvasLayer/Label
 
 var scene1
 var destino
