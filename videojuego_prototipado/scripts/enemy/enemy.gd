@@ -53,6 +53,7 @@ func _physics_process(delta):
 		
 		if hurt_time <= 0:
 			$Sprite2D.modulate = Color(1,1,1)
+	
 
 func _on_detection_spawn_body_entered(body: Node2D) -> void:
 	if body.name == "Player":

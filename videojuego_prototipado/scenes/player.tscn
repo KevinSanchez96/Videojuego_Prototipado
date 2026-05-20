@@ -61,4 +61,7 @@ script = ExtResource("5_yedyl")
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
 
+[node name="Marker2D" type="Marker2D" parent="." unique_id=2126147622]
+position = Vector2(74, 81)
+
 [connection signal="body_entered" from="Sprite2D/Sword" to="." method="_on_sword_body_entered"]

@@ -53,4 +53,7 @@ script = ExtResource("6_xwavj")
 [node name="Death" type="Node" parent="State_Machine" unique_id=2099058415]
 script = ExtResource("7_nenq2")
 
+[node name="Marker2D" type="Marker2D" parent="." unique_id=419714590]
+position = Vector2(0, -51)
+
 [connection signal="body_entered" from="DetectionSpawn" to="." method="_on_detection_spawn_body_entered"]
