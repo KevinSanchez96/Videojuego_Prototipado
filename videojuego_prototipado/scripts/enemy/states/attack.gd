@@ -14,7 +14,8 @@ func update(delta):
 	
 	if can_attack:
 		can_attack = false
-		print ("Ataque")
+		entity.player.take_damage(entity.attack)
+		print ("Ataque :",entity.attack)
 		cooldown_timer.start()
 
 

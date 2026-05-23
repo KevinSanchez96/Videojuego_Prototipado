@@ -9,6 +9,10 @@ func update(delta):
 	if entity.player_in_attack_range:
 		state_machine.change_state(state_machine.get_node("Attack"))
 		return
+		
+	if player==null:
+		return
+		
 	var targetplayer = player.get_node("Marker2D")
 	var targetenemy = entity.get_node("Marker2D")
 	var distance = targetenemy.global_position.distance_to(player.get_node("Marker2D").global_position)

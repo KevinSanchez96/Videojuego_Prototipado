@@ -10,6 +10,7 @@ var health = 0
 var hurt_time = 0.0
 var hurt_duration = 0.15
 var player_in_attack_range = false
+var attack = 10
 
 func _ready():
 	health = max_health
