@@ -9,6 +9,7 @@ extends CharacterBody2D
 var health = 0
 var hurt_time = 0.0
 var hurt_duration = 0.15
+var player_in_attack_range = false
 
 func _ready():
 	health = max_health
@@ -58,3 +59,13 @@ func _physics_process(delta):
 func _on_detection_spawn_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		$State_Machine.change_state($State_Machine/Spawn)
+
+
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		player_in_attack_range = true
+		
+
+func _on_attack_area_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		player_in_attack_range = false
