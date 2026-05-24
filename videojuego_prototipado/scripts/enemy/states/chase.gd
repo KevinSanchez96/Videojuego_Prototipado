@@ -1,26 +1,23 @@
 extends State
 
 var speed = 120
-var stop_distance = 20
+var attack_distance = 110
 
 func update(delta):
 	var player = entity.player
 	
-	if entity.player_in_attack_range:
+	if player == null:
+		return
+	
+	var distance = entity.global_position.distance_to(player.global_position)
+	
+	print(distance)
+	if distance <= attack_distance:
+		entity.velocity = Vector2.ZERO
 		state_machine.change_state(state_machine.get_node("Attack"))
 		return
-		
-	if player==null:
-		return
-		
-	var targetplayer = player.get_node("Marker2D")
-	var targetenemy = entity.get_node("Marker2D")
-	var distance = targetenemy.global_position.distance_to(player.get_node("Marker2D").global_position)
 	
-	if distance < stop_distance:
-		entity.velocity = Vector2.ZERO
-		return
-	
-	var direction = targetplayer.global_position - targetenemy.global_position
+	var direction = player.global_position - entity.global_position
 	direction = direction.normalized()
+
 	entity.velocity = direction * speed

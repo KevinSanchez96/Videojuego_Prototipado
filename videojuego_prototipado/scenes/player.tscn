@@ -22,27 +22,24 @@ collision_mask = 3
 script = ExtResource("1_qo1am")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=859508430]
-position = Vector2(73.5, 78)
 shape = SubResource("RectangleShape2D_27g2b")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1045880015]
-position = Vector2(74, 78)
 texture = ExtResource("1_480mm")
 
 [node name="Sword" type="Area2D" parent="Sprite2D" unique_id=20233686]
-position = Vector2(-74, -78)
 collision_layer = 4
 collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Sword" unique_id=587177641]
 z_index = 1
-position = Vector2(178.125, 53.125)
+position = Vector2(112.00001, -27.999992)
 rotation = 1.5708
 scale = Vector2(0.21, 0.21)
 texture = ExtResource("5_sysii")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Sword" unique_id=870779556]
-position = Vector2(185, 46.999996)
+position = Vector2(111, -27.000004)
 rotation = 0.7978657
 scale = Vector2(-1.5987996, 1.6135448)
 shape = SubResource("CapsuleShape2D_fjrip")
@@ -52,7 +49,6 @@ position_smoothing_enabled = true
 position_smoothing_speed = 8.0
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=2126147622]
-position = Vector2(74, 81)
 
 [node name="State_Machine" type="Node" parent="." unique_id=1936231923]
 script = ExtResource("2_qco6i")

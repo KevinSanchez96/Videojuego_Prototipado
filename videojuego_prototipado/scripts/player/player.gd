@@ -21,6 +21,7 @@ func _ready():
 	health = max_health
 	for state in state_machine.get_children():
 		state.entity = self
+		state.state_machine = state_machine
 	
 	state_machine.change_state($State_Machine/Idle)
 	
@@ -47,6 +48,7 @@ func take_damage(amount):
 		state_machine.change_state(state_machine.get_node("Die"))
 		return
 	state_machine.change_state(state_machine.get_node("Hurt"))
+
 
 func _on_sword_body_entered(body: Node2D) -> void:
 	if body.has_method("take_damage") and can_hit:

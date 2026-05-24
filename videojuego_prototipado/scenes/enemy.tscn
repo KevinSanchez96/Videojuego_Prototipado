@@ -16,9 +16,6 @@ size = Vector2(128, 128)
 [sub_resource type="CircleShape2D" id="CircleShape2D_nenq2"]
 radius = 253.11
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8qclf"]
-radius = 111.52802
-
 [node name="Enemy" type="CharacterBody2D" unique_id=1571177986 groups=["enemigos"]]
 collision_layer = 2
 collision_mask = 0
@@ -26,24 +23,16 @@ script = ExtResource("1_md0e3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=477120180]
 texture = ExtResource("2_4ra3w")
-offset = Vector2(-1, -54)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=365302352]
-position = Vector2(-1, -53)
 shape = SubResource("RectangleShape2D_5uy6h")
+disabled = true
 
 [node name="DetectionSpawn" type="Area2D" parent="." unique_id=1015114141]
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionSpawn" unique_id=1409615153]
-position = Vector2(-0.84375, -59.375)
 shape = SubResource("CircleShape2D_nenq2")
-
-[node name="AttackArea" type="Area2D" parent="." unique_id=545669544]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=994994558]
-position = Vector2(-1.5, -55.5)
-shape = SubResource("CircleShape2D_8qclf")
 
 [node name="State_Machine" type="Node" parent="." unique_id=571602481]
 script = ExtResource("3_5uy6h")
@@ -70,9 +59,6 @@ script = ExtResource("9_ipns3")
 one_shot = true
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=419714590]
-position = Vector2(0, -51)
 
 [connection signal="body_entered" from="DetectionSpawn" to="." method="_on_detection_spawn_body_entered"]
-[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
-[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
 [connection signal="timeout" from="State_Machine/Attack/AttackCooldown" to="State_Machine/Attack" method="_on_attack_cooldown_timeout"]
