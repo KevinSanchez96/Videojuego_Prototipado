@@ -37,4 +37,7 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 100
 text = "3"
 
+[node name="Enemy5" parent="." unique_id=1948652078 instance=ExtResource("1_2nwup")]
+position = Vector2(166, -33)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,15 +1,19 @@
 extends State
 
 #se crea una variable para poder determinar el tiempo del ataque
-@export var attack_duration := 0.2
+@export var attack_duration = 0.3
 @export var inertia = 150
+@export var max_health = 100
+
 var timer
+var health
 
 #comienza el conteo de la duracion del ataque
 #una vez entra al estado attack, la espada aparece momentaneamente para crear
 #... una ilusion de que el personaje esta atacando. En un futuro se cambiara por la animacion de ataque.
 
 func enter():
+	health = max_health
 	timer = attack_duration
 	_use_next_attack()
 	entity.sword.get_node("Sprite2D").visible = true

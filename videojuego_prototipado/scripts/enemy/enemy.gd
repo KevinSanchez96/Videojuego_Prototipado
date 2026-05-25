@@ -9,9 +9,11 @@ extends CharacterBody2D
 var health = 0
 var hurt_time = 0.0
 var hurt_duration = 0.15
+var attack = 10
 
 func _ready():
 	health = max_health
+	
 	for state in state_machine.get_children():
 		if state is State:
 			state.entity = self
@@ -19,6 +21,7 @@ func _ready():
 	
 	$CollisionShape2D.disabled = true
 	$Sprite2D.visible = false
+	
 	state_machine.change_state($State_Machine/Sleep)
 	
 
@@ -46,8 +49,6 @@ func die():
 func _physics_process(delta):
 	move_and_slide()
 	
-	velocity = velocity * 0.9
-	
 	if hurt_time > 0:
 		hurt_time -= delta
 		
@@ -56,5 +57,5 @@ func _physics_process(delta):
 	
 
 func _on_detection_spawn_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
+	if body.is_in_group("player"):
 		$State_Machine.change_state($State_Machine/Spawn)

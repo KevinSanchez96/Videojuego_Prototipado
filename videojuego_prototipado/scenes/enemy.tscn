@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bscjrxg3iye23" path="res://scripts/enemy/states/spawn.gd" id="5_md484"]
 [ext_resource type="Script" uid="uid://g2w128mais65" path="res://scripts/enemy/states/hurt.gd" id="6_xwavj"]
 [ext_resource type="Script" uid="uid://dp7tm7odl7ywq" path="res://scripts/enemy/states/death.gd" id="7_nenq2"]
+[ext_resource type="Script" uid="uid://1hxqqrkwiimh" path="res://scripts/enemy/states/attack.gd" id="9_ipns3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5uy6h"]
 size = Vector2(128, 128)
@@ -22,17 +23,15 @@ script = ExtResource("1_md0e3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=477120180]
 texture = ExtResource("2_4ra3w")
-offset = Vector2(-1, -54)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=365302352]
-position = Vector2(-1, -53)
 shape = SubResource("RectangleShape2D_5uy6h")
+disabled = true
 
 [node name="DetectionSpawn" type="Area2D" parent="." unique_id=1015114141]
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionSpawn" unique_id=1409615153]
-position = Vector2(-0.84375, -59.375)
 shape = SubResource("CircleShape2D_nenq2")
 
 [node name="State_Machine" type="Node" parent="." unique_id=571602481]
@@ -53,7 +52,13 @@ script = ExtResource("6_xwavj")
 [node name="Death" type="Node" parent="State_Machine" unique_id=2099058415]
 script = ExtResource("7_nenq2")
 
+[node name="Attack" type="Node" parent="State_Machine" unique_id=1253801228]
+script = ExtResource("9_ipns3")
+
+[node name="AttackCooldown" type="Timer" parent="State_Machine/Attack" unique_id=1369405845]
+one_shot = true
+
 [node name="Marker2D" type="Marker2D" parent="." unique_id=419714590]
-position = Vector2(0, -51)
 
 [connection signal="body_entered" from="DetectionSpawn" to="." method="_on_detection_spawn_body_entered"]
+[connection signal="timeout" from="State_Machine/Attack/AttackCooldown" to="State_Machine/Attack" method="_on_attack_cooldown_timeout"]

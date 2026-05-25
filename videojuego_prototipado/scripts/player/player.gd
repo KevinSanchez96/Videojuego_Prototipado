@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
 @export var speed = 400
+@export var max_health = 100
 @onready var state_machine = $State_Machine
 @onready var sword = $Sprite2D/Sword
 @onready var HUD = get_tree().current_scene.get_node("CanvasLayer/HUD")
+
 
 
 @onready var mouse_position = get_global_mouse_position()
@@ -12,11 +14,14 @@ var can_hit = false
 var control_habilitado = true
 var coins = 0
 var attack_damage : int
+var health
 
 
 func _ready():
+	health = max_health
 	for state in state_machine.get_children():
 		state.entity = self
+		state.state_machine = state_machine
 	
 	state_machine.change_state($State_Machine/Idle)
 	
@@ -36,6 +41,14 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("attack"):
 		state_machine.change_state($State_Machine/Attack)
+		
+func take_damage(amount):
+	health -= amount
+	if health <= 0:
+		state_machine.change_state(state_machine.get_node("Die"))
+		return
+	state_machine.change_state(state_machine.get_node("Hurt"))
+
 
 func _on_sword_body_entered(body: Node2D) -> void:
 	if body.has_method("take_damage") and can_hit:
