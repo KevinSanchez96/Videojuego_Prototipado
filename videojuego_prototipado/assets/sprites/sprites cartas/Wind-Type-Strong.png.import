@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duq4s4i46xorx"
-path="res://.godot/imported/Espada.png-c57dab8dacb4bd24a218df9a391a27d2.ctex"
+uid="uid://cgf51q10g62as"
+path="res://.godot/imported/Wind-Type-Strong.png-fb99d2c8d4c580ef34ac12e98bc20f77.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Espada.png"
-dest_files=["res://.godot/imported/Espada.png-c57dab8dacb4bd24a218df9a391a27d2.ctex"]
+source_file="res://assets/sprites/sprites cartas/Wind-Type-Strong.png"
+dest_files=["res://.godot/imported/Wind-Type-Strong.png-fb99d2c8d4c580ef34ac12e98bc20f77.ctex"]
 
 [params]
 

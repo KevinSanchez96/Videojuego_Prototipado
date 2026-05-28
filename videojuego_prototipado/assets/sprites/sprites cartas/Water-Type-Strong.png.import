@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duq4s4i46xorx"
-path="res://.godot/imported/Espada.png-c57dab8dacb4bd24a218df9a391a27d2.ctex"
+uid="uid://dsfiooldh4lff"
+path="res://.godot/imported/Water-Type-Strong.png-d99bbf7af5a71f21a0dff81977bf9e4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Espada.png"
-dest_files=["res://.godot/imported/Espada.png-c57dab8dacb4bd24a218df9a391a27d2.ctex"]
+source_file="res://assets/sprites/sprites cartas/Water-Type-Strong.png"
+dest_files=["res://.godot/imported/Water-Type-Strong.png-d99bbf7af5a71f21a0dff81977bf9e4a.ctex"]
 
 [params]
 
