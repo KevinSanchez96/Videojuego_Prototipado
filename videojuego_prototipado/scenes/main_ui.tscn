@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://t0ub31bf2dxy"]
 
-[ext_resource type="Texture2D" uid="uid://dw7osoejcpmge" path="res://assets/sprites/icon.svg" id="1_513t2"]
 [ext_resource type="Script" uid="uid://crf4814v0a41i" path="res://scripts/main_ui.gd" id="1_e6fyy"]
 [ext_resource type="Script" uid="uid://b3kmqre6i4r5m" path="res://scripts/card.gd" id="2_513t2"]
 [ext_resource type="Script" uid="uid://sbl1sueugw52" path="res://scenes/deck.gd" id="4_j6a7c"]
@@ -60,7 +59,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
-texture = ExtResource("1_513t2")
 expand_mode = 1
 script = ExtResource("2_513t2")
 
@@ -77,7 +75,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
-texture = ExtResource("1_513t2")
 expand_mode = 1
 script = ExtResource("2_513t2")
 tipo_carta = 1

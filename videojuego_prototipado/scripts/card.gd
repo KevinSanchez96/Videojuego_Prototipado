@@ -15,11 +15,7 @@ var mi_elemento : String
 
 func _ready() -> void:
 	elegir_elemento()
-	if tipo_carta == 0 and mi_elemento == "Agua":
-		texture = preload("res://assets/sprites/sprites cartas/Water-Type-Weak.png")
-	if tipo_carta == 1 and mi_elemento == "Agua":
-		texture = preload("res://assets/sprites/sprites cartas/Water-Type-Strong.png")
-		
+	actualizar_sprite()	
 	posicion_original = slot_original.global_position
 	
 func _gui_input(event: InputEvent) -> void:
@@ -75,3 +71,25 @@ func elegir_elemento():
 		2: mi_elemento = "Tierra"
 		3: mi_elemento = "Viento"
 		4: mi_elemento = "SinElemento"
+
+func actualizar_sprite():
+	if tipo_carta == 0 and mi_elemento == "Agua":
+		texture = preload("res://assets/sprites/sprites cartas/Water-Type-Weak.png")
+	if tipo_carta == 1 and mi_elemento == "Agua":
+		texture = preload("res://assets/sprites/sprites cartas/Water-Type-Strong.png")
+	if tipo_carta == 0 and mi_elemento == "Fuego":
+		texture = preload("res://assets/sprites/sprites cartas/Fire-Type-Weak.png")
+	if tipo_carta == 1 and mi_elemento == "Fuego":
+		texture = preload("res://assets/sprites/sprites cartas/Fire-Type-Strong.png")
+	if tipo_carta == 0 and mi_elemento == "Tierra":
+		texture = preload("res://assets/sprites/sprites cartas/Earth-Type-Weak.png")
+	if tipo_carta == 1 and mi_elemento == "Tierra":
+		texture = preload("res://assets/sprites/sprites cartas/Earth-Type-Strong.png")
+	if tipo_carta == 0 and mi_elemento == "Viento":
+		texture = preload("res://assets/sprites/sprites cartas/Wind-Type-Weak.png")
+	if tipo_carta == 1 and mi_elemento == "Viento":
+		texture = preload("res://assets/sprites/sprites cartas/Wind-Type-Strong.png")
+	if tipo_carta == 0 and mi_elemento == "SinElemento":
+		texture = preload("res://assets/sprites/sprites cartas/Normal-Type-Weak.png")
+	if tipo_carta == 1 and mi_elemento == "SinElemento":
+		texture = preload("res://assets/sprites/sprites cartas/Normal-Type-Strong.png")
