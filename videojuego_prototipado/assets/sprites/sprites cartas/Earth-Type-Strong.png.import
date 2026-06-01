@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duq4s4i46xorx"
-path="res://.godot/imported/Espada.png-c57dab8dacb4bd24a218df9a391a27d2.ctex"
+uid="uid://cnw1wm2fvcd0n"
+path="res://.godot/imported/Earth-Type-Strong.png-69aea6c879af080f4e55af2c9f10328a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Espada.png"
-dest_files=["res://.godot/imported/Espada.png-c57dab8dacb4bd24a218df9a391a27d2.ctex"]
+source_file="res://assets/sprites/sprites cartas/Earth-Type-Strong.png"
+dest_files=["res://.godot/imported/Earth-Type-Strong.png-69aea6c879af080f4e55af2c9f10328a.ctex"]
 
 [params]
 

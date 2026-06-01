@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duq4s4i46xorx"
-path="res://.godot/imported/Espada.png-c57dab8dacb4bd24a218df9a391a27d2.ctex"
+uid="uid://dhspskfw232ge"
+path="res://.godot/imported/Fire-Type-Strong.png-4e7f7b1078e0d940e9d54aaee40a5b80.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Espada.png"
-dest_files=["res://.godot/imported/Espada.png-c57dab8dacb4bd24a218df9a391a27d2.ctex"]
+source_file="res://assets/sprites/sprites cartas/Fire-Type-Strong.png"
+dest_files=["res://.godot/imported/Fire-Type-Strong.png-4e7f7b1078e0d940e9d54aaee40a5b80.ctex"]
 
 [params]
 

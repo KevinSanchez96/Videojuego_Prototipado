@@ -6,6 +6,7 @@ enum CardType{ataque_debil, ataque_fuerte}
 var sostener = false
 var offset = Vector2.ZERO
 var posicion_original
+var mi_elemento : String
 @export var tipo_carta : CardType
 
 @onready var deck = $"../../../../DeckPanel/Deck" ## sube 4 niveles para llegar a MainUI y luego toma al hijo Deck panel y por ultimo al Deck. Toma referencia al DECK
@@ -13,11 +14,8 @@ var posicion_original
 @onready var reward_selection = $"../../"
 
 func _ready() -> void:
-	if tipo_carta == 0:
-		modulate = Color.BLUE
-	elif tipo_carta == 1:
-		modulate = Color.RED
-		
+	elegir_elemento()
+	actualizar_sprite()	
 	posicion_original = slot_original.global_position
 	
 func _gui_input(event: InputEvent) -> void:
@@ -64,3 +62,34 @@ func snapear():
 func destruir_carta_reward():
 	for reward_slot in reward_selection.get_children():
 		reward_slot.queue_free()
+
+func elegir_elemento():
+	var numero = randi_range(0, 4)
+	match numero:
+		0: mi_elemento = "Agua"
+		1: mi_elemento = "Fuego"
+		2: mi_elemento = "Tierra"
+		3: mi_elemento = "Viento"
+		4: mi_elemento = "SinElemento"
+
+func actualizar_sprite():
+	if tipo_carta == 0 and mi_elemento == "Agua":
+		texture = preload("res://assets/sprites/sprites cartas/Water-Type-Weak.png")
+	if tipo_carta == 1 and mi_elemento == "Agua":
+		texture = preload("res://assets/sprites/sprites cartas/Water-Type-Strong.png")
+	if tipo_carta == 0 and mi_elemento == "Fuego":
+		texture = preload("res://assets/sprites/sprites cartas/Fire-Type-Weak.png")
+	if tipo_carta == 1 and mi_elemento == "Fuego":
+		texture = preload("res://assets/sprites/sprites cartas/Fire-Type-Strong.png")
+	if tipo_carta == 0 and mi_elemento == "Tierra":
+		texture = preload("res://assets/sprites/sprites cartas/Earth-Type-Weak.png")
+	if tipo_carta == 1 and mi_elemento == "Tierra":
+		texture = preload("res://assets/sprites/sprites cartas/Earth-Type-Strong.png")
+	if tipo_carta == 0 and mi_elemento == "Viento":
+		texture = preload("res://assets/sprites/sprites cartas/Wind-Type-Weak.png")
+	if tipo_carta == 1 and mi_elemento == "Viento":
+		texture = preload("res://assets/sprites/sprites cartas/Wind-Type-Strong.png")
+	if tipo_carta == 0 and mi_elemento == "SinElemento":
+		texture = preload("res://assets/sprites/sprites cartas/Normal-Type-Weak.png")
+	if tipo_carta == 1 and mi_elemento == "SinElemento":
+		texture = preload("res://assets/sprites/sprites cartas/Normal-Type-Strong.png")
