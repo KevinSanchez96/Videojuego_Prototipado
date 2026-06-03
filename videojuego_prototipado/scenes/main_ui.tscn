@@ -133,3 +133,13 @@ script = ExtResource("2_513t2")
 custom_minimum_size = Vector2(100, 170)
 layout_mode = 2
 size_flags_vertical = 4
+
+[node name="Slot4" type="Panel" parent="DeckPanel/Deck" unique_id=281393449 groups=["deck_slot"]]
+custom_minimum_size = Vector2(100, 170)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Slot5" type="Panel" parent="DeckPanel/Deck" unique_id=1089313171 groups=["deck_slot"]]
+custom_minimum_size = Vector2(100, 170)
+layout_mode = 2
+size_flags_vertical = 4

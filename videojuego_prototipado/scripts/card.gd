@@ -2,11 +2,12 @@ extends TextureRect
 class_name Card
 
 enum CardType{ataque_debil, ataque_fuerte}
+enum ElementoType{sinelemento, agua, fuego, tierra, viento}
 
 var sostener = false
 var offset = Vector2.ZERO
 var posicion_original
-var mi_elemento : String
+@export var mi_elemento : ElementoType
 @export var tipo_carta : CardType
 
 @onready var deck = $"../../../../DeckPanel/Deck" ## sube 4 niveles para llegar a MainUI y luego toma al hijo Deck panel y por ultimo al Deck. Toma referencia al DECK
@@ -64,32 +65,57 @@ func destruir_carta_reward():
 		reward_slot.queue_free()
 
 func elegir_elemento():
-	var numero = randi_range(0, 4)
-	match numero:
-		0: mi_elemento = "Agua"
-		1: mi_elemento = "Fuego"
-		2: mi_elemento = "Tierra"
-		3: mi_elemento = "Viento"
-		4: mi_elemento = "SinElemento"
+	mi_elemento = randi_range(0, 4)
 
 func actualizar_sprite():
-	if tipo_carta == 0 and mi_elemento == "Agua":
-		texture = preload("res://assets/sprites/sprites cartas/Water-Type-Weak.png")
-	if tipo_carta == 1 and mi_elemento == "Agua":
-		texture = preload("res://assets/sprites/sprites cartas/Water-Type-Strong.png")
-	if tipo_carta == 0 and mi_elemento == "Fuego":
-		texture = preload("res://assets/sprites/sprites cartas/Fire-Type-Weak.png")
-	if tipo_carta == 1 and mi_elemento == "Fuego":
-		texture = preload("res://assets/sprites/sprites cartas/Fire-Type-Strong.png")
-	if tipo_carta == 0 and mi_elemento == "Tierra":
-		texture = preload("res://assets/sprites/sprites cartas/Earth-Type-Weak.png")
-	if tipo_carta == 1 and mi_elemento == "Tierra":
-		texture = preload("res://assets/sprites/sprites cartas/Earth-Type-Strong.png")
-	if tipo_carta == 0 and mi_elemento == "Viento":
-		texture = preload("res://assets/sprites/sprites cartas/Wind-Type-Weak.png")
-	if tipo_carta == 1 and mi_elemento == "Viento":
-		texture = preload("res://assets/sprites/sprites cartas/Wind-Type-Strong.png")
-	if tipo_carta == 0 and mi_elemento == "SinElemento":
-		texture = preload("res://assets/sprites/sprites cartas/Normal-Type-Weak.png")
-	if tipo_carta == 1 and mi_elemento == "SinElemento":
-		texture = preload("res://assets/sprites/sprites cartas/Normal-Type-Strong.png")
+	match mi_elemento:
+		ElementoType.agua:
+			if tipo_carta == CardType.ataque_debil:
+				texture = preload("res://assets/sprites/sprites cartas/Water-Type-Weak.png")
+			else:
+				texture = preload("res://assets/sprites/sprites cartas/Water-Type-Strong.png")
+		ElementoType.fuego:
+			if tipo_carta == CardType.ataque_debil:
+				texture = preload("res://assets/sprites/sprites cartas/Fire-Type-Weak.png")
+			else:
+				texture = preload("res://assets/sprites/sprites cartas/Fire-Type-Strong.png")
+		ElementoType.tierra:
+			if tipo_carta == CardType.ataque_debil:
+				texture = preload("res://assets/sprites/sprites cartas/Earth-Type-Weak.png")
+			else:
+				texture = preload("res://assets/sprites/sprites cartas/Earth-Type-Strong.png")
+		ElementoType.viento:
+			if tipo_carta == CardType.ataque_debil:
+				texture = preload("res://assets/sprites/sprites cartas/Wind-Type-Weak.png")
+			else:
+				texture = preload("res://assets/sprites/sprites cartas/Wind-Type-Strong.png")
+		ElementoType.sinelemento:
+			if tipo_carta == CardType.ataque_debil:
+				texture = preload("res://assets/sprites/sprites cartas/Normal-Type-Weak.png")
+			else:
+				texture = preload("res://assets/sprites/sprites cartas/Normal-Type-Strong.png")
+
+func get_base_damage():
+	match tipo_carta:
+		CardType.ataque_debil:
+			return 10
+		CardType.ataque_fuerte:
+			return 20
+	return 0
+
+func get_damage(combo_activo):
+	var damage = get_base_damage()
+	match combo_activo:
+		DeckManager.combos.Torrente:
+			if mi_elemento == ElementoType.agua:
+				damage += 15
+		DeckManager.combos.Llamarada:
+			if mi_elemento == ElementoType.fuego:
+				damage += 15
+		DeckManager.combos.Terremoto:
+			if mi_elemento == ElementoType.tierra:
+				damage += 15
+		DeckManager.combos.Huracan:
+			if mi_elemento == ElementoType.viento:
+				damage += 15
+	return damage

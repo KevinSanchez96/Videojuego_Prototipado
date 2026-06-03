@@ -38,17 +38,12 @@ func exit():
 
 func _use_next_attack(): #Función que devuelve, según el tipo de carta cuanto daño hacemos
 	var card = DeckManager.get_next_card()
-	var sequence = DeckManager.get_deck_sequence()
-	print(sequence)
-	if sequence == [card.CardType.ataque_debil, card.CardType.ataque_debil, card.CardType.ataque_fuerte]:
-		#print("Combo")
-		entity.ataque_combo()
-		return
 	if card == null:
 		return
+	var combo = DeckManager.get_combo_activo()
+	var damage = card.get_damage(combo)
 	match card.tipo_carta:
 		card.CardType.ataque_debil:
 			entity.ataque_debil()
-			
 		card.CardType.ataque_fuerte:
 			entity.ataque_fuerte()
