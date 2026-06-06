@@ -3,7 +3,6 @@ extends State
 #se crea una variable para poder determinar el tiempo del ataque
 @export var attack_duration = 0.3
 @export var inertia = 150
-@export var max_health = 100
 
 var timer
 var health
@@ -13,7 +12,6 @@ var health
 #... una ilusion de que el personaje esta atacando. En un futuro se cambiara por la animacion de ataque.
 
 func enter():
-	health = max_health
 	timer = attack_duration
 	_use_next_attack()
 	entity.sword.get_node("Sprite2D").visible = true
@@ -38,17 +36,13 @@ func exit():
 
 func _use_next_attack(): #Función que devuelve, según el tipo de carta cuanto daño hacemos
 	var card = DeckManager.get_next_card()
-	var sequence = DeckManager.get_deck_sequence()
-	print(sequence)
-	if sequence == [card.CardType.ataque_debil, card.CardType.ataque_debil, card.CardType.ataque_fuerte]:
-		#print("Combo")
-		entity.ataque_combo()
-		return
 	if card == null:
 		return
+
+		
 	match card.tipo_carta:
-		card.CardType.ataque_debil:
+		card.CardType.ATAQUE_DEBIL:
 			entity.ataque_debil()
 			
-		card.CardType.ataque_fuerte:
+		card.CardType.ATAQUE_FUERTE:
 			entity.ataque_fuerte()

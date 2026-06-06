@@ -22,7 +22,7 @@ config/icon="res://assets/sprites/icon.svg"
 [autoload]
 
 Deck="*uid://sbl1sueugw52"
-DeckManager="*uid://dewwy4k0kokfp"
+DeckManager="*uid://c3qsdshavq6j"
 
 [input]
 

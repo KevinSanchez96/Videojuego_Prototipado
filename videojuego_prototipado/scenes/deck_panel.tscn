@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://clh0gf3xq3pff"]
+
+[ext_resource type="Script" uid="uid://sbl1sueugw52" path="res://scripts/deck.gd" id="1_7xqtj"]
+[ext_resource type="Script" uid="uid://b647kbt416bx8" path="res://scripts/card.gd" id="2_b81wl"]
+
+[node name="DeckPanel" type="PanelContainer" unique_id=1960515188]
+custom_minimum_size = Vector2(700, 250)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -160.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Deck" type="HBoxContainer" parent="." unique_id=1496699286]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 120
+alignment = 1
+script = ExtResource("1_7xqtj")
+
+[node name="Slot1" type="Panel" parent="Deck" unique_id=1900562513 groups=["deck_slot"]]
+custom_minimum_size = Vector2(100, 170)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Card" type="TextureRect" parent="Deck/Slot1" unique_id=1296865596]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+expand_mode = 1
+script = ExtResource("2_b81wl")
+
+[node name="Slot2" type="Panel" parent="Deck" unique_id=456196309 groups=["deck_slot"]]
+custom_minimum_size = Vector2(100, 170)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Card" type="TextureRect" parent="Deck/Slot2" unique_id=1394733773]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+expand_mode = 1
+script = ExtResource("2_b81wl")
+
+[node name="Slot3" type="Panel" parent="Deck" unique_id=2003785579 groups=["deck_slot"]]
+custom_minimum_size = Vector2(100, 170)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Card" type="TextureRect" parent="Deck/Slot3" unique_id=673899359]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+expand_mode = 1
+script = ExtResource("2_b81wl")
+
+[node name="Slot4" type="Panel" parent="Deck" unique_id=1885552516 groups=["deck_slot"]]
+custom_minimum_size = Vector2(100, 170)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Card" type="TextureRect" parent="Deck/Slot4" unique_id=1892518075]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+expand_mode = 1
+script = ExtResource("2_b81wl")
+
+[node name="Slot5" type="Panel" parent="Deck" unique_id=1582746681 groups=["deck_slot"]]
+custom_minimum_size = Vector2(100, 170)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Card" type="TextureRect" parent="Deck/Slot5" unique_id=22031919]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+expand_mode = 1
+script = ExtResource("2_b81wl")
