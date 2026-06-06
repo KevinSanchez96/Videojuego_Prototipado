@@ -62,9 +62,6 @@ func cargar_mazo():
 		slots[i].add_child(carta)
 		carta.position = Vector2.ZERO
 		carta.size = Vector2(120,180)
-		print("Slot Pos:", slots[i].global_position)
-		print("Carta Pos:", carta.position)
-		print("Carta Global:", carta.global_position)
 		
 		carta.configurar(
 			data["elemento"],

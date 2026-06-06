@@ -36,13 +36,16 @@ func exit():
 
 func _use_next_attack(): #Función que devuelve, según el tipo de carta cuanto daño hacemos
 	var card = DeckManager.get_next_card()
+
+	print("Carta obtenida:", card)
+
 	if card == null:
+		print("NO HAY CARTA")
 		return
 
-		
-	match card.tipo_carta:
-		card.CardType.ATAQUE_DEBIL:
+	match card["tipo"]:
+		Cards.CardType.ATAQUE_DEBIL:
 			entity.ataque_debil()
 			
-		card.CardType.ATAQUE_FUERTE:
+		Cards.CardType.ATAQUE_FUERTE:
 			entity.ataque_fuerte()

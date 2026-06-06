@@ -15,17 +15,16 @@ func set_deck(deck):# Seteamos el deck que creamos para que lo
 	deck_ui = deck  # tome desde la UI que tenemos
 
 func get_next_card():# Avanzamos entre slots, no entre cartas
-	if deck_ui == null:
+	if mazo_cartas.is_empty():
 		return null
-	var slots = deck_ui.get_children()
 	var attempts := 0
-	while attempts < slots.size():
-		var slot = slots[current_slot]
+	while attempts < mazo_cartas.size():
+		var carta = mazo_cartas[current_slot]
 		current_slot += 1
-		if current_slot >= slots.size():
+		if current_slot >= mazo_cartas.size():
 			current_slot = 0
-		if slot.get_child_count() > 0:
-			return slot.get_child(0)
+		if carta != null:
+			return carta
 		attempts += 1
 	return null
 

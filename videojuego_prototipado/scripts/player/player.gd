@@ -54,6 +54,7 @@ func take_damage(amount):
 
 
 func _on_sword_body_entered(body: Node2D) -> void:
+	print("Attack damage:", attack_damage)
 	if body.has_method("take_damage") and can_hit:
 		body.take_damage(attack_damage)
 		can_hit = false
@@ -74,9 +75,13 @@ func add_coin(amount):
 func get_coins():
 	return coins
 
-func ataque_debil(): #Funciones para sabe cuanto daño se hace
+func ataque_debil():
 	attack_damage = 10
+	print("Daño asignado:", attack_damage)
+
 func ataque_fuerte():
 	attack_damage = 20
+	print("Daño asignado:", attack_damage)
+	
 func ataque_combo():
 	attack_damage = 100
