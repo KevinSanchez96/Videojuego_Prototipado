@@ -11,7 +11,6 @@ func update(delta):
 	
 	var distance = entity.global_position.distance_to(player.global_position)
 	
-	print(distance)
 	if distance <= attack_distance:
 		entity.velocity = Vector2.ZERO
 		state_machine.change_state(state_machine.get_node("Attack"))

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cce8a1qmbu52u"]
+
+[ext_resource type="Script" uid="uid://b647kbt416bx8" path="res://scripts/card.gd" id="1_d81rb"]
+
+[node name="Card" type="Panel" unique_id=424601836]
+custom_minimum_size = Vector2(120, 250)
+offset_right = 120.0
+offset_bottom = 180.0
+script = ExtResource("1_d81rb")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=175081219]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
