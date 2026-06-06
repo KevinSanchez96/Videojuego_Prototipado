@@ -2,6 +2,14 @@ extends Node
 # Creación de un DeckManager porque con la UI no funcionaba
 var current_slot = 0
 var deck_ui
+var combo_timer = 0.0
+var combo_activado = false
+var mazo_cartas = []
+
+func _process(delta: float) -> void:
+	actualizar_combo(delta)
+
+enum combos{Nop, Torrente, Llamarada, Terremoto, Huracan, Helada, Erupcion}
 
 enum combos{Nop, Torrente, Llamarada, Terremoto, Huracan, Helada, Erupcion}
 
@@ -9,17 +17,16 @@ func set_deck(deck):# Seteamos el deck que creamos para que lo
 	deck_ui = deck  # tome desde la UI que tenemos
 
 func get_next_card():# Avanzamos entre slots, no entre cartas
-	if deck_ui == null:
+	if mazo_cartas.is_empty():
 		return null
-	var slots = deck_ui.get_children()
 	var attempts := 0
-	while attempts < slots.size():
-		var slot = slots[current_slot]
+	while attempts < mazo_cartas.size():
+		var carta = mazo_cartas[current_slot]
 		current_slot += 1
-		if current_slot >= slots.size():
+		if current_slot >= mazo_cartas.size():
 			current_slot = 0
-		if slot.get_child_count() > 0:
-			return slot.get_child(0)
+		if carta != null:
+			return carta
 		attempts += 1
 	return null
 
@@ -65,3 +72,13 @@ func get_combo_activo():
 	if sequence == ["fuego_fuerte", "tierra_fuerte", "fuego_debil", "tierra_fuerte"]:
 		return combos.Erupcion
 	return combos.Nop
+
+func iniciar_combo():
+	combo_activado = true
+	combo_timer = 1.5
+
+func actualizar_combo(delta):
+	if combo_activado == true:
+		combo_timer -= delta
+		if combo_timer <= 0:
+			combo_activado = false

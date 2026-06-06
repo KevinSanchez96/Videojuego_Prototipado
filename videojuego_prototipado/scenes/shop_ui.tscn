@@ -1,0 +1,188 @@
+[gd_scene format=3 uid="uid://cowa665wca6gm"]
+
+[ext_resource type="Texture2D" uid="uid://bw440leo54yjl" path="res://assets/sprites/sprites cartas/cute-cartoon-question-mark-vector.jpg" id="1_fscwk"]
+[ext_resource type="Script" uid="uid://ch6hrq2esno5" path="res://scripts/shop_ui.gd" id="1_l4r40"]
+
+[sub_resource type="GDScript" id="GDScript_oixfk"]
+script/source = "extends Panel
+
+
+func _on_close_button_msg_pressed() -> void:
+	pass # Replace with function body.
+"
+
+[node name="ShopUI" type="Control" unique_id=1752435820]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l4r40")
+
+[node name="Panel" type="Panel" parent="." unique_id=834287536]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -460.5
+offset_top = -256.5
+offset_right = 460.5
+offset_bottom = 256.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="Panel" unique_id=502635395]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.0
+offset_top = -32.495
+offset_right = 72.0022
+offset_bottom = 67.505005
+grow_horizontal = 2
+text = "SHOP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=411797303]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -125.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 160
+alignment = 1
+
+[node name="BundleBasic" type="Panel" parent="Panel/HBoxContainer" unique_id=1864940645]
+custom_minimum_size = Vector2(280, 400)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/BundleBasic" unique_id=427362525]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="BundleImg?" type="TextureRect" parent="Panel/HBoxContainer/BundleBasic/VBoxContainer" unique_id=1016085176]
+layout_mode = 2
+texture = ExtResource("1_fscwk")
+expand_mode = 4
+
+[node name="NameLabel" type="Label" parent="Panel/HBoxContainer/BundleBasic/VBoxContainer" unique_id=254851117]
+layout_mode = 2
+text = "BUNDLE BASICO"
+horizontal_alignment = 1
+
+[node name="PriceLabel" type="Label" parent="Panel/HBoxContainer/BundleBasic/VBoxContainer" unique_id=1379612098]
+layout_mode = 2
+text = "2 COINS"
+horizontal_alignment = 1
+
+[node name="BuyBasicButton" type="Button" parent="Panel/HBoxContainer/BundleBasic/VBoxContainer" unique_id=837672829]
+layout_mode = 2
+text = "COMPRAR"
+vertical_icon_alignment = 2
+
+[node name="BundlePremium" type="Panel" parent="Panel/HBoxContainer" unique_id=1949768435]
+custom_minimum_size = Vector2(280, 400)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/BundlePremium" unique_id=73269314]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="BundleImg?" type="TextureRect" parent="Panel/HBoxContainer/BundlePremium/VBoxContainer" unique_id=1824524127]
+layout_mode = 2
+texture = ExtResource("1_fscwk")
+expand_mode = 4
+
+[node name="NameLabel" type="Label" parent="Panel/HBoxContainer/BundlePremium/VBoxContainer" unique_id=432885288]
+layout_mode = 2
+text = "BUNDLE PREMIUM"
+horizontal_alignment = 1
+
+[node name="PriceLabel" type="Label" parent="Panel/HBoxContainer/BundlePremium/VBoxContainer" unique_id=291541034]
+layout_mode = 2
+text = "5 COINS"
+horizontal_alignment = 1
+
+[node name="BuyPremiumButton" type="Button" parent="Panel/HBoxContainer/BundlePremium/VBoxContainer" unique_id=282454545]
+layout_mode = 2
+text = "COMPRAR"
+vertical_icon_alignment = 2
+
+[node name="CloseButton" type="Button" parent="Panel" unique_id=1350489592]
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 31.0
+text = "Cerrar"
+
+[node name="MensajePanel" type="Panel" parent="." unique_id=750451879]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -65.0
+offset_right = 110.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_oixfk")
+
+[node name="MsgContainer" type="Panel" parent="MensajePanel" unique_id=941996452]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CloseButtonMsg" type="Button" parent="MensajePanel/MsgContainer" unique_id=651490686]
+layout_mode = 1
+offset_right = 58.0
+offset_bottom = 31.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Cerrar"
+
+[node name="MensajeInsuficiente" type="Label" parent="MensajePanel/MsgContainer" unique_id=617644828]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.5
+offset_top = -11.5
+offset_right = 107.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "No tienes suficientes coins! "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Panel/HBoxContainer/BundleBasic/VBoxContainer/BuyBasicButton" to="." method="_on_buy_basic_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/BundlePremium/VBoxContainer/BuyPremiumButton" to="." method="_on_buy_premium_button_pressed"]
+[connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="MensajePanel/MsgContainer/CloseButtonMsg" to="." method="_on_close_button_msg_pressed"]
