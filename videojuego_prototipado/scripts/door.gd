@@ -35,6 +35,7 @@ func teleport():
 	var tween = create_tween()
 	tween.tween_property(fade, "modulate:a", 1.0, 0.2)
 	await get_tree().create_timer(0.1).timeout
+	scene2.entrar_al_piso()
 	player.global_position = destino.global_position
 	camara.reset_smoothing()
 	await tween.finished
