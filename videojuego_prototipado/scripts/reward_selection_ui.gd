@@ -23,7 +23,6 @@ func generar_cartas(cantidad:int):
 		reward_container.add_child(carta)
 		generar_carta_random(carta)
 	
-
 func generar_carta_random(carta):
 	var elemento_random = randi_range(0, 4)
 	var tipo_random = randi_range(0, 1)
@@ -32,7 +31,6 @@ func generar_carta_random(carta):
 		elemento_random,
 		tipo_random
 	)
-	print("Cartas generadas:", reward_container.get_child_count())
 	
 func guardar_mazo():
 	DeckManager.mazo_cartas.clear()
@@ -47,8 +45,6 @@ func guardar_mazo():
 			})
 		else:
 			DeckManager.mazo_cartas.append(null)
-	print("Mazo guardado:")
-	print(DeckManager.mazo_cartas)
 
 func cargar_mazo():
 	if DeckManager.mazo_cartas.is_empty():
@@ -67,9 +63,6 @@ func cargar_mazo():
 			data["elemento"],
 			data["tipo"]
 		)
-	
-		print("Slot:", slots[i].size)
-		print("Carta:", carta.size)
 
 func _on_button_pressed() -> void:
 	guardar_mazo()

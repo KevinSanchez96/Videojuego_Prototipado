@@ -41,7 +41,7 @@ func _process(delta):
 	if !control_habilitado:
 		velocity = Vector2.ZERO
 		return
-	
+
 	if Input.is_action_just_pressed("attack"):
 		state_machine.change_state($State_Machine/Attack)
 		
@@ -51,7 +51,6 @@ func take_damage(amount):
 		state_machine.change_state(state_machine.get_node("Die"))
 		return
 	state_machine.change_state(state_machine.get_node("Hurt"))
-
 
 func _on_sword_body_entered(body: Node2D) -> void:
 	print("Attack damage:", attack_damage)
@@ -75,13 +74,7 @@ func add_coin(amount):
 func get_coins():
 	return coins
 
-func ataque_debil():
-	attack_damage = 10
-	print("Daño asignado:", attack_damage)
-
-func ataque_fuerte():
-	attack_damage = 20
-	print("Daño asignado:", attack_damage)
-	
-func ataque_combo():
-	attack_damage = 100
+func ataque_debil(damage):
+	attack_damage = damage
+func ataque_fuerte(damage):
+	attack_damage = damage

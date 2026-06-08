@@ -36,16 +36,64 @@ func exit():
 
 func _use_next_attack(): #Función que devuelve, según el tipo de carta cuanto daño hacemos
 	var card = DeckManager.get_next_card()
-
-	print("Carta obtenida:", card)
-
 	if card == null:
-		print("NO HAY CARTA")
 		return
-
+	var combo = DeckManager.get_combo_activo()
+	var damage = DeckManager.get_damage(card, combo)
+	print(damage)
+	if combo != DeckManager.combos.Nop:
+		DeckManager.iniciar_combo()
+	if DeckManager.combo_activado == true:
+		print("Slot usado:", DeckManager.ultimo_slot_usado)
+		print("Tamaño combo:", DeckManager.get_tamaño_combo(combo))
+		if DeckManager.ultimo_slot_usado == DeckManager.get_ultimo_slot_combo(combo):
+			match combo:
+				DeckManager.combos.Torrente:
+					crear_torrente()
+				DeckManager.combos.Llamarada:
+					crear_llamarada()
+				DeckManager.combos.Terremoto:
+					crear_terremoto()
+				DeckManager.combos.Huracan:
+					crear_huracan()
+				DeckManager.combos.Helada:
+					crear_helada()
+				DeckManager.combos.Erupcion:
+					crear_erupcion()
 	match card["tipo"]:
 		Cards.CardType.ATAQUE_DEBIL:
-			entity.ataque_debil()
+			entity.ataque_debil(damage)
 			
 		Cards.CardType.ATAQUE_FUERTE:
-			entity.ataque_fuerte()
+			entity.ataque_fuerte(damage)
+
+func crear_torrente():
+	var torrente = preload("res://scenes/combos/torrente.tscn").instantiate()
+	var delante = (entity.get_global_mouse_position() - entity.global_position).normalized()
+	torrente.direccion = delante
+	torrente.global_position = entity.global_position + delante * 50
+	get_tree().current_scene.add_child(torrente)
+func crear_llamarada():
+	var llamarada = preload("res://scenes/combos/llamarada.tscn").instantiate()
+	llamarada.global_position = entity.global_position
+	get_tree().current_scene.add_child(llamarada)
+func crear_terremoto():
+	var terremoto = preload("res://scenes/combos/terremoto.tscn").instantiate()
+	var delante = (entity.get_global_mouse_position() - entity.global_position).normalized()
+	terremoto.global_position = entity.global_position + delante * 100
+	get_tree().current_scene.add_child(terremoto)
+func crear_huracan():
+	var huracan = preload("res://scenes/combos/huracan.tscn").instantiate()
+	huracan.creador = entity
+	get_tree().current_scene.add_child(huracan)
+func crear_helada():
+	var helada = preload("res://scenes/combos/helada.tscn").instantiate()
+	var delante = (entity.get_global_mouse_position() - entity.global_position).normalized()
+	helada.direccion = delante
+	helada.global_position = entity.global_position + delante * 100
+	get_tree().current_scene.add_child(helada)
+func crear_erupcion():
+	var erupcion = preload("res://scenes/combos/erupcion.tscn").instantiate()
+	var delante = (entity.get_global_mouse_position() - entity.global_position).normalized()
+	erupcion.global_position = entity.global_position + delante * 100
+	get_tree().current_scene.add_child(erupcion)

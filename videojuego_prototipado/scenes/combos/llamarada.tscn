@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://blo1vqvg62ede"]
+
+[ext_resource type="Script" uid="uid://d3g8whju8wcog" path="res://scenes/combos/llamarada.gd" id="1_g4pvc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycku2"]
+size = Vector2(20, 212)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4pvc"]
+size = Vector2(236, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rv43x"]
+size = Vector2(20, 132)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmkh6"]
+size = Vector2(20, 131)
+
+[node name="Llamarada" type="Area2D" unique_id=554760976]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_g4pvc")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1492239865]
+position = Vector2(0, 19)
+shape = SubResource("RectangleShape2D_ycku2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=820638766]
+shape = SubResource("RectangleShape2D_g4pvc")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=780179850]
+position = Vector2(38.999996, 160)
+rotation = -0.6981317
+shape = SubResource("RectangleShape2D_rv43x")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=1370764182]
+position = Vector2(-41.000004, 159)
+rotation = 0.6981317
+shape = SubResource("RectangleShape2D_qmkh6")
+
+[node name="TiempoVida" type="Timer" parent="." unique_id=1485699617]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="TiempoVida" to="." method="_on_tiempo_vida_timeout"]

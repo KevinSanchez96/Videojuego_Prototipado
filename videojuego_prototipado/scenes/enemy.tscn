@@ -60,5 +60,12 @@ one_shot = true
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=419714590]
 
+[node name="TiempoQuemadura" type="Timer" parent="." unique_id=2016450919]
+wait_time = 0.5
+
+[node name="TiempoCongelado" type="Timer" parent="." unique_id=1063748750]
+
 [connection signal="body_entered" from="DetectionSpawn" to="." method="_on_detection_spawn_body_entered"]
 [connection signal="timeout" from="State_Machine/Attack/AttackCooldown" to="State_Machine/Attack" method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="TiempoQuemadura" to="." method="_on_tiempo_quemadura_timeout"]
+[connection signal="timeout" from="TiempoCongelado" to="." method="_on_tiempo_congelado_timeout"]

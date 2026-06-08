@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var player = get_tree().get_first_node_in_group("player") # para tener una referencia del player y conocer su ubicacion por ejemplo.
 @onready var state_machine = $State_Machine
+@onready var state_speed = $State_Machine/Chase
 
 @export var max_health = 100 # vida maxima editable
 @onready var coin = preload("res://scenes/moneda/moneda.tscn")
@@ -10,6 +11,12 @@ var health = 0
 var hurt_time = 0.0
 var hurt_duration = 0.15
 var attack = 10
+
+var estoy_quemado = false
+var estoy_cogelado = false
+var tiempo_efecto = 0.0
+var daño_efecto = 0.0
+var velocidad_normal = 120
 
 func _ready():
 	health = max_health
@@ -57,7 +64,33 @@ func _physics_process(delta):
 		if hurt_time <= 0:
 			$Sprite2D.modulate = Color(1,1,1)
 	
+	if estoy_quemado == true:
+		tiempo_efecto -= delta
+		if tiempo_efecto <= 0:
+			estoy_quemado = false
+			$TiempoQuemadura.stop()
+	
 
 func _on_detection_spawn_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		$State_Machine.change_state($State_Machine/Spawn)
+
+func aplicar_quemadura(duracion, daño):
+	tiempo_efecto = duracion
+	daño_efecto = daño
+	if estoy_quemado == false:
+		estoy_quemado = true
+		$TiempoQuemadura.start()
+func _on_tiempo_quemadura_timeout() -> void:
+	if estoy_quemado:
+		take_damage(daño_efecto)
+func aplicar_congelacion(duracion, daño):
+	tiempo_efecto = duracion
+	daño_efecto = daño
+	if estoy_cogelado == false:
+		estoy_cogelado = true
+		state_speed.speed = velocidad_normal * 0.2
+		$TiempoCongelado.start()
+func _on_tiempo_congelado_timeout() -> void:
+	estoy_cogelado = false
+	state_speed.speed = velocidad_normal

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cde0tkoraarmo"]
+
+[ext_resource type="Script" uid="uid://dlkjo1t7ngf1i" path="res://scenes/combos/huracan.gd" id="1_7yjth"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x5ar8"]
+radius = 39.0
+
+[node name="Huracan" type="Area2D" unique_id=2011611630]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_7yjth")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=854794252]
+shape = SubResource("CircleShape2D_x5ar8")
+
+[node name="TiempoVida" type="Timer" parent="." unique_id=665921847]
+wait_time = 5.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="TiempoVida" to="." method="_on_tiempo_vida_timeout"]
