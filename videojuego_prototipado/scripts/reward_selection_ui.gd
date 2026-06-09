@@ -36,6 +36,8 @@ func guardar_mazo():
 	DeckManager.mazo_cartas.clear()
 	
 	for slot in deck_container.get_children():
+		if slot.name == "TrashSlot":
+			continue
 		if slot.get_child_count() > 0:
 			var carta = slot.get_child(0)
 			
@@ -47,10 +49,12 @@ func guardar_mazo():
 			DeckManager.mazo_cartas.append(null)
 
 func cargar_mazo():
-	print("Cargando mazo:", DeckManager.mazo_cartas)
 	if DeckManager.mazo_cartas.is_empty():
 		return
-	var slots = deck_container.get_children()
+	var slots = []
+	for slot in deck_container.get_children():
+		if slot.name != "TrashSlot":
+			slots.append(slot)
 	for i in range(min(slots.size(), DeckManager.mazo_cartas.size())):
 		var data = DeckManager.mazo_cartas[i]
 		if data == null:

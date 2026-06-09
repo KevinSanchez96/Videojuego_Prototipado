@@ -63,23 +63,27 @@ alignment = 1
 script = ExtResource("2_ynj6q")
 
 [node name="Slot1" type="Panel" parent="Panel/VBoxContainer/DeckContainer" unique_id=1813077452]
-custom_minimum_size = Vector2(120, 250)
+custom_minimum_size = Vector2(95, 250)
 layout_mode = 2
 
 [node name="Slot2" type="Panel" parent="Panel/VBoxContainer/DeckContainer" unique_id=1020796817]
-custom_minimum_size = Vector2(120, 250)
+custom_minimum_size = Vector2(95, 250)
 layout_mode = 2
 
 [node name="Slot3" type="Panel" parent="Panel/VBoxContainer/DeckContainer" unique_id=157387049]
-custom_minimum_size = Vector2(120, 250)
+custom_minimum_size = Vector2(95, 250)
 layout_mode = 2
 
 [node name="Slot4" type="Panel" parent="Panel/VBoxContainer/DeckContainer" unique_id=1157082232]
-custom_minimum_size = Vector2(120, 250)
+custom_minimum_size = Vector2(95, 250)
 layout_mode = 2
 
 [node name="Slot5" type="Panel" parent="Panel/VBoxContainer/DeckContainer" unique_id=724379275]
-custom_minimum_size = Vector2(120, 250)
+custom_minimum_size = Vector2(95, 250)
+layout_mode = 2
+
+[node name="TrashSlot" type="Panel" parent="Panel/VBoxContainer/DeckContainer" unique_id=1820402592]
+custom_minimum_size = Vector2(95, 150)
 layout_mode = 2
 
 [node name="Button" type="Button" parent="Panel" unique_id=812993892]
