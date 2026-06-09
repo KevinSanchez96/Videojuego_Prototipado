@@ -77,23 +77,14 @@ func destruir_carta_reward():
 	for reward_slot in reward_container.get_children():
 		reward_slot.queue_free()
 
-func get_base_damge():
-	match tipo_carta:
-		CardType.ATAQUE_DEBIL:
-			return 10
-		CardType.ATAQUE_FUERTE:
-			return 20
-	return 0
 #en el reward selection necesitamos esta funcion para cuando instanciemos las cartas en el reward_selection
 func configurar(nuevo_elemento:Elemento, nuevo_tipo:CardType):
 	elemento = nuevo_elemento
 	tipo_carta = nuevo_tipo
-	print("configurando: ", elemento, tipo_carta)
 	actualizar_sprite()
 
 #se actualizan las imagenes segun lo que salga en el random
 func actualizar_sprite():
-	print("imagen =", imagen)
 	if tipo_carta == CardType.ATAQUE_DEBIL and elemento == Elemento.AGUA:
 		imagen.texture = preload("res://assets/sprites/sprites cartas/Water-Type-Weak.png")
 

@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://cowa665wca6gm"]
+[gd_scene format=3 uid="uid://c5rfaejenr2rb"]
 
 [ext_resource type="Texture2D" uid="uid://bw440leo54yjl" path="res://assets/sprites/sprites cartas/cute-cartoon-question-mark-vector.jpg" id="1_fscwk"]
-[ext_resource type="Script" uid="uid://ch6hrq2esno5" path="res://scripts/shop_ui.gd" id="1_l4r40"]
+[ext_resource type="Script" path="res://scripts/shop_ui.gd" id="1_l4r40"]
 
 [sub_resource type="GDScript" id="GDScript_oixfk"]
 script/source = "extends Panel

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://1cu3on1n1beg"]
+
+[ext_resource type="Script" uid="uid://bh3axr40cfuv6" path="res://scenes/combos/terremoto.gd" id="1_onp5k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x671o"]
+radius = 121.0
+
+[node name="Terremoto" type="Area2D" unique_id=901507533]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_onp5k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=777529173]
+shape = SubResource("CircleShape2D_x671o")
+
+[node name="TiempoVida" type="Timer" parent="." unique_id=587981839]
+wait_time = 3.0
+
+[node name="TiempoDaño" type="Timer" parent="." unique_id=1464648095]
+wait_time = 0.33
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="TiempoVida" to="." method="_on_tiempo_vida_timeout"]
+[connection signal="timeout" from="TiempoDaño" to="." method="_on_tiempo_daño_timeout"]
