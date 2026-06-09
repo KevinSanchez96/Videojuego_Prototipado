@@ -2,11 +2,14 @@ extends Node
 # Creación de un DeckManager porque con la UI no funcionaba
 var current_slot = 0
 var deck_ui
+var combo_en_progreso = false
+var combo_actual = combos.Nop
 var combo_timer = 0.0
-var combo_activado = false
 var mazo_cartas = []
 var ultimo_slot_usado := -1
 var combo_inicio = -1
+var combo_slot_actual = -1
+
 
 func _ready() -> void:
 	if mazo_cartas.is_empty():
@@ -25,6 +28,7 @@ func get_next_card():# Avanzamos entre slots, no entre cartas
 	var attempts := 0
 	while attempts < mazo_cartas.size():
 		ultimo_slot_usado = current_slot
+		registrar_carta_usada()
 		var carta = mazo_cartas[current_slot]
 		current_slot += 1
 		if current_slot >= mazo_cartas.size():
@@ -85,15 +89,22 @@ func get_combo_activo():
 		return combos.Erupcion
 	combo_inicio = -1
 	return combos.Nop
-
-func iniciar_combo():
-	combo_activado = true
+func iniciar_combo(combo):
+	combo_en_progreso = true
 	combo_timer = 1.5
+	combo_actual = combo
+func finalizar_combo():
+	combo_en_progreso = false
+	combo_actual = combos.Nop
+	combo_slot_actual = -1
+	combo_timer = 0.0
 func actualizar_combo(delta):
-	if combo_activado == true:
-		combo_timer -= delta
-		if combo_timer <= 0:
-			combo_activado = false
+	if !combo_en_progreso:
+		return
+	combo_timer -= delta
+	if combo_timer <= 0:
+		print("combo fallado")
+		finalizar_combo()
 
 func get_tamaño_combo(combo):
 	match combo:
@@ -117,8 +128,15 @@ func get_base_damage(card):
 		Cards.CardType.ATAQUE_FUERTE:
 			return 20
 	return 0
+
 func get_damage(card, combo_activo):
 	var damage = get_base_damage(card)
+	if !combo_en_progreso:
+		return damage
+	if combo_activo == combos.Nop:
+		return damage
+	if !carta_en_combo(ultimo_slot_usado, combo_activo):
+		return damage
 	if !carta_en_combo(ultimo_slot_usado, combo_activo):
 		return damage
 	match combo_activo:
@@ -144,9 +162,10 @@ func get_damage(card, combo_activo):
 
 func crear_mazo_inicial():
 	DeckManager.mazo_cartas =[
-		{"elemento": Cards.Elemento.NORMAL, "tipo": Cards.CardType.ATAQUE_DEBIL},
-		{"elemento": Cards.Elemento.NORMAL, "tipo": Cards.CardType.ATAQUE_FUERTE},
-		null, null, null]
+		{"elemento": Cards.Elemento.AGUA, "tipo": Cards.CardType.ATAQUE_DEBIL},
+		{"elemento": Cards.Elemento.AGUA, "tipo": Cards.CardType.ATAQUE_DEBIL},
+		{"elemento": Cards.Elemento.AGUA, "tipo": Cards.CardType.ATAQUE_FUERTE},
+		null, null]
 
 func buscar_secuencia(sequence:Array, patron:Array) -> int:
 	for i in range(sequence.size() - patron.size() + 1):
@@ -168,3 +187,21 @@ func carta_en_combo(slot_actual, combo) -> bool:
 	var inicio = combo_inicio
 	var fin = combo_inicio + get_tamaño_combo(combo) - 1
 	return slot_actual >= inicio and slot_actual <= fin
+
+func registrar_carta_usada():
+	var combo = get_combo_activo()
+	if combo == combos.Nop:
+		return
+	if !combo_en_progreso:
+		if ultimo_slot_usado == combo_inicio:
+			combo_en_progreso = true
+			combo_actual = combo
+			combo_slot_actual = combo_inicio
+			combo_timer = 1.5
+			iniciar_combo(combo)
+		if combo_en_progreso:
+			if ultimo_slot_usado == combo_slot_actual + 1:
+				combo_slot_actual += 1
+				if combo_slot_actual == get_ultimo_slot_combo(combo_actual):
+					print("combo completado")
+					finalizar_combo()

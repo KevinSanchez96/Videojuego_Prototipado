@@ -33,8 +33,6 @@ func _ready():
 	
 
 func take_damage(amount):
-	print("Daño recibido:",amount)
-	print("Vida antes:",health)
 	if health <= 0:
 		return
 	health -= amount
