@@ -80,10 +80,8 @@ func get_coins():
 
 func ataque_debil(damage):
 	attack_damage = damage
-	print("ataque debil")
 func ataque_fuerte(damage):
 	attack_damage = damage
-	print("ataque fuerte")
 func get_attack_cooldown():
 	if DeckManager.combo_en_progreso == true:
 		return 0.2

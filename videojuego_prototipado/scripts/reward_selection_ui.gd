@@ -47,6 +47,7 @@ func guardar_mazo():
 			DeckManager.mazo_cartas.append(null)
 
 func cargar_mazo():
+	print("Cargando mazo:", DeckManager.mazo_cartas)
 	if DeckManager.mazo_cartas.is_empty():
 		return
 	var slots = deck_container.get_children()
