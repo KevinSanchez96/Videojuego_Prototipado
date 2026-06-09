@@ -20,7 +20,6 @@ var velocidad_normal = 120
 
 func _ready():
 	health = max_health
-	
 	for state in state_machine.get_children():
 		if state is State:
 			state.entity = self
@@ -47,7 +46,6 @@ func take_damage(amount):
 	$State_Machine.change_state($State_Machine/Hurt)
 
 func die():
-
 	var new_coin = coin.instantiate()
 	new_coin.global_position = global_position
 	get_tree().current_scene.add_child(new_coin)
