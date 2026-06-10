@@ -163,7 +163,7 @@ func get_damage(card, combo_activo):
 func crear_mazo_inicial():
 	DeckManager.mazo_cartas =[
 		{"elemento": Cards.Elemento.NORMAL, "tipo": Cards.CardType.ATAQUE_DEBIL},
-		{"elemento": Cards.Elemento.NORMAL, "tipo": Cards.CardType.ATAQUE_FUERTE},
+		{"elemento": Cards.Elemento.VIENTO, "tipo": Cards.CardType.ATAQUE_FUERTE},
 		null,null, null]
 
 func buscar_secuencia(sequence:Array, patron:Array) -> int:

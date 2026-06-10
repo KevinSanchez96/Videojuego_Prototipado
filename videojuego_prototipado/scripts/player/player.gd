@@ -18,6 +18,7 @@ var control_habilitado = true
 @export var coins = 5
 var attack_damage : int
 var health
+var timer_reset = 3
 
 func _ready():
 	health = max_health
@@ -28,7 +29,8 @@ func _ready():
 	await get_tree().process_frame
 	HUD.actualizar_coins(coins)
 	state_machine.change_state($State_Machine/Idle)
-
+	
+	
 func _physics_process(delta):
 	if attack_timer >= 0:
 		attack_timer -= delta
@@ -49,7 +51,7 @@ func _process(delta):
 			return
 		attack_timer = get_attack_cooldown()
 		state_machine.change_state($State_Machine/Attack)
-		
+
 func take_damage(amount):
 	health -= amount
 	if health <= 0:
@@ -80,10 +82,8 @@ func get_coins():
 
 func ataque_debil(damage):
 	attack_damage = damage
-	print("ataque debil")
 func ataque_fuerte(damage):
 	attack_damage = damage
-	print("ataque fuerte")
 func get_attack_cooldown():
 	if DeckManager.combo_en_progreso == true:
 		return 0.2

@@ -162,10 +162,9 @@ func get_damage(card, combo_activo):
 
 func crear_mazo_inicial():
 	DeckManager.mazo_cartas =[
-		{"elemento": Cards.Elemento.AGUA, "tipo": Cards.CardType.ATAQUE_DEBIL},
-		{"elemento": Cards.Elemento.AGUA, "tipo": Cards.CardType.ATAQUE_DEBIL},
-		{"elemento": Cards.Elemento.AGUA, "tipo": Cards.CardType.ATAQUE_FUERTE},
-		null, null]
+		{"elemento": Cards.Elemento.NORMAL, "tipo": Cards.CardType.ATAQUE_DEBIL},
+		{"elemento": Cards.Elemento.NORMAL, "tipo": Cards.CardType.ATAQUE_FUERTE},
+		null, null, null]
 
 func buscar_secuencia(sequence:Array, patron:Array) -> int:
 	for i in range(sequence.size() - patron.size() + 1):
@@ -205,3 +204,11 @@ func registrar_carta_usada():
 				if combo_slot_actual == get_ultimo_slot_combo(combo_actual):
 					print("combo completado")
 					finalizar_combo()
+
+func resetear():
+	mazo_cartas.clear()
+	crear_mazo_inicial()
+	current_slot = 0
+	combo_actual = combos.Nop
+	combo_en_progreso = false
+	combo_timer = 0.0

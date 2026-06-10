@@ -54,6 +54,10 @@ func snapear():
 
 	for slot in deck.get_children(): ## para cada hijo de deck , se hace el intersects para saber si una card toca un slot del deck
 		if get_global_rect().intersects(slot.get_global_rect()):
+			if slot.name == "TrashSlot":
+				if viene_del_deck:
+					queue_free()
+					return
 			if slot.get_child_count() == 0: ## si el slot en el cual se crea la interseccion , tiene 0 hijos , osea no tiene nodo hijos , es que se puede hacer el snap
 				reparent(slot)# se agrega este nodo(carta) al deck
 				position = Vector2.ZERO # se reinicia a la posicion 0,0 del nuevo nodo padre(deck)
