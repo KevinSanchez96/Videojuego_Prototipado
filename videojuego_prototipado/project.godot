@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Videojuego_Prototipado"
-run/main_scene="uid://b0bfb4c2do17w"
+run/main_scene="uid://b8mu1jxb0pdhu"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://assets/sprites/icon.svg"
 
@@ -64,5 +64,6 @@ ui_exit={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

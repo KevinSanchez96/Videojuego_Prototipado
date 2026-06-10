@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://b8mu1jxb0pdhu"]
+
+[ext_resource type="Script" uid="uid://dh0tna7c3kmk0" path="res://scripts/menu.gd" id="1_yqeox"]
+[ext_resource type="Texture2D" uid="uid://dtd6hfh72gdng" path="res://assets/sprites/menu/AnimacionMenu.png" id="2_vjb58"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_con2f"]
+atlas = ExtResource("2_vjb58")
+region = Rect2(0, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhnvy"]
+atlas = ExtResource("2_vjb58")
+region = Rect2(1152, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ytvr"]
+atlas = ExtResource("2_vjb58")
+region = Rect2(2304, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3eks"]
+atlas = ExtResource("2_vjb58")
+region = Rect2(3456, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v86rl"]
+atlas = ExtResource("2_vjb58")
+region = Rect2(4608, 0, 1152, 648)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_13sgg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_con2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhnvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ytvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3eks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v86rl")
+}],
+"loop": true,
+"name": &"Menu",
+"speed": 4.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjb58"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_con2f"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Menu" type="Control" unique_id=1433453219]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqeox")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1265520226]
+position = Vector2(576, 325)
+sprite_frames = SubResource("SpriteFrames_13sgg")
+animation = &"Menu"
+frame = 4
+frame_progress = 0.76692474
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=16325052]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = 290.0
+offset_right = 206.0
+offset_bottom = -186.0
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Jugar" type="Button" parent="VBoxContainer" unique_id=1285725104]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_vjb58")
+text = "Jugar"
+
+[node name="Salir" type="Button" parent="VBoxContainer" unique_id=1131255600]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_con2f")
+text = "Salir"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=723478127]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 166.0
+offset_right = -155.0
+offset_bottom = 193.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2" unique_id=2147352152]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
+[connection signal="button_up" from="VBoxContainer/Salir" to="." method="_on_salir_button_up"]

@@ -68,6 +68,9 @@ func _process(delta):
 		combate_terminado = true
 		iniciar_countdown()
 
+
+
+
 func iniciar_countdown():
 	label.visible = true
 	countdown = 3

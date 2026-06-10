@@ -41,6 +41,7 @@ func _use_next_attack(): #Función que devuelve, según el tipo de carta cuanto 
 	var combo = DeckManager.get_combo_activo()
 	var damage = DeckManager.get_damage(card, DeckManager.combo_actual)
 	DeckManager.registrar_carta_usada()
+	print(damage)
 	if DeckManager.combo_en_progreso == true:
 		if DeckManager.ultimo_slot_usado == DeckManager.get_ultimo_slot_combo(combo):
 			match combo:
@@ -62,7 +63,7 @@ func _use_next_attack(): #Función que devuelve, según el tipo de carta cuanto 
 				DeckManager.combos.Erupcion:
 					crear_erupcion()
 					DeckManager.finalizar_combo()
-	match card["tipo"]:
+	match card:
 		Cards.CardType.ATAQUE_DEBIL:
 			entity.ataque_debil(damage)
 		Cards.CardType.ATAQUE_FUERTE:
