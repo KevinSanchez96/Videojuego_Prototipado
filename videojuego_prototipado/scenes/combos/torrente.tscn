@@ -1,9 +1,53 @@
 [gd_scene format=3 uid="uid://ilraeimcaqv7"]
 
 [ext_resource type="Script" uid="uid://x615p3l6jgae" path="res://scenes/combos/torrente.gd" id="1_4j2bo"]
+[ext_resource type="Texture2D" uid="uid://bk7qqp6l0ugkk" path="res://assets/sprites/animacion combo/AnimacionTorrente-Sheet.png" id="2_8g8nl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qrimv"]
 size = Vector2(142, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svhno"]
+atlas = ExtResource("2_8g8nl")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o75r1"]
+atlas = ExtResource("2_8g8nl")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j72yi"]
+atlas = ExtResource("2_8g8nl")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryh1j"]
+atlas = ExtResource("2_8g8nl")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqmuc"]
+atlas = ExtResource("2_8g8nl")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wvtgk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svhno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o75r1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j72yi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryh1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqmuc")
+}],
+"loop": true,
+"name": &"torrente",
+"speed": 7.0
+}]
 
 [node name="Torrente" type="Area2D" unique_id=1388310188]
 collision_layer = 3
@@ -14,6 +58,12 @@ script = ExtResource("1_4j2bo")
 shape = SubResource("RectangleShape2D_qrimv")
 
 [node name="TiempoTorrente" type="Timer" parent="." unique_id=1638570046]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=931052260]
+position = Vector2(2.8014183e-06, 0)
+scale = Vector2(2.2187502, 1)
+sprite_frames = SubResource("SpriteFrames_wvtgk")
+animation = &"torrente"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="TiempoTorrente" to="." method="_on_tiempo_torrente_timeout"]

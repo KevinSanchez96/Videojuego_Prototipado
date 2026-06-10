@@ -97,5 +97,5 @@ func crear_helada():
 func crear_erupcion():
 	var erupcion = preload("res://scenes/combos/erupcion.tscn").instantiate()
 	var delante = (entity.get_global_mouse_position() - entity.global_position).normalized()
-	erupcion.global_position = entity.global_position + delante * 100
+	erupcion.global_position = entity.global_position + delante * 130
 	get_tree().current_scene.add_child(erupcion)

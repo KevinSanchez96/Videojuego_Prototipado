@@ -5,10 +5,12 @@ extends Area2D
 
 func _ready() -> void:
 	$TiempoVida.start()
+	$AnimatedSprite2D.play()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemigos"):
 		body.aplicar_quemadura(tiempo_quemadura, daño)
 
 func _on_tiempo_vida_timeout() -> void:
+	$AnimatedSprite2D.stop()
 	queue_free()

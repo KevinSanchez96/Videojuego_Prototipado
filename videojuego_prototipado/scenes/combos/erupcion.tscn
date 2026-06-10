@@ -1,9 +1,46 @@
 [gd_scene format=3 uid="uid://n32nv5gikyij"]
 
 [ext_resource type="Script" uid="uid://cvlnvfhaxmqve" path="res://scenes/combos/erupcion.gd" id="1_3c4ek"]
+[ext_resource type="Texture2D" uid="uid://tkiymfh657p4" path="res://assets/sprites/animacion combo/AnimacionErupcion-Sheet.png" id="2_1ix6e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mmqky"]
-radius = 67.0
+radius = 57.07889
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w22ho"]
+atlas = ExtResource("2_1ix6e")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7567j"]
+atlas = ExtResource("2_1ix6e")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6r6qx"]
+atlas = ExtResource("2_1ix6e")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqf71"]
+atlas = ExtResource("2_1ix6e")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_88pke"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w22ho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7567j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6r6qx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqf71")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Erupcion" type="Area2D" unique_id=2041186373]
 collision_layer = 3
@@ -14,6 +51,11 @@ script = ExtResource("1_3c4ek")
 shape = SubResource("CircleShape2D_mmqky")
 
 [node name="TiempoVida" type="Timer" parent="." unique_id=2106526351]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1679070409]
+position = Vector2(-1.0000005, 0)
+scale = Vector2(1.7109376, 1.6796875)
+sprite_frames = SubResource("SpriteFrames_88pke")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="TiempoVida" to="." method="_on_tiempo_vida_timeout"]

@@ -1,10 +1,61 @@
 [gd_scene format=3 uid="uid://crsyfevmtsocc"]
 
 [ext_resource type="Script" uid="uid://b8ot74du1d1kk" path="res://scenes/combos/helada.gd" id="1_ir2n8"]
+[ext_resource type="Texture2D" uid="uid://cfv2txjn1k32g" path="res://assets/sprites/animacion combo/AnimacionVentisca-Sheet.png" id="2_qwejd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6leq6"]
 radius = 26.0
 height = 78.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jchlf"]
+atlas = ExtResource("2_qwejd")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6prh"]
+atlas = ExtResource("2_qwejd")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqcwj"]
+atlas = ExtResource("2_qwejd")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63v2m"]
+atlas = ExtResource("2_qwejd")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1h77"]
+atlas = ExtResource("2_qwejd")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kspv"]
+atlas = ExtResource("2_qwejd")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kshdj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jchlf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6prh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqcwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63v2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1h77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kspv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 11.0
+}]
 
 [node name="Helada" type="Area2D" unique_id=1546024035]
 collision_layer = 3
@@ -15,6 +66,11 @@ script = ExtResource("1_ir2n8")
 shape = SubResource("CapsuleShape2D_6leq6")
 
 [node name="TiempoVida" type="Timer" parent="." unique_id=965449794]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=725349878]
+position = Vector2(0, 1)
+scale = Vector2(1, 1.3125)
+sprite_frames = SubResource("SpriteFrames_kshdj")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="TiempoVida" to="." method="_on_tiempo_vida_timeout"]
