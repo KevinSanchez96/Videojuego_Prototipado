@@ -9,10 +9,10 @@ extends CharacterBody2D
 @export var attack_cooldown = 0.5
 @export var attack_timer = 0.0
 
+
 var mazo : Array[Cards] = []
 
 @onready var mouse_position = get_global_mouse_position()
-#var last_direction = get_global_mouse_position()
 var can_hit = false
 var control_habilitado = true
 @export var coins = 5
@@ -20,7 +20,8 @@ var attack_damage : int
 var health
 var timer_reset = 3
 var direccion_mirada := Vector2.RIGHT
-
+var atacando = false
+var moving = false
 
 func _ready():
 	health = max_health
@@ -31,6 +32,7 @@ func _ready():
 	await get_tree().process_frame
 	HUD.actualizar_coins(coins)
 	state_machine.change_state($State_Machine/Idle)
+	$Animaciones_Aura.visible = false
 	
 func _physics_process(delta):
 	if attack_timer >= 0:
@@ -65,8 +67,6 @@ func take_damage(amount):
 	state_machine.change_state(state_machine.get_node("Hurt"))
 
 func _on_sword_body_entered(body: Node2D) -> void:
-	print("player golpeando", self)
-	print("attack_damage al golpear:", attack_damage)
 	if body.has_method("take_damage") and can_hit:
 		body.take_damage(attack_damage)
 		can_hit = false
@@ -75,9 +75,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("monedas"):
 		get_tree().call_group("monedas", "count_coin")
 
-#función para que el pj esté mirando siempre al ratón
 func _look_at_mouse(mouse_pos):
-	#var mouse_pos = get_global_mouse_position()
 	get_node("Sprite2D").look_at(mouse_pos)
 
 func add_coin(amount):
@@ -89,10 +87,8 @@ func get_coins():
 
 func ataque_debil(damage):
 	attack_damage = damage
-	print("Player", self)
 func ataque_fuerte(damage):
 	attack_damage = damage
-	print("player:", self)
 func get_attack_cooldown():
 	if DeckManager.combo_en_progreso == true:
 		return 0.2
@@ -111,6 +107,8 @@ func actualizar_animacion():
 		else:
 			$Animaciones.play("walk_detras" if moviendo else "iddle_detras")
 func actualizar_iddle():
+	if atacando or moving:
+		return
 	if abs(direccion_mirada.x) > abs(direccion_mirada.y):
 		if direccion_mirada.x > 0:
 			$Animaciones.play("iddle_derecha")
