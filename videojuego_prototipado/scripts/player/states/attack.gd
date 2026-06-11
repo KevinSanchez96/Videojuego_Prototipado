@@ -35,7 +35,7 @@ func exit():
 	entity.can_hit = false
 
 func _use_next_attack(): #Función que devuelve, según el tipo de carta cuanto daño hacemos
-	var card = DeckManager.get_next_card()
+	var card: Dictionary = DeckManager.get_next_card()
 	if card == null:
 		return
 	var combo = DeckManager.get_combo_activo()
@@ -62,16 +62,11 @@ func _use_next_attack(): #Función que devuelve, según el tipo de carta cuanto 
 				DeckManager.combos.Erupcion:
 					crear_erupcion()
 					DeckManager.finalizar_combo()
-	print("card:", card)
-	print("typeof:", typeof(card))
-	entity.attack_damage = damage
-	match card:
+	match card["tipo"]:
 		Cards.CardType.ATAQUE_DEBIL:
 			entity.ataque_debil(damage)
-			entity.attack_damage = damage
 		Cards.CardType.ATAQUE_FUERTE:
 			entity.ataque_fuerte(damage)
-			entity.attack_damage = damage
 
 func crear_torrente():
 	var torrente = preload("res://scenes/combos/torrente.tscn").instantiate()
