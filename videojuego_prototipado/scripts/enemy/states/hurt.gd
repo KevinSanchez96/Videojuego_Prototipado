@@ -1,6 +1,6 @@
 extends State
 
-var hurt_duration = 0.2
+var hurt_duration = 0.3
 var timer = 0.0
 
 func enter():

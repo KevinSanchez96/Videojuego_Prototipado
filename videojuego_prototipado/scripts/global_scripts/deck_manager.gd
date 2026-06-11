@@ -22,7 +22,7 @@ enum combos{Nop, Torrente, Llamarada, Terremoto, Huracan, Helada, Erupcion}
 func set_deck(deck):# Seteamos el deck que creamos para que lo
 	deck_ui = deck  # tome desde la UI que tenemos
 
-func get_next_card():# Avanzamos entre slots, no entre cartas
+func get_next_card():
 	if mazo_cartas.is_empty():
 		return null
 	var attempts := 0
@@ -103,7 +103,6 @@ func actualizar_combo(delta):
 		return
 	combo_timer -= delta
 	if combo_timer <= 0:
-		print("combo fallado")
 		finalizar_combo()
 
 func get_tamaño_combo(combo):
@@ -162,9 +161,10 @@ func get_damage(card, combo_activo):
 
 func crear_mazo_inicial():
 	DeckManager.mazo_cartas =[
-		{"elemento": Cards.Elemento.NORMAL, "tipo": Cards.CardType.ATAQUE_DEBIL},
-		{"elemento": Cards.Elemento.NORMAL, "tipo": Cards.CardType.ATAQUE_FUERTE},
-		null, null, null]
+		{"elemento": Cards.Elemento.AGUA, "tipo": Cards.CardType.ATAQUE_DEBIL},
+		{"elemento": Cards.Elemento.AGUA, "tipo": Cards.CardType.ATAQUE_DEBIL},
+		{"elemento": Cards.Elemento.AGUA, "tipo": Cards.CardType.ATAQUE_FUERTE},
+		null, null]
 
 func buscar_secuencia(sequence:Array, patron:Array) -> int:
 	for i in range(sequence.size() - patron.size() + 1):
@@ -202,7 +202,6 @@ func registrar_carta_usada():
 			if ultimo_slot_usado == combo_slot_actual + 1:
 				combo_slot_actual += 1
 				if combo_slot_actual == get_ultimo_slot_combo(combo_actual):
-					print("combo completado")
 					finalizar_combo()
 
 func resetear():

@@ -1,9 +1,53 @@
 [gd_scene format=3 uid="uid://cde0tkoraarmo"]
 
 [ext_resource type="Script" uid="uid://dlkjo1t7ngf1i" path="res://scenes/combos/huracan.gd" id="1_7yjth"]
+[ext_resource type="Texture2D" uid="uid://de4544fyemhlu" path="res://assets/sprites/animacion combo/AnimacionTornado-Sheet.png" id="2_tuu3c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x5ar8"]
 radius = 39.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wy4cs"]
+atlas = ExtResource("2_tuu3c")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0p1r7"]
+atlas = ExtResource("2_tuu3c")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7ywo"]
+atlas = ExtResource("2_tuu3c")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hr3ch"]
+atlas = ExtResource("2_tuu3c")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivra5"]
+atlas = ExtResource("2_tuu3c")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_38nun"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wy4cs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0p1r7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7ywo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hr3ch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivra5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Huracan" type="Area2D" unique_id=2011611630]
 collision_layer = 3
@@ -15,6 +59,11 @@ shape = SubResource("CircleShape2D_x5ar8")
 
 [node name="TiempoVida" type="Timer" parent="." unique_id=665921847]
 wait_time = 5.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1949789381]
+position = Vector2(-4.2915344e-06, -3.0000024)
+scale = Vector2(1.40625, 1.3749999)
+sprite_frames = SubResource("SpriteFrames_38nun")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="TiempoVida" to="." method="_on_tiempo_vida_timeout"]

@@ -9,7 +9,8 @@ var angulo = 0.0
 
 func _ready() -> void:
 	$TiempoVida.start()
-	
+	$AnimatedSprite2D.play()
+
 func _physics_process(delta: float) -> void:
 	if is_instance_valid(creador) == false:
 		queue_free()
@@ -22,4 +23,5 @@ func _on_body_entered(body: Node2D) -> void:
 		body.take_damage(daño)
 
 func _on_tiempo_vida_timeout() -> void:
+	$AnimatedSprite2D.stop()
 	queue_free()

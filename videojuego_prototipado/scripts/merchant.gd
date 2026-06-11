@@ -7,6 +7,7 @@ var player_cerca = false
 
 func _ready() -> void:
 	label.visible = false
+	$AnimatedSprite2D.play()
 
 func _process(delta: float) -> void:
 	if player_cerca and Input.is_action_just_pressed("interact"):

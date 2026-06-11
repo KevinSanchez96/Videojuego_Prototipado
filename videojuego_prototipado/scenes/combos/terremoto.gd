@@ -8,6 +8,7 @@ var enemigos_dentro = []
 func _ready() -> void:
 	$TiempoVida.start()
 	$"TiempoDaño".start()
+	$AnimatedSprite2D.play()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemigos"):
@@ -22,6 +23,7 @@ func daño_pausado():
 			enemigos.take_damage(daño)
 
 func _on_tiempo_vida_timeout() -> void:
+	$AnimatedSprite2D.stop()
 	queue_free()
 
 func _on_tiempo_daño_timeout() -> void:

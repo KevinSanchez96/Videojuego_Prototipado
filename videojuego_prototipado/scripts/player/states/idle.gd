@@ -4,6 +4,7 @@ extends State
 #distinto seria de un plataformero ya que unicamente deberias detener el movimiento en X
 func enter():
 	entity.velocity = Vector2.ZERO
+	
 
 #idle necesita saber si se apreta un input para pasar a "Move"
 func update(delta):
