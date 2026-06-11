@@ -18,7 +18,7 @@ func enter():
 	#entity.sword.get_node("Sprite2D").visible = true
 	entity.sword.monitoring = true
 	entity.can_hit = true
-	$"../../Animaciones_Aura".visible = true
+	#$"../../Animaciones_Aura".visible = true
 	
 #una vez el comienza la "animacion", empieza el conteo del timer
 #creamos el pequeño desplazamiento dependiendo donde quedo el last direction
@@ -96,13 +96,18 @@ func _use_next_attack(): #Función que devuelve, según el tipo de carta cuanto 
 		match card["elemento"]:
 			Cards.Elemento.AGUA:
 				$"../../Animaciones_Aura".play("Agua")
+				$"../../Animaciones_Aura".visible = true
 			Cards.Elemento.FUEGO:
 				$"../../Animaciones_Aura".play("Fuego")
+				$"../../Animaciones_Aura".visible = true
 			Cards.Elemento.TIERRA:
 				$"../../Animaciones_Aura".play("Tierra")
+				$"../../Animaciones_Aura".visible = true
 			Cards.Elemento.VIENTO:
 				$"../../Animaciones_Aura".play("Viento")
+				$"../../Animaciones_Aura".visible = true
 			Cards.Elemento.NORMAL:
+				$"../../Animaciones_Aura".visible = false
 				$"../../Animaciones_Aura".stop()
 
 func crear_torrente():
