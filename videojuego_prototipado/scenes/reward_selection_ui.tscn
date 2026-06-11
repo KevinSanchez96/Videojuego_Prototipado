@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dkvutdmvqp6so"]
 
 [ext_resource type="Script" uid="uid://biiy85qcv3f6j" path="res://scripts/reward_selection_ui.gd" id="1_ynj6q"]
-[ext_resource type="Script" path="res://scripts/deck_container.gd" id="2_ynj6q"]
+[ext_resource type="Script" uid="uid://t4b5mo2oscrh" path="res://scripts/deck_container.gd" id="2_ynj6q"]
+[ext_resource type="Texture2D" uid="uid://b7u6b6diybsvt" path="res://assets/sprites/tacho icon.png" id="3_c2ufs"]
 
 [node name="RewardSelectionUI" type="Control" unique_id=1178964529]
 layout_mode = 3
@@ -85,6 +86,10 @@ layout_mode = 2
 [node name="TrashSlot" type="Panel" parent="Panel/VBoxContainer/DeckContainer" unique_id=1820402592]
 custom_minimum_size = Vector2(95, 150)
 layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/VBoxContainer/DeckContainer/TrashSlot" unique_id=1639088517]
+position = Vector2(52, 125)
+texture = ExtResource("3_c2ufs")
 
 [node name="Button" type="Button" parent="Panel" unique_id=812993892]
 layout_mode = 0
