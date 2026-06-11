@@ -10,7 +10,7 @@ extends CharacterBody2D
 var health = 0
 var hurt_time = 0.0
 var hurt_duration = 0.15
-var attack = 10
+var attack = 3
 
 var estoy_quemado = false
 var estoy_cogelado = false
@@ -26,7 +26,8 @@ func _ready():
 			state.state_machine = state_machine
 	
 	$CollisionShape2D.disabled = true
-	$Sprite2D.visible = false
+	$Walk.visible = false
+	$Hurt.visible = false
 	
 	state_machine.change_state($State_Machine/Sleep)
 	
@@ -35,9 +36,13 @@ func take_damage(amount):
 	if health <= 0:
 		return
 	health -= amount
-	print("Vida despues:",health)
+	print(health)
 	hurt_time = hurt_duration
-	$Sprite2D.modulate = Color(1,0,0)
+	#$Sprite2D.modulate = Color(1,0,0)
+	$Walk.stop()
+	$Walk.visible = false
+	$Hurt.play()
+	$Hurt.visible = true
 	
 	if health <= 0:
 		call_deferred("die")
@@ -58,7 +63,11 @@ func _physics_process(delta):
 		hurt_time -= delta
 		
 		if hurt_time <= 0:
-			$Sprite2D.modulate = Color(1,1,1)
+			#$Sprite2D.modulate = Color(1,1,1)
+			$Hurt.stop()
+			$Hurt.visible = false
+			$Walk.play()
+			$Walk.visible = true
 	
 	if estoy_quemado == true:
 		tiempo_efecto -= delta

@@ -60,6 +60,8 @@ func take_damage(amount):
 	state_machine.change_state(state_machine.get_node("Hurt"))
 
 func _on_sword_body_entered(body: Node2D) -> void:
+	print("player golpeando", self)
+	print("attack_damage al golpear:", attack_damage)
 	if body.has_method("take_damage") and can_hit:
 		body.take_damage(attack_damage)
 		can_hit = false
@@ -82,8 +84,10 @@ func get_coins():
 
 func ataque_debil(damage):
 	attack_damage = damage
+	print("Player", self)
 func ataque_fuerte(damage):
 	attack_damage = damage
+	print("player:", self)
 func get_attack_cooldown():
 	if DeckManager.combo_en_progreso == true:
 		return 0.2

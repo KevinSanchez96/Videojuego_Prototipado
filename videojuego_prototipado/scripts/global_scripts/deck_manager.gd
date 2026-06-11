@@ -22,7 +22,7 @@ enum combos{Nop, Torrente, Llamarada, Terremoto, Huracan, Helada, Erupcion}
 func set_deck(deck):# Seteamos el deck que creamos para que lo
 	deck_ui = deck  # tome desde la UI que tenemos
 
-func get_next_card():# Avanzamos entre slots, no entre cartas
+func get_next_card():
 	if mazo_cartas.is_empty():
 		return null
 	var attempts := 0
@@ -162,11 +162,9 @@ func get_damage(card, combo_activo):
 
 func crear_mazo_inicial():
 	DeckManager.mazo_cartas =[
-		{"elemento": Cards.Elemento.FUEGO, "tipo": Cards.CardType.ATAQUE_FUERTE},
-		{"elemento": Cards.Elemento.TIERRA, "tipo": Cards.CardType.ATAQUE_FUERTE},
-		{"elemento": Cards.Elemento.FUEGO, "tipo": Cards.CardType.ATAQUE_DEBIL},
-		{"elemento": Cards.Elemento.TIERRA, "tipo": Cards.CardType.ATAQUE_FUERTE},
-		null]
+		{"elemento": Cards.Elemento.NORMAL, "tipo": Cards.CardType.ATAQUE_DEBIL},
+		{"elemento": Cards.Elemento.NORMAL, "tipo": Cards.CardType.ATAQUE_FUERTE},
+		null, null, null]
 
 func buscar_secuencia(sequence:Array, patron:Array) -> int:
 	for i in range(sequence.size() - patron.size() + 1):
