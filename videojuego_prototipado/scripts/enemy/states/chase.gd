@@ -20,8 +20,7 @@ func update(delta):
 	direction = direction.normalized()
 
 	entity.velocity = direction * speed
-	
 	if direction.x < 0:
-		$"../../Walk".flip_h = false
+		$"../../Animacion".flip_h = false
 	else:
-		$"../../Walk".flip_h = true
+		$"../../Animacion".flip_h = true

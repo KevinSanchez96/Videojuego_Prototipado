@@ -33,13 +33,13 @@ region = Rect2(64, 0, 64, 64)
 [sub_resource type="SpriteFrames" id="SpriteFrames_otmr2"]
 animations = [{
 "frames": [{
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ipns3")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_otmr2")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_wtq4b")
 }],
 "loop": true,
@@ -73,8 +73,7 @@ script = ExtResource("1_md0e3")
 [node name="Animacion" type="AnimatedSprite2D" parent="." unique_id=1288245305]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_otmr2")
-animation = &"hurt"
-frame_progress = 0.014418252
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=365302352]
 shape = SubResource("CapsuleShape2D_otmr2")

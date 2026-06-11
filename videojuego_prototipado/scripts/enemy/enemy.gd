@@ -18,6 +18,7 @@ var tiempo_efecto = 0.0
 var daño_efecto = 0.0
 var velocidad_normal = 120
 
+
 func _ready():
 	health = max_health
 	for state in state_machine.get_children():
@@ -26,23 +27,18 @@ func _ready():
 			state.state_machine = state_machine
 	
 	$CollisionShape2D.disabled = true
-	$Walk.visible = false
-	$Hurt.visible = false
+	$Animacion.visible = false
 	
 	state_machine.change_state($State_Machine/Sleep)
 	
 
 func take_damage(amount):
+	
 	if health <= 0:
 		return
 	health -= amount
 	print(health)
 	hurt_time = hurt_duration
-	#$Sprite2D.modulate = Color(1,0,0)
-	$Walk.stop()
-	$Walk.visible = false
-	$Hurt.play()
-	$Hurt.visible = true
 	
 	if health <= 0:
 		call_deferred("die")
@@ -61,13 +57,9 @@ func _physics_process(delta):
 	
 	if hurt_time > 0:
 		hurt_time -= delta
-		
+		$Animacion.play("hurt")
 		if hurt_time <= 0:
-			#$Sprite2D.modulate = Color(1,1,1)
-			$Hurt.stop()
-			$Hurt.visible = false
-			$Walk.play()
-			$Walk.visible = true
+			$Animacion.play("walk")
 	
 	if estoy_quemado == true:
 		tiempo_efecto -= delta
