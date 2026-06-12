@@ -58,6 +58,7 @@ func generar_piso():
 
 func entrar_al_piso():
 	GameManager.nivel_actual += 1
+	print(GameManager.nivel_actual)
 	generar_piso()
 
 func _process(delta):

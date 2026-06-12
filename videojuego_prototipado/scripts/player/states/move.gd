@@ -5,7 +5,7 @@ func update(delta):
 	if !entity.control_habilitado:
 		entity.velocity = Vector2.ZERO
 		return 
-	
+
 	var direction = Input.get_vector("move_left","move_right","move_up","move_down")
 	entity.velocity = direction * entity.speed
 	

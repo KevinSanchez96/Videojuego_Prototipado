@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 400
+@export var speed = 100
 @export var max_health = 100
 @onready var state_machine = $State_Machine
 @onready var sword = $Sprite2D/Sword
@@ -46,9 +46,6 @@ func _physics_process(delta):
 	_look_at_mouse(mouse_pos)
 
 func _process(delta):
-	if !control_habilitado:
-		velocity = Vector2.ZERO
-		return
 	if Input.is_action_just_pressed("attack"):
 		if attack_timer > 0:
 			return
@@ -63,7 +60,6 @@ func take_damage(amount):
 	if health <= 0:
 		state_machine.change_state(state_machine.get_node("Die"))
 		return
-	print(health)
 	state_machine.change_state(state_machine.get_node("Hurt"))
 
 func _on_sword_body_entered(body: Node2D) -> void:

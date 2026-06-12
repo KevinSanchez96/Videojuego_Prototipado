@@ -29,7 +29,7 @@ position = Vector2(4812, -361)
 
 [node name="Player" parent="." unique_id=1408671919 instance=ExtResource("3_71j4m")]
 scale = Vector2(0.5, 0.5)
-speed = 700
+speed = 400
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=652061768]
 
