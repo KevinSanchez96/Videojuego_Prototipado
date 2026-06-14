@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dkvutdmvqp6so"]
 
 [ext_resource type="Script" uid="uid://biiy85qcv3f6j" path="res://scripts/reward_selection_ui.gd" id="1_ynj6q"]
-[ext_resource type="Script" uid="uid://t4b5mo2oscrh" path="res://scripts/deck_container.gd" id="2_ynj6q"]
+[ext_resource type="Script" path="res://scripts/deck_container.gd" id="2_ynj6q"]
 [ext_resource type="Texture2D" uid="uid://b7u6b6diybsvt" path="res://assets/sprites/tacho icon.png" id="3_c2ufs"]
 
 [node name="RewardSelectionUI" type="Control" unique_id=1178964529]

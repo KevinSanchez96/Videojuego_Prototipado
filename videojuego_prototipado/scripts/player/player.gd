@@ -46,7 +46,7 @@ func _physics_process(delta):
 	_look_at_mouse(mouse_pos)
 
 func _process(delta):
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and control_habilitado:
 		if attack_timer > 0:
 			return
 		attack_timer = get_attack_cooldown()
@@ -121,5 +121,5 @@ func get_healt():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemigos"):
-		body.take_damage()
+		body.take_damage(attack_damage)
 	#can_hit = false
