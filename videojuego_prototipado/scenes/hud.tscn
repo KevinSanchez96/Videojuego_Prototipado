@@ -42,3 +42,10 @@ theme_override_font_sizes/font_size = 20
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="VidaPj" type="ProgressBar" parent="." unique_id=1116176495]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 23.0
+offset_right = 45.0
+offset_bottom = 50.0

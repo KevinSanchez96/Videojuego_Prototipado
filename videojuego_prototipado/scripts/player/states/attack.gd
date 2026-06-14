@@ -2,7 +2,7 @@ extends State
 
 #se crea una variable para poder determinar el tiempo del ataque
 @export var attack_duration = 0.3
-@export var inertia = 150
+@export var inertia = 100
 
 var timer
 var health
@@ -16,8 +16,8 @@ func enter():
 	timer = attack_duration
 	_use_next_attack()
 	#entity.sword.get_node("Sprite2D").visible = true
-	entity.sword.monitoring = true
-	entity.can_hit = true
+	#entity.sword.monitoring = true
+	#entity.can_hit = true
 	#$"../../Animaciones_Aura".visible = true
 	
 #una vez el comienza la "animacion", empieza el conteo del timer
@@ -32,12 +32,12 @@ func update(delta):
 
 #sale del estado de Attack , se vuelve invisible de nuevo la sword
 func exit():
-	entity.sword.get_node("Sprite2D").visible = false
-	entity.sword.monitoring = false
-	entity.can_hit = false
+	#entity.sword.get_node("Sprite2D").visible = false
+	#entity.sword.monitoring = false
+	#entity.can_hit = false
 	entity.atacando = false
-	$"../../Animaciones_Aura".stop()
-	$"../../Animaciones_Aura".visible = false
+	#$"../../Animaciones_Aura".stop()
+	#$"../../Animaciones_Aura".visible = false
 
 func _use_next_attack(): #Función que devuelve, según el tipo de carta cuanto daño hacemos
 	var card: Dictionary = DeckManager.get_next_card()
@@ -72,43 +72,43 @@ func _use_next_attack(): #Función que devuelve, según el tipo de carta cuanto 
 			entity.ataque_debil(damage)
 			if abs(entity.direccion_mirada.x) > abs(entity.direccion_mirada.y):
 				if entity.direccion_mirada.x > 0:
-					$"../../Animaciones".play("attack_derecha_debil")
+					$"../../Sprite2D/AnimationPlayer".play("debil_derecha")
 				else:
-					$"../../Animaciones".play("attack_izquierda_debil")
+					$"../../Sprite2D/AnimationPlayer".play("debil_izquierda")
 			else:
 				if entity.direccion_mirada.y > 0:
-					$"../../Animaciones".play("attack_frente_debil")
+					$"../../Sprite2D/AnimationPlayer".play("debil_frente")
 				else:
-					$"../../Animaciones".play("attack_detras_debil")
+					$"../../Sprite2D/AnimationPlayer".play("debil_detrás")
 		Cards.CardType.ATAQUE_FUERTE:
 			entity.ataque_fuerte(damage)
 			if abs(entity.direccion_mirada.x) > abs(entity.direccion_mirada.y):
 				if entity.direccion_mirada.x > 0:
-					$"../../Animaciones".play("attack_derecha_fuerte")
+					$"../../Sprite2D/AnimationPlayer".play("fuerte_derecha")
 				else:
-					$"../../Animaciones".play("attack_izquierda_fuerte")
+					$"../../Sprite2D/AnimationPlayer".play("fuerte_izquierda")
 			else:
 				if entity.direccion_mirada.y > 0:
-					$"../../Animaciones".play("attack_frente_fuerte")
+					$"../../Sprite2D/AnimationPlayer".play("fuerte_frente")
 				else:
-					$"../../Animaciones".play("attack_detras_fuerte")
-	if entity.atacando:
-		match card["elemento"]:
-			Cards.Elemento.AGUA:
-				$"../../Animaciones_Aura".play("Agua")
-				$"../../Animaciones_Aura".visible = true
-			Cards.Elemento.FUEGO:
-				$"../../Animaciones_Aura".play("Fuego")
-				$"../../Animaciones_Aura".visible = true
-			Cards.Elemento.TIERRA:
-				$"../../Animaciones_Aura".play("Tierra")
-				$"../../Animaciones_Aura".visible = true
-			Cards.Elemento.VIENTO:
-				$"../../Animaciones_Aura".play("Viento")
-				$"../../Animaciones_Aura".visible = true
-			Cards.Elemento.NORMAL:
-				$"../../Animaciones_Aura".visible = false
-				$"../../Animaciones_Aura".stop()
+					$"../../Sprite2D/AnimationPlayer".play("fuerte_detras")
+	#if entity.atacando:
+		#match card["elemento"]:
+			#Cards.Elemento.AGUA:
+				#$"../../Animaciones_Aura".play("Agua")
+				#$"../../Animaciones_Aura".visible = true
+			#Cards.Elemento.FUEGO:
+				#$"../../Animaciones_Aura".play("Fuego")
+				#$"../../Animaciones_Aura".visible = true
+			#Cards.Elemento.TIERRA:
+				#$"../../Animaciones_Aura".play("Tierra")
+				#$"../../Animaciones_Aura".visible = true
+			#Cards.Elemento.VIENTO:
+				#$"../../Animaciones_Aura".play("Viento")
+				#$"../../Animaciones_Aura".visible = true
+			#Cards.Elemento.NORMAL:
+				#$"../../Animaciones_Aura".visible = false
+				#$"../../Animaciones_Aura".stop()
 
 func crear_torrente():
 	var torrente = preload("res://scenes/combos/torrente.tscn").instantiate()

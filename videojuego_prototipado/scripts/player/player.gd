@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed = 100
 @export var max_health = 100
 @onready var state_machine = $State_Machine
-@onready var sword = $Sprite2D/Sword
+#@onready var sword = $Sprite2D/Sword
 @onready var HUD = get_tree().current_scene.get_node("CanvasLayer/HUD")
 @onready var player = get_tree().get_first_node_in_group("player")
 @export var attack_cooldown = 0.5
@@ -13,7 +13,7 @@ extends CharacterBody2D
 var mazo : Array[Cards] = []
 
 @onready var mouse_position = get_global_mouse_position()
-var can_hit = false
+#var can_hit = false
 var control_habilitado = true
 @export var coins = 5
 var attack_damage : int
@@ -32,7 +32,7 @@ func _ready():
 	await get_tree().process_frame
 	HUD.actualizar_coins(coins)
 	state_machine.change_state($State_Machine/Idle)
-	$Animaciones_Aura.visible = false
+	#$Animaciones_Aura.visible = false
 	
 func _physics_process(delta):
 	if attack_timer >= 0:
@@ -62,17 +62,17 @@ func take_damage(amount):
 		return
 	state_machine.change_state(state_machine.get_node("Hurt"))
 
-func _on_sword_body_entered(body: Node2D) -> void:
-	if body.has_method("take_damage") and can_hit:
-		body.take_damage(attack_damage)
-		can_hit = false
+#func _on_sword_body_entered(body: Node2D) -> void:
+	#if body.has_method("take_damage") and can_hit:
+		#body.take_damage(attack_damage)
+		#can_hit = false
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("monedas"):
 		get_tree().call_group("monedas", "count_coin")
 
 func _look_at_mouse(mouse_pos):
-	get_node("Sprite2D").look_at(mouse_pos)
+	get_node("Area2D").look_at(mouse_pos)
 
 func add_coin(amount):
 	coins += amount
@@ -94,24 +94,32 @@ func actualizar_animacion():
 	
 	if abs(direccion_mirada.x) > abs(direccion_mirada.y):
 		if direccion_mirada.x > 0:
-			$Animaciones.play("walk_derecha" if moviendo else "iddle_derecha")
+			$Sprite2D/AnimationPlayer.play("move_derecha" if moviendo else "iddle_derecha")
 		else:
-			$Animaciones.play("walk_izquierda" if moviendo else "iddle_izquierda")
+			$Sprite2D/AnimationPlayer.play("move_izquierda" if moviendo else "iddle_izquierda")
 	else:
 		if direccion_mirada.y > 0:
-			$Animaciones.play("walk_frente" if moviendo else "iddle_frente")
+			$Sprite2D/AnimationPlayer.play("move_frente" if moviendo else "iddle_frente")
 		else:
-			$Animaciones.play("walk_detras" if moviendo else "iddle_detras")
+			$Sprite2D/AnimationPlayer.play("move_detras" if moviendo else "iddle_detras")
 func actualizar_iddle():
 	if atacando or moving:
 		return
 	if abs(direccion_mirada.x) > abs(direccion_mirada.y):
 		if direccion_mirada.x > 0:
-			$Animaciones.play("iddle_derecha")
+			$Sprite2D/AnimationPlayer.play("iddle_derecha")
 		else:
-			$Animaciones.play("iddle_izquierda")
+			$Sprite2D/AnimationPlayer.play("iddle_izquierda")
 	else:
 		if direccion_mirada.y > 0:
-			$Animaciones.play("iddle_frente")
+			$Sprite2D/AnimationPlayer.play("iddle_frente")
 		else:
-			$Animaciones.play("iddle_detras")
+			$Sprite2D/AnimationPlayer.play("move_detras")
+func get_healt():
+	return health
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemigos"):
+		body.take_damage()
+	#can_hit = false
