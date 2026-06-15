@@ -4,10 +4,15 @@ extends Control
 @onready var coins_label = $CoinsUI/Coins_Label
 @onready var barra_vida = $VidaPj
 
+func _ready() -> void:
+	barra_vida.max_value = player.max_health
+	barra_vida.value = player.health
+
+func _process(delta: float) -> void:
+	actualizar_vida()
+
 func actualizar_coins(cantidad):
 	coins_label.text = str(cantidad)
 
 func actualizar_vida():
-	barra_vida.min_value = 0
-	barra_vida.max_value = player.max_health
-	barra_vida = player.health
+	barra_vida.value = player.health

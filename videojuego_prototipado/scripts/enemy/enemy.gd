@@ -9,7 +9,7 @@ extends CharacterBody2D
 
 var health = 0
 var hurt_time = 0.0
-var hurt_duration = 0.15
+var hurt_duration = 0.3
 var attack = 3
 
 var estoy_quemado = false
@@ -30,7 +30,6 @@ func _ready():
 	$Animacion.visible = false
 	
 	state_machine.change_state($State_Machine/Sleep)
-	
 
 func take_damage(amount):
 	
