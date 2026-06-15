@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 100
-@export var max_health = 100
+@export var max_health = 100.0
 @onready var state_machine = $State_Machine
 #@onready var sword = $Sprite2D/Sword
 @onready var HUD = get_tree().current_scene.get_node("CanvasLayer/HUD")
