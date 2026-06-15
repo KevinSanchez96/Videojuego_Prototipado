@@ -2,6 +2,7 @@ extends Control
 
 var card_scene = preload("res://scenes/card.tscn")
 
+@onready var shop_ui
 @onready var reward_container = $Panel/VBoxContainer/RewardContainer
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var deck_container = $Panel/VBoxContainer/DeckContainer
@@ -72,4 +73,5 @@ func cargar_mazo():
 func _on_button_pressed() -> void:
 	guardar_mazo()
 	queue_free()
+	shop_ui.cerrar()
 	player.control_habilitado = true

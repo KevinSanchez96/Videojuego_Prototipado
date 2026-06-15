@@ -10,7 +10,7 @@ func _ready() -> void:
 	$AnimatedSprite2D.play()
 
 func _process(delta: float) -> void:
-	if player_cerca and Input.is_action_just_pressed("interact"):
+	if player_cerca and Input.is_action_just_pressed("interact") and shopUI.shop_abierto == false:
 		shopUI.abrir()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

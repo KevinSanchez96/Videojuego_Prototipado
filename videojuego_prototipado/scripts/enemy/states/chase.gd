@@ -1,7 +1,7 @@
 extends State
 
 var speed = 120
-var attack_distance = 110
+var attack_distance = 50
 
 func update(delta):
 	var player = entity.player

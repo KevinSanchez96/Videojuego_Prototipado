@@ -59,15 +59,14 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_otmr2"]
-radius = 33.0
-height = 114.0
+radius = 21.0
+height = 42.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nenq2"]
 radius = 253.11
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1571177986 groups=["enemigos"]]
 collision_layer = 2
-collision_mask = 0
 script = ExtResource("1_md0e3")
 
 [node name="Animacion" type="AnimatedSprite2D" parent="." unique_id=1288245305]
@@ -77,8 +76,8 @@ animation = &"hurt"
 frame_progress = 0.014418252
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=365302352]
+position = Vector2(0, 40)
 shape = SubResource("CapsuleShape2D_otmr2")
-disabled = true
 
 [node name="DetectionSpawn" type="Area2D" parent="." unique_id=1015114141]
 collision_layer = 4

@@ -5,7 +5,6 @@ extends Node2D
 @onready var camera = get_viewport().get_camera_2d()
 @onready var timer = $Timer
 @onready var label = $CanvasLayer/Label
-#enemigos
 @onready var centro_area_enemies = $SpawnEnemies.global_position
 @onready var area_enemies = $SpawnEnemies/Area2D/CollisionShape2D.shape.size
 @export var enemy_scene : PackedScene

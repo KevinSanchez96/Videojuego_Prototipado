@@ -3,7 +3,7 @@ extends State
 @onready var cooldown_timer = $AttackCooldown
 
 var can_attack = true
-var exit_attack_distance = 140
+var exit_attack_distance = 70
 
 func enter():
 	entity.velocity = Vector2.ZERO
