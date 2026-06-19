@@ -3,16 +3,18 @@ extends Control
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var coins_label = $CoinsUI/Coins_Label
 @onready var barra_vida = $VidaPj
+@onready var vida_label = $VidaLabel
 @onready var deck_ui = $DeckUI
 
 var card_escene = preload("res://scenes/card.tscn")
 var ultimo_slot_resaltado := -1
 var ultimo_mazo = []
-
+var ultimo_combo = DeckManager.combos.Nop
 
 func _ready() -> void:
 	barra_vida.max_value = player.max_health
 	barra_vida.value = player.health
+	vida_label.text = str(player.health)
 	
 	cargar_mazo()
 	
@@ -28,6 +30,7 @@ func actualizar_coins(cantidad):
 
 func actualizar_vida():
 	barra_vida.value = player.health
+	vida_label.text = str(player.health)
 
 func cargar_mazo():
 	var slots = deck_ui.get_children()
@@ -44,7 +47,7 @@ func cargar_mazo():
 		carta.scale = Vector2(0.45,0.45)
 		carta.configurar(data["elemento"], data["tipo"])
 		carta.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	
+
 func actualizar_carta_actual():
 	var slot_resaltado = get_slot_resaltado()
 	if ultimo_slot_resaltado == slot_resaltado:
@@ -76,3 +79,4 @@ func actualizar_mazo():
 	cargar_mazo()
 	ultimo_slot_resaltado = -1
 	actualizar_carta_actual()
+	ultimo_combo = -1

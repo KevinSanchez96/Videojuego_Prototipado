@@ -1,9 +1,8 @@
 extends CharacterBody2D
 
 @export var speed = 100
-@export var max_health = 100.0
+@export var max_health = 100
 @onready var state_machine = $State_Machine
-#@onready var sword = $Sprite2D/Sword
 @onready var HUD = get_tree().current_scene.get_node("CanvasLayer/HUD")
 @onready var player = get_tree().get_first_node_in_group("player")
 @export var attack_cooldown = 0.5
@@ -13,7 +12,6 @@ extends CharacterBody2D
 var mazo : Array[Cards] = []
 
 @onready var mouse_position = get_global_mouse_position()
-#var can_hit = false
 var control_habilitado = true
 @export var coins = 5
 var attack_damage : int
@@ -61,11 +59,6 @@ func take_damage(amount):
 		state_machine.change_state(state_machine.get_node("Die"))
 		return
 	state_machine.change_state(state_machine.get_node("Hurt"))
-
-#func _on_sword_body_entered(body: Node2D) -> void:
-	#if body.has_method("take_damage") and can_hit:
-		#body.take_damage(attack_damage)
-		#can_hit = false
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("monedas"):
@@ -122,4 +115,3 @@ func get_healt():
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemigos"):
 		body.take_damage(attack_damage)
-	#can_hit = false
