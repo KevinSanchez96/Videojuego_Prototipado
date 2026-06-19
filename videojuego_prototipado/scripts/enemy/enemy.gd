@@ -3,20 +3,28 @@ extends CharacterBody2D
 @onready var player = get_tree().get_first_node_in_group("player") # para tener una referencia del player y conocer su ubicacion por ejemplo.
 @onready var state_machine = $State_Machine
 @onready var state_speed = $State_Machine/Chase
-
-@export var max_health = 100 # vida maxima editable
 @onready var coin = preload("res://scenes/moneda/moneda.tscn")
+
+@export var max_health = 100
+
+enum Elemento{
+	AGUA,
+	FUEGO,
+	TIERRA,
+	VIENTO,
+	NORMAL
+}
 
 var health = 0
 var hurt_time = 0.0
 var hurt_duration = 0.3
 var attack = 3
-
 var estoy_quemado = false
 var estoy_cogelado = false
 var tiempo_efecto = 0.0
 var daño_efecto = 0.0
 var velocidad_normal = 120
+var mi_elemento := Elemento.NORMAL
 
 
 func _ready():
@@ -31,12 +39,16 @@ func _ready():
 	
 	state_machine.change_state($State_Machine/Sleep)
 
-func take_damage(amount):
-	
+func take_damage(amount, elemento_ataque = -1):
 	if health <= 0:
 		return
-	health -= amount
+	var daño_final = amount
+	if mi_elemento != Cards.Elemento.NORMAL:
+		if mi_elemento == elemento_ataque:
+			daño_final *= 0.75
+	health -= daño_final
 	print(health)
+	print("Daño:", daño_final)
 	hurt_time = hurt_duration
 	
 	if health <= 0:
@@ -65,7 +77,6 @@ func _physics_process(delta):
 		if tiempo_efecto <= 0:
 			estoy_quemado = false
 			$TiempoQuemadura.stop()
-	
 
 func _on_detection_spawn_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -77,9 +88,11 @@ func aplicar_quemadura(duracion, daño):
 	if estoy_quemado == false:
 		estoy_quemado = true
 		$TiempoQuemadura.start()
+
 func _on_tiempo_quemadura_timeout() -> void:
 	if estoy_quemado:
 		take_damage(daño_efecto)
+
 func aplicar_congelacion(duracion, daño):
 	tiempo_efecto = duracion
 	daño_efecto = daño
@@ -87,6 +100,7 @@ func aplicar_congelacion(duracion, daño):
 		estoy_cogelado = true
 		state_speed.speed = velocidad_normal * 0.2
 		$TiempoCongelado.start()
+
 func _on_tiempo_congelado_timeout() -> void:
 	estoy_cogelado = false
 	state_speed.speed = velocidad_normal

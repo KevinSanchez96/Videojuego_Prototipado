@@ -20,6 +20,8 @@ var timer_reset = 3
 var direccion_mirada := Vector2.RIGHT
 var atacando = false
 var moving = false
+var attack_elemento : int = Cards.Elemento.NORMAL
+
 
 func _ready():
 	health = max_health
@@ -51,7 +53,6 @@ func _process(delta):
 		state_machine.change_state($State_Machine/Attack)
 	direccion_mirada = (get_global_mouse_position() - global_position).normalized()
 	actualizar_iddle()
-
 
 func take_damage(amount):
 	health -= amount
@@ -111,7 +112,6 @@ func actualizar_iddle():
 func get_healt():
 	return health
 
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemigos"):
-		body.take_damage(attack_damage)
+		body.take_damage(attack_damage, attack_elemento)
