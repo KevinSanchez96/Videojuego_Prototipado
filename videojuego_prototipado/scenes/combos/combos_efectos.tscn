@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://cf6ifv2e8qrrt"]
+
+[ext_resource type="Texture2D" uid="uid://dp7vgowdt4iy8" path="res://assets/sprites/aura efectos combos/Efecto torrente.png" id="2_neflw"]
+[ext_resource type="Texture2D" uid="uid://dt6apmyox0l3m" path="res://assets/sprites/aura efectos combos/llamarada efecto.png" id="3_yp00y"]
+[ext_resource type="Texture2D" uid="uid://ddxnxs7g7w130" path="res://assets/sprites/aura efectos combos/Efecto hielo.png" id="4_vri4g"]
+[ext_resource type="Texture2D" uid="uid://csglx8pgq5joh" path="res://assets/sprites/aura efectos combos/Efecto lava.png" id="5_kyuf0"]
+[ext_resource type="Texture2D" uid="uid://dxjk5o7enyx4t" path="res://assets/sprites/aura efectos combos/efecto tierra.png" id="6_ddc3x"]
+[ext_resource type="Texture2D" uid="uid://bw5eg1u4sluvv" path="res://assets/sprites/aura efectos combos/Efecto viento.png" id="7_sjr13"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rglln"]
+atlas = ExtResource("2_neflw")
+region = Rect2(0, 0, 208, 271)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rysx"]
+atlas = ExtResource("2_neflw")
+region = Rect2(208, 0, 208, 271)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptbc5"]
+atlas = ExtResource("2_neflw")
+region = Rect2(416, 0, 208, 271)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdrp1"]
+atlas = ExtResource("3_yp00y")
+region = Rect2(0, 0, 199, 299)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3485"]
+atlas = ExtResource("3_yp00y")
+region = Rect2(199, 0, 199, 299)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyn28"]
+atlas = ExtResource("3_yp00y")
+region = Rect2(398, 0, 199, 299)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mf31l"]
+atlas = ExtResource("4_vri4g")
+region = Rect2(0, 0, 229, 227)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0r11d"]
+atlas = ExtResource("4_vri4g")
+region = Rect2(229, 0, 229, 227)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37dmg"]
+atlas = ExtResource("4_vri4g")
+region = Rect2(458, 0, 229, 227)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqcqh"]
+atlas = ExtResource("5_kyuf0")
+region = Rect2(0, 0, 222, 206)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j82h"]
+atlas = ExtResource("5_kyuf0")
+region = Rect2(222, 0, 222, 206)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_620ai"]
+atlas = ExtResource("5_kyuf0")
+region = Rect2(444, 0, 222, 206)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4y8l"]
+atlas = ExtResource("6_ddc3x")
+region = Rect2(0, 0, 196, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_veg1i"]
+atlas = ExtResource("6_ddc3x")
+region = Rect2(196, 0, 196, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt7si"]
+atlas = ExtResource("6_ddc3x")
+region = Rect2(392, 0, 196, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwcct"]
+atlas = ExtResource("6_ddc3x")
+region = Rect2(588, 0, 196, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnqeo"]
+atlas = ExtResource("7_sjr13")
+region = Rect2(0, 0, 155, 217)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmy8w"]
+atlas = ExtResource("7_sjr13")
+region = Rect2(228, 0, 155, 217)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h3vb"]
+atlas = ExtResource("7_sjr13")
+region = Rect2(456, 0, 155, 217)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1cq2e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rglln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rysx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptbc5")
+}],
+"loop": true,
+"name": &"agua",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdrp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3485")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyn28")
+}],
+"loop": true,
+"name": &"fuego",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mf31l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0r11d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37dmg")
+}],
+"loop": true,
+"name": &"hielo",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqcqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j82h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_620ai")
+}],
+"loop": true,
+"name": &"lava",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4y8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_veg1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nt7si")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwcct")
+}],
+"loop": true,
+"name": &"tierra",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnqeo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmy8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4h3vb")
+}],
+"loop": true,
+"name": &"viento",
+"speed": 8.0
+}]
+
+[node name="CombosEfectos" type="Node2D" unique_id=922324556]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1449804666]
+sprite_frames = SubResource("SpriteFrames_1cq2e")
+animation = &"agua"

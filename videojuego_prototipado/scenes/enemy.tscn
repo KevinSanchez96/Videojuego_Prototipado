@@ -70,19 +70,20 @@ collision_layer = 2
 script = ExtResource("1_md0e3")
 
 [node name="Animacion" type="AnimatedSprite2D" parent="." unique_id=1288245305]
+position = Vector2(0, -35)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_otmr2")
 animation = &"hurt"
 frame_progress = 0.014418252
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=365302352]
-position = Vector2(0, 40)
 shape = SubResource("CapsuleShape2D_otmr2")
 
 [node name="DetectionSpawn" type="Area2D" parent="." unique_id=1015114141]
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionSpawn" unique_id=1409615153]
+position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_nenq2")
 
 [node name="State_Machine" type="Node" parent="." unique_id=571602481]

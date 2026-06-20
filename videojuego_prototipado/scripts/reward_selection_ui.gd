@@ -75,3 +75,6 @@ func _on_button_pressed() -> void:
 	queue_free()
 	shop_ui.cerrar()
 	player.control_habilitado = true
+	var hud = get_tree().get_first_node_in_group("hud")
+	if hud:
+		hud.actualizar_mazo()

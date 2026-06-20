@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://byqs4v4hc7187" path="res://scripts/hud.gd" id="1_oo0fn"]
 [ext_resource type="Texture2D" uid="uid://cmjuxxjvrnoah" path="res://assets/sprites/moneda_placeholder.png" id="2_5ysmq"]
 
-[node name="HUD" type="Control" unique_id=174504701]
+[node name="HUD" type="Control" unique_id=174504701 groups=["hud"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,5 +45,41 @@ vertical_alignment = 1
 
 [node name="VidaPj" type="ProgressBar" parent="." unique_id=1116176495]
 layout_mode = 0
-offset_right = 4.0
+offset_right = 159.0
 offset_bottom = 27.0
+show_percentage = false
+
+[node name="VidaLabel" type="Label" parent="." unique_id=6808372]
+layout_mode = 0
+offset_right = 159.0
+offset_bottom = 28.0
+horizontal_alignment = 1
+
+[node name="DeckUI" type="HBoxContainer" parent="." unique_id=1537208718]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 517.0
+offset_right = 347.0
+offset_bottom = 615.0
+theme_override_constants/separation = 22
+alignment = 1
+
+[node name="Card0" type="Panel" parent="DeckUI" unique_id=1200734185]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+
+[node name="Card1" type="Panel" parent="DeckUI" unique_id=938004171]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+
+[node name="Card2" type="Panel" parent="DeckUI" unique_id=975787002]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+
+[node name="Card3" type="Panel" parent="DeckUI" unique_id=1707238755]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+
+[node name="Card4" type="Panel" parent="DeckUI" unique_id=456767529]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2

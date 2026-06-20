@@ -27,14 +27,17 @@ func get_next_card():
 		return null
 	var attempts := 0
 	while attempts < mazo_cartas.size():
-		ultimo_slot_usado = current_slot
-		registrar_carta_usada()
 		var carta = mazo_cartas[current_slot]
+		if carta != null:
+			ultimo_slot_usado = current_slot
+			registrar_carta_usada()
+			current_slot += 1
+			if current_slot >= mazo_cartas.size():
+				current_slot = 0
+			return carta
 		current_slot += 1
 		if current_slot >= mazo_cartas.size():
 			current_slot = 0
-		if carta != null:
-			return carta
 		attempts += 1
 	return null
 
@@ -42,6 +45,7 @@ func get_deck_sequence():
 	var sequence = []
 	for data in mazo_cartas:
 		if data == null:
+			sequence.append("null")
 			continue
 		var elemento = ""
 		match data["elemento"]:
@@ -161,9 +165,11 @@ func get_damage(card, combo_activo):
 
 func crear_mazo_inicial():
 	DeckManager.mazo_cartas =[
-		{"elemento": Cards.Elemento.NORMAL, "tipo": Cards.CardType.ATAQUE_DEBIL},
-		{"elemento": Cards.Elemento.NORMAL, "tipo": Cards.CardType.ATAQUE_FUERTE},
-		null, null, null]
+		null,
+		{"elemento": Cards.Elemento.AGUA, "tipo": Cards.CardType.ATAQUE_DEBIL},
+		{"elemento": Cards.Elemento.AGUA, "tipo": Cards.CardType.ATAQUE_DEBIL},
+		{"elemento": Cards.Elemento.AGUA, "tipo": Cards.CardType.ATAQUE_FUERTE},
+		null]
 
 func buscar_secuencia(sequence:Array, patron:Array) -> int:
 	for i in range(sequence.size() - patron.size() + 1):
