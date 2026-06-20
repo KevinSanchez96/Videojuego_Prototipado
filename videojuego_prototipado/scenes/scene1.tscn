@@ -87,9 +87,11 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ogaks")
 
 [node name="Scene1" type="Node2D" unique_id=2093691251]
+y_sort_enabled = true
 script = ExtResource("1_dc6gq")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1908846596]
+z_index = -1
 
 [node name="background" type="TileMapLayer" parent="Node2D" unique_id=2142857417]
 
