@@ -36,12 +36,14 @@ text = "[E] Para curarse"
 horizontal_alignment = 1
 
 [node name="Mensaje de confirmación" type="Panel" parent="." unique_id=1176003131]
+z_index = 1
 offset_left = -98.0
 offset_top = 23.0
 offset_right = 103.0
 offset_bottom = 100.0
 
 [node name="aceptar" type="Button" parent="Mensaje de confirmación" unique_id=2142270182]
+z_index = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.24400002
@@ -55,6 +57,7 @@ offset_bottom = 15.478996
 text = "Aceptar"
 
 [node name="cancelar" type="Button" parent="Mensaje de confirmación" unique_id=1794321772]
+z_index = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.744
