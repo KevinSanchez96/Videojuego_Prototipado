@@ -9,12 +9,12 @@ extends Node2D
 @onready var area_enemies = $SpawnEnemies/Area2D/CollisionShape2D.shape.size
 @export var enemy_scene : PackedScene
 
-
 var scene1
 var destino
 var teleportando = false
 var combate_terminado = false
 var countdown
+var piso_activo = false
 
 func _ready():
 	scene1 = get_tree().current_scene.get_node("Scene1")
@@ -38,8 +38,10 @@ func spawn_enemy():
 	add_child(enemigo)
 	await get_tree().process_frame
 	enemigo.global_position = obtener_posicion_spawn()
-	enemigo.max_health += GameManager.nivel_actual*20
-	enemigo.attack += GameManager.nivel_actual*3
+	enemigo.max_health += GameManager.nivel_actual*7
+	enemigo.attack += GameManager.nivel_actual*2
+	asignar_elemento(enemigo)
+	#enemigo.mi_elemento = Cards.Elemento.AGUA
 
 func get_spawn():
 	return $SpawnPlayer
@@ -53,22 +55,22 @@ func generar_piso():
 	var cantidad = 3 + GameManager.nivel_actual
 	for i in range(cantidad):
 		spawn_enemy()
-	print("Piso:", GameManager.nivel_actual)
 
 func entrar_al_piso():
 	GameManager.nivel_actual += 1
+	piso_activo = true
 	generar_piso()
 
 func _process(delta):
+	if !piso_activo:
+		return
+	
 	if combate_terminado:
 		return
 	
 	if get_tree().get_nodes_in_group("enemigos").size() == 0:
 		combate_terminado = true
 		iniciar_countdown()
-
-
-
 
 func iniciar_countdown():
 	label.visible = true
@@ -77,6 +79,7 @@ func iniciar_countdown():
 	timer.start()
 
 func volver_a_town():
+	piso_activo = false
 	if teleportando:
 		return
 	teleportando = true
@@ -106,3 +109,19 @@ func _on_timer_timeout() -> void:
 		timer.stop()
 		
 		volver_a_town()
+
+func asignar_elemento(enemigo):
+	if GameManager.nivel_actual == 1:
+		enemigo.mi_elemento = Cards.Elemento.NORMAL
+	elif GameManager.nivel_actual == 2:
+		if randf() < 0.25:
+			enemigo.mi_elemento = randi_range(Cards.Elemento.AGUA, Cards.Elemento.VIENTO)
+		else:
+			enemigo.mi_elemento = Cards.Elemento.NORMAL
+	elif GameManager.nivel_actual <= 3:
+		if randf() < 0.50:
+			enemigo.mi_elemento = randi_range(Cards.Elemento.AGUA, Cards.Elemento.VIENTO)
+		else:
+			enemigo.mi_elemento = Cards.Elemento.NORMAL
+	else:
+		enemigo.mi_elemento = randi_range(Cards.Elemento.AGUA, Cards.Elemento.VIENTO)

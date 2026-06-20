@@ -43,6 +43,7 @@ func _use_next_attack(): #Función que devuelve, según el tipo de carta cuanto 
 	var card: Dictionary = DeckManager.get_next_card()
 	if card == null:
 		return
+	entity.attack_elemento = card["elemento"]
 	var combo = DeckManager.get_combo_activo()
 	var damage = DeckManager.get_damage(card, DeckManager.combo_actual)
 	DeckManager.registrar_carta_usada()
