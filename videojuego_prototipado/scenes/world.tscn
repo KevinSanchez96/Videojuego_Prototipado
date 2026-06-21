@@ -18,6 +18,7 @@ func obtener_deck():
 "
 
 [node name="World" type="Node2D" unique_id=1982828696]
+y_sort_enabled = true
 
 [node name="DeckManager" type="Node" parent="." unique_id=965981239]
 script = SubResource("GDScript_k0juu")

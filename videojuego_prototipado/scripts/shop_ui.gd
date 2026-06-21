@@ -8,7 +8,7 @@ var shop_abierto = false
 func _ready():
 	visible = false
 	msg_container.hide()
-	
+
 func _process(delta: float) -> void:
 	if visible and Input.is_action_just_pressed("ui_exit"):
 		cerrar()

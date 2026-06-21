@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cc4okyddpqfxt" path="res://assets/spritesheets/Vendedor.png" id="2_12ke4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xj0k"]
-size = Vector2(97, 97)
+size = Vector2(45, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7rnkl"]
 atlas = ExtResource("2_12ke4")
@@ -43,19 +43,19 @@ collision_mask = 0
 script = ExtResource("1_7rnkl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2023323910]
-position = Vector2(-0.5, -0.5)
+position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_1xj0k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1884063150]
-position = Vector2(-1.4305115e-06, 4.7683716e-06)
+position = Vector2(-5.9604645e-08, -39)
 scale = Vector2(1.5, 1.53125)
 sprite_frames = SubResource("SpriteFrames_krsg3")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=209659920]
-position = Vector2(-1, 11)
+position = Vector2(0, -33)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1702154555]
-position = Vector2(1, -11.5)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_krsg3")
 
 [node name="Label" type="Label" parent="." unique_id=1392910212]
