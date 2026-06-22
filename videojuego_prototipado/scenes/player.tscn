@@ -48,32 +48,46 @@
 [ext_resource type="Texture2D" uid="uid://dyjuxw1fchtlb" path="res://assets/sprites/animacionxframe/move/derecha/derecha4.png" id="15_l71n6"]
 [ext_resource type="Texture2D" uid="uid://byj1601t206ca" path="res://assets/sprites/animacionxframe/hurt/hurtright/hurtderecha4.png" id="15_uukdq"]
 [ext_resource type="Texture2D" uid="uid://isnn3cy16o36" path="res://assets/sprites/animacionxframe/attack/debil_detras/detras6.png" id="16_2a33p"]
+[ext_resource type="Texture2D" uid="uid://ldip3ll8cpk0" path="res://assets/sprites/animacionxframe/dead/deadleft/deadizquierda1.png" id="16_2s4os"]
 [ext_resource type="Texture2D" uid="uid://cd56hoon8rram" path="res://assets/sprites/animacionxframe/move/detras/detras1.png" id="16_31cv2"]
+[ext_resource type="Texture2D" uid="uid://b0jihjojrsnto" path="res://assets/sprites/animacionxframe/dead/deadleft/deadizquierda2.png" id="17_2em0j"]
 [ext_resource type="Texture2D" uid="uid://fv13iutthroi" path="res://assets/sprites/animacionxframe/move/detras/detras2.png" id="17_pf23h"]
 [ext_resource type="Texture2D" uid="uid://dqenxi3wjp1s5" path="res://assets/sprites/animacionxframe/attack/debil_detras/detras7.png" id="17_reqs7"]
 [ext_resource type="Texture2D" uid="uid://cr4hpe4x5ocq5" path="res://assets/sprites/animacionxframe/attack/debil_frente/frente1.png" id="18_2yjfb"]
 [ext_resource type="Texture2D" uid="uid://8pxuq45h2mpx" path="res://assets/sprites/animacionxframe/move/detras/detras3.png" id="18_dt7fs"]
+[ext_resource type="Texture2D" uid="uid://ble0vl6iaa36t" path="res://assets/sprites/animacionxframe/dead/deadleft/deadizquierda3.png" id="18_qe2k6"]
 [ext_resource type="Texture2D" uid="uid://srojghrk3w5r" path="res://assets/sprites/animacionxframe/attack/debil_frente/frente2.png" id="19_dnnjp"]
+[ext_resource type="Texture2D" uid="uid://bgu3qvt0ua8c3" path="res://assets/sprites/animacionxframe/dead/deadleft/deadizquierda4.png" id="19_edwuo"]
 [ext_resource type="Texture2D" uid="uid://bmh74m8sfbgs2" path="res://assets/sprites/animacionxframe/move/detras/detras4.png" id="19_wqfne"]
+[ext_resource type="Texture2D" uid="uid://bl1df80yfk0l0" path="res://assets/sprites/animacionxframe/dead/deadleft/deadizquierda5.png" id="20_5eiju"]
 [ext_resource type="Texture2D" uid="uid://b8vq8kmnye6ep" path="res://assets/sprites/animacionxframe/move/detras/detras5.png" id="20_wnwbv"]
 [ext_resource type="Texture2D" uid="uid://bf4ig2n2a2kkl" path="res://assets/sprites/animacionxframe/attack/debil_frente/frente3.png" id="20_wqna8"]
 [ext_resource type="Texture2D" uid="uid://b8f3v30tmknvy" path="res://assets/sprites/animacionxframe/move/detras/detras6.png" id="21_gl8cc"]
 [ext_resource type="Texture2D" uid="uid://clu68mnqjw3sb" path="res://assets/sprites/animacionxframe/attack/debil_frente/frente4.png" id="21_l7gmo"]
+[ext_resource type="Texture2D" uid="uid://qbuep72qt0rr" path="res://assets/sprites/animacionxframe/dead/deadleft/deadizquierda6.png" id="21_uukdq"]
+[ext_resource type="Texture2D" uid="uid://cookhvfylx0ar" path="res://assets/sprites/animacionxframe/dead/deadleft/deadizquierda7.png" id="22_3k3j0"]
 [ext_resource type="Texture2D" uid="uid://dy515jo1wawid" path="res://assets/sprites/animacionxframe/move/frente/frente1.png" id="22_487ah"]
 [ext_resource type="Texture2D" uid="uid://dujb3qii00yux" path="res://assets/sprites/animacionxframe/attack/debil_frente/frente5.png" id="22_kft7l"]
+[ext_resource type="Texture2D" uid="uid://drreyn61xekq7" path="res://assets/sprites/animacionxframe/dead/deadright/deadderecha1.png" id="23_0bpox"]
 [ext_resource type="Texture2D" uid="uid://befccmxajmuyj" path="res://assets/sprites/animacionxframe/attack/debil_frente/frente6.png" id="23_2s4os"]
 [ext_resource type="Texture2D" uid="uid://b5tch6haxk8o1" path="res://assets/sprites/animacionxframe/move/frente/frente2.png" id="23_md1ol"]
 [ext_resource type="Texture2D" uid="uid://y2a2xqhlbyj" path="res://assets/sprites/animacionxframe/attack/debil_izquierda/izquierda1.png" id="24_2em0j"]
+[ext_resource type="Texture2D" uid="uid://gbayxjbd8ujb" path="res://assets/sprites/animacionxframe/dead/deadright/deadderecha2.png" id="24_5c21n"]
 [ext_resource type="Texture2D" uid="uid://b8li75280j628" path="res://assets/sprites/animacionxframe/move/frente/frente3.png" id="24_bj30b"]
+[ext_resource type="Texture2D" uid="uid://dtxwpv4ah2wx2" path="res://assets/sprites/animacionxframe/dead/deadright/deadderecha3.png" id="25_e8m1u"]
 [ext_resource type="Texture2D" uid="uid://cvvqemei5plby" path="res://assets/sprites/animacionxframe/move/frente/frente4.png" id="25_jc3p3"]
 [ext_resource type="Texture2D" uid="uid://cygcdpoxt672l" path="res://assets/sprites/animacionxframe/attack/debil_izquierda/izquierda2.png" id="25_qe2k6"]
+[ext_resource type="Texture2D" uid="uid://cijeqh3rmoetm" path="res://assets/sprites/animacionxframe/dead/deadright/deadderecha4.png" id="26_77pet"]
 [ext_resource type="Texture2D" uid="uid://drv5apanq366k" path="res://assets/sprites/animacionxframe/attack/debil_izquierda/izquierda3.png" id="26_edwuo"]
 [ext_resource type="Texture2D" uid="uid://c7g5bskyuuqnq" path="res://assets/sprites/animacionxframe/move/frente/frente5.png" id="26_hax0n"]
 [ext_resource type="Texture2D" uid="uid://cdl6x5lwxt3eu" path="res://assets/sprites/animacionxframe/attack/debil_izquierda/izquierda4.png" id="27_5eiju"]
 [ext_resource type="Texture2D" uid="uid://dr53mja5cdxtk" path="res://assets/sprites/animacionxframe/move/frente/frente6.png" id="27_t4otl"]
+[ext_resource type="Texture2D" uid="uid://bjahauf7ms6rf" path="res://assets/sprites/animacionxframe/dead/deadright/deadderecha5.png" id="27_tlhxf"]
 [ext_resource type="Texture2D" uid="uid://bs7utoecwruhe" path="res://assets/sprites/animacionxframe/move/izquierda/izquierda1.png" id="28_hax0n"]
+[ext_resource type="Texture2D" uid="uid://d1fw2pxn8vh52" path="res://assets/sprites/animacionxframe/dead/deadright/deadderecha6.png" id="28_hrkfm"]
 [ext_resource type="Texture2D" uid="uid://d11ehhfkte5ab" path="res://assets/sprites/animacionxframe/attack/debil_izquierda/izquierda5.png" id="28_uukdq"]
 [ext_resource type="Texture2D" uid="uid://r26e876yg0mc" path="res://assets/sprites/animacionxframe/attack/debil_izquierda/izquierda6.png" id="29_3k3j0"]
+[ext_resource type="Texture2D" uid="uid://cxkfq8jvijx75" path="res://assets/sprites/animacionxframe/dead/deadright/deadderecha7.png" id="29_oxcmq"]
 [ext_resource type="Texture2D" uid="uid://lxdjn5j4vb6d" path="res://assets/sprites/animacionxframe/move/izquierda/izquierda2.png" id="29_t4otl"]
 [ext_resource type="Texture2D" uid="uid://hkhqgmojwk8h" path="res://assets/sprites/animacionxframe/attack/debil_izquierda/izquierda7.png" id="30_0bpox"]
 [ext_resource type="Texture2D" uid="uid://bjkvdsfykxdw4" path="res://assets/sprites/animacionxframe/move/izquierda/izquierda3.png" id="30_j2b1d"]
@@ -211,6 +225,38 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_77pet"]
+resource_name = "deadleft"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("16_2s4os"), ExtResource("17_2em0j"), ExtResource("18_qe2k6"), ExtResource("19_edwuo"), ExtResource("20_5eiju"), ExtResource("21_uukdq"), ExtResource("22_3k3j0")]
+}
+
+[sub_resource type="Animation" id="Animation_wylla"]
+resource_name = "deadright"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("23_0bpox"), ExtResource("24_5c21n"), ExtResource("25_e8m1u"), ExtResource("26_77pet"), ExtResource("27_tlhxf"), ExtResource("28_hrkfm"), ExtResource("29_oxcmq")]
 }
 
 [sub_resource type="Animation" id="Animation_t4otl"]
@@ -676,6 +722,8 @@ _data = {
 &"HurtLeft": SubResource("Animation_5c21n"),
 &"HurtRight": SubResource("Animation_e8m1u"),
 &"RESET": SubResource("Animation_a8ls1"),
+&"deadleft": SubResource("Animation_77pet"),
+&"deadright": SubResource("Animation_wylla"),
 &"debil_derecha": SubResource("Animation_t4otl"),
 &"debil_detrás": SubResource("Animation_ealyq"),
 &"debil_frente": SubResource("Animation_qms75"),

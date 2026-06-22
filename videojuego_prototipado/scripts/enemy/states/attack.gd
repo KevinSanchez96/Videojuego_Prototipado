@@ -11,7 +11,7 @@ func enter():
 func update(delta):
 	var player = entity.player
 	
-	if player == null:
+	if player.die:
 		return
 	
 	var distance = entity.global_position.distance_to(player.global_position)

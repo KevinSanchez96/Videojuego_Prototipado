@@ -29,6 +29,8 @@ func actualizar_coins(cantidad):
 	coins_label.text = str(cantidad)
 
 func actualizar_vida():
+	if !is_instance_valid(player):
+		return
 	barra_vida.value = player.health
 	vida_label.text = str(player.health)
 
