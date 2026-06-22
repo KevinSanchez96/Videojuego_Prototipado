@@ -20,6 +20,7 @@ var timer_reset = 3
 var direccion_mirada := Vector2.RIGHT
 var atacando = false
 var moving = false
+var hurt = false
 var attack_elemento : int = Cards.Elemento.NORMAL
 
 
@@ -97,7 +98,7 @@ func actualizar_animacion():
 		else:
 			$Sprite2D/AnimationPlayer.play("move_detras" if moviendo else "iddle_detras")
 func actualizar_iddle():
-	if atacando or moving:
+	if atacando or moving or hurt:
 		return
 	if abs(direccion_mirada.x) > abs(direccion_mirada.y):
 		if direccion_mirada.x > 0:
