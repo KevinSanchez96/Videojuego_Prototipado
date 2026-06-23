@@ -32,12 +32,7 @@ func update(delta):
 
 #sale del estado de Attack , se vuelve invisible de nuevo la sword
 func exit():
-	#entity.sword.get_node("Sprite2D").visible = false
-	#entity.sword.monitoring = false
-	#entity.can_hit = false
 	entity.atacando = false
-	#$"../../Animaciones_Aura".stop()
-	#$"../../Animaciones_Aura".visible = false
 
 func _use_next_attack(): #Función que devuelve, según el tipo de carta cuanto daño hacemos
 	var card: Dictionary = DeckManager.get_next_card()

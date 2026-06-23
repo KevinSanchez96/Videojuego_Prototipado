@@ -4,6 +4,7 @@ var hurt_duration = 0.5
 var timer = 0.0
 
 func enter():
+	entity.can_attack = false
 	if abs(entity.direccion_mirada.x) > abs(entity.direccion_mirada.y):
 		if entity.direccion_mirada.x > 0:
 			$"../../Sprite2D/AnimationPlayer".play("hurt_right")

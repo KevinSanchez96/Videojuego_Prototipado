@@ -413,7 +413,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whoqb"]
-size = Vector2(16, 40)
+size = Vector2(28, 36)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nenq2"]
 radius = 253.11
@@ -433,9 +433,10 @@ texture = ExtResource("2_djthp")
 libraries/ = SubResource("AnimationLibrary_bct6g")
 
 [node name="AreaAttack" type="Area2D" parent="." unique_id=1858178810]
+collision_layer = 0
 
 [node name="CollisionAtk" type="CollisionShape2D" parent="AreaAttack" unique_id=300863524]
-position = Vector2(-28, 0)
+position = Vector2(-29, 5)
 shape = SubResource("RectangleShape2D_whoqb")
 disabled = true
 
@@ -468,6 +469,7 @@ script = ExtResource("7_nenq2")
 script = ExtResource("9_ipns3")
 
 [node name="AttackCooldown" type="Timer" parent="State_Machine/Attack" unique_id=1369405845]
+wait_time = 0.6
 one_shot = true
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=419714590]

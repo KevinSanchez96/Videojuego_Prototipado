@@ -1,7 +1,7 @@
 extends State
 
 var speed = 120
-var attack_distance = 30
+var attack_distance = 35
 
 func enter():
 	entity.chase = true

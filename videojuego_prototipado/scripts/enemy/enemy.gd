@@ -23,11 +23,13 @@ var attack = 3
 var tiempo_efecto = 0.0
 var daño_efecto = 0.0
 var velocidad_normal = 120
-var direccion_mirada = Vector2.RIGHT
+var direccion_mirada = Vector2.DOWN
 
 var estoy_quemado = false
 var estoy_cogelado = false
 var chase = false
+var spawn_point = false
+var can_attack = true
 
 var mi_elemento := Elemento.NORMAL
 
@@ -40,7 +42,6 @@ func _ready():
 			state.state_machine = state_machine
 	
 	$CollisionShape2D.disabled = true
-	#$Animacion.visible = false
 	
 	state_machine.change_state($State_Machine/Sleep)
 
@@ -83,7 +84,6 @@ func _physics_process(delta):
 			$TiempoQuemadura.stop()
 			
 	direccion_mirada = (player.get_global_position() - global_position).normalized()
-	#look_at_player()
 
 func _on_detection_spawn_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
