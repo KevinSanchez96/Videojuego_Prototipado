@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://cl1bahon75mph"]
+
+[ext_resource type="Texture2D" uid="uid://bodmt5vtnpodn" path="res://assets/sprites/menu/Botones.png" id="1_63oqr"]
+[ext_resource type="Script" uid="uid://b3a2xbfv60mk8" path="res://scenes/como_jugar.gd" id="1_kx7rf"]
+[ext_resource type="Texture2D" uid="uid://baf222jfbd3el" path="res://assets/sprites/menu/Flecha.png" id="2_kx7rf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ntauy"]
+bg_color = Color(0.471559, 0.66000575, 0.42767754, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nii37"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="ComoJugar" type="Control" unique_id=692402475]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kx7rf")
+
+[node name="Fondo" type="Panel" parent="." unique_id=1254592279]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ntauy")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1135148282]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 2.0
+offset_right = 362.0
+offset_bottom = 644.0
+texture = ExtResource("1_63oqr")
+
+[node name="WASD" type="Label" parent="." unique_id=1326335011]
+layout_mode = 0
+offset_left = 536.0
+offset_top = -1.0
+offset_right = 1067.0
+offset_bottom = 164.0
+theme_override_font_sizes/font_size = 80
+text = "Para moverse"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mouse" type="Label" parent="." unique_id=551974711]
+layout_mode = 0
+offset_left = 498.0
+offset_top = 190.0
+offset_right = 1080.0
+offset_bottom = 445.0
+theme_override_font_sizes/font_size = 60
+text = "Utiliza para apuntar a donde miras"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Click" type="Label" parent="." unique_id=2000966844]
+layout_mode = 0
+offset_left = 516.0
+offset_top = 455.0
+offset_right = 1064.0
+offset_bottom = 624.0
+theme_override_font_sizes/font_size = 60
+text = "Click primario para atacar"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="flecha1" type="TextureRect" parent="." unique_id=1876077735]
+layout_mode = 0
+offset_left = 414.0
+offset_top = 62.0
+offset_right = 503.0
+offset_bottom = 143.0
+texture = ExtResource("2_kx7rf")
+
+[node name="flecha2" type="TextureRect" parent="." unique_id=745282771]
+layout_mode = 0
+offset_left = 406.0
+offset_top = 275.0
+offset_right = 495.0
+offset_bottom = 356.0
+texture = ExtResource("2_kx7rf")
+
+[node name="flecha3" type="TextureRect" parent="." unique_id=131259895]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 503.0
+offset_right = 523.0
+offset_bottom = 584.0
+texture = ExtResource("2_kx7rf")
+
+[node name="Salir" type="Button" parent="." unique_id=1474127087]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 108.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_nii37")
+text = "Atrás"
+
+[connection signal="pressed" from="Salir" to="." method="_on_salir_pressed"]

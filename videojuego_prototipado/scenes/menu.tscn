@@ -50,6 +50,9 @@ animations = [{
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjb58"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhnvy"]
+bg_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_con2f"]
 bg_color = Color(0, 0, 0, 1)
 
@@ -76,7 +79,7 @@ anchor_bottom = 1.0
 offset_left = 21.0
 offset_top = 290.0
 offset_right = 206.0
-offset_bottom = -186.0
+offset_bottom = -66.0
 grow_vertical = 2
 theme_override_constants/separation = 30
 
@@ -85,6 +88,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxFlat_vjb58")
 text = "Jugar"
+
+[node name="ComoJugar" type="Button" parent="VBoxContainer" unique_id=1143076010]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_mhnvy")
+text = "Como Jugar"
 
 [node name="Salir" type="Button" parent="VBoxContainer" unique_id=1131255600]
 layout_mode = 2
@@ -104,4 +113,5 @@ layout_mode = 2
 texture = ExtResource("3_con2f")
 
 [connection signal="pressed" from="VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="VBoxContainer/ComoJugar" to="." method="_on_como_jugar_pressed"]
 [connection signal="button_up" from="VBoxContainer/Salir" to="." method="_on_salir_button_up"]
