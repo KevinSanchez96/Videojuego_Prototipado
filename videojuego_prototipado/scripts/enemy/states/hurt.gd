@@ -32,4 +32,5 @@ func update(delta):
 		if entity.health <= 0:
 			state_machine.change_state(state_machine.get_node("Death"))
 		else:
+			entity.can_attack = true
 			state_machine.change_state(state_machine.get_node("Chase")) #cuando tengamos hecho el "chase" deberiamos cambiar a chase <---
