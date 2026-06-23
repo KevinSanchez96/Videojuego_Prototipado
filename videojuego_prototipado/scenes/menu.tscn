@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dh0tna7c3kmk0" path="res://scripts/menu.gd" id="1_yqeox"]
 [ext_resource type="Texture2D" uid="uid://dtd6hfh72gdng" path="res://assets/sprites/menu/AnimacionMenu.png" id="2_vjb58"]
+[ext_resource type="Texture2D" uid="uid://boq5kg6hx2udv" path="res://assets/sprites/menu/name.png" id="3_con2f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_con2f"]
 atlas = ExtResource("2_vjb58")
@@ -91,18 +92,16 @@ theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxFlat_con2f")
 text = "Salir"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=723478127]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 166.0
-offset_right = -155.0
-offset_bottom = 193.0
-grow_horizontal = 2
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=314715649]
+layout_mode = 0
+offset_left = 309.0
+offset_top = 28.0
+offset_right = 848.0
+offset_bottom = 283.0
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer2" unique_id=2147352152]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2" unique_id=1031702311]
 layout_mode = 2
-size_flags_vertical = 3
+texture = ExtResource("3_con2f")
 
 [connection signal="pressed" from="VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
 [connection signal="button_up" from="VBoxContainer/Salir" to="." method="_on_salir_button_up"]
