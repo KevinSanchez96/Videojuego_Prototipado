@@ -46,4 +46,3 @@ func mostrar_gameover():
 	tween.parallel().tween_property(texto,"scale",Vector2(1.5,1.5),3.0)
 	
 	create_tween().tween_property(camara,"zoom",Vector2(3,3),3.0)
-	
