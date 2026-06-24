@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var player = get_tree().get_first_node_in_group("player")
 @export var attack_cooldown = 0.5
 @export var attack_timer = 0.0
-
+@onready var deck_escene = preload("res://scenes/ver_deck.tscn")
 
 var mazo : Array[Cards] = []
 
@@ -23,7 +23,8 @@ var moving = false
 var hurt = false
 var die = false
 var attack_elemento : int = Cards.Elemento.NORMAL
-
+var deck_open = false
+var deck_instance = null
 
 func _ready():
 	health = max_health
@@ -55,6 +56,9 @@ func _process(delta):
 		state_machine.change_state($State_Machine/Attack)
 	direccion_mirada = (get_global_mouse_position() - global_position).normalized()
 	actualizar_iddle()
+	
+	if Input.is_action_just_pressed("view_deck"):
+		activar_deck()
 
 func take_damage(amount):
 	health -= amount
@@ -117,3 +121,17 @@ func get_healt():
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemigos"):
 		body.take_damage(attack_damage, attack_elemento)
+
+func activar_deck():
+	if deck_open:
+		deck_instance.cerrar()
+		deck_instance = null
+		deck_open = false
+		control_habilitado = true
+		Engine.time_scale = 1
+	else:
+		deck_instance = deck_escene.instantiate()
+		get_tree().current_scene.add_child(deck_instance)
+		deck_open = true
+		control_habilitado = false
+		Engine.time_scale = 0

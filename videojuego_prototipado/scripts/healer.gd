@@ -8,6 +8,7 @@ extends StaticBody2D
 var player_cerca = false
 var ui_open = false
 
+
 func _ready() -> void:
 	label_no_mony.visible = false
 	label.visible = false

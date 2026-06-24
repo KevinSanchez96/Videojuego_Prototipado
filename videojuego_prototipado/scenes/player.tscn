@@ -747,7 +747,7 @@ collision_mask = 3
 script = ExtResource("1_qo1am")
 
 [node name="ColisionPlayer" type="CollisionShape2D" parent="." unique_id=1547670883]
-position = Vector2(0, 20)
+position = Vector2(3, 20)
 shape = SubResource("CapsuleShape2D_0bpox")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=771650985]

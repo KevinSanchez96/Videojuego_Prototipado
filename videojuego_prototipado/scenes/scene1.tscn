@@ -103,6 +103,7 @@ tile_set = SubResource("TileSet_s8jmr")
 position = Vector2(120, -227)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=596574903]
+layer = 10
 
 [node name="ShopUI" parent="CanvasLayer" unique_id=1752435820 instance=ExtResource("3_dc6gq")]
 visible = false

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cl1bahon75mph"]
 
-[ext_resource type="Texture2D" uid="uid://bodmt5vtnpodn" path="res://assets/sprites/menu/Botones.png" id="1_63oqr"]
+[ext_resource type="Texture2D" uid="uid://bcevwnlocchcq" path="res://assets/sprites/menu/Botones.png" id="1_63oqr"]
 [ext_resource type="Script" uid="uid://b3a2xbfv60mk8" path="res://scenes/como_jugar.gd" id="1_kx7rf"]
 [ext_resource type="Texture2D" uid="uid://baf222jfbd3el" path="res://assets/sprites/menu/Flecha.png" id="2_kx7rf"]
 
@@ -41,7 +41,7 @@ layout_mode = 0
 offset_left = 536.0
 offset_top = -1.0
 offset_right = 1067.0
-offset_bottom = 164.0
+offset_bottom = 122.0
 theme_override_font_sizes/font_size = 80
 text = "Para moverse"
 horizontal_alignment = 1
@@ -49,11 +49,11 @@ vertical_alignment = 1
 
 [node name="Mouse" type="Label" parent="." unique_id=551974711]
 layout_mode = 0
-offset_left = 498.0
-offset_top = 190.0
-offset_right = 1080.0
-offset_bottom = 445.0
-theme_override_font_sizes/font_size = 60
+offset_left = 508.0
+offset_top = 138.0
+offset_right = 1088.0
+offset_bottom = 341.0
+theme_override_font_sizes/font_size = 50
 text = "Utiliza para apuntar a donde miras"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -61,38 +61,55 @@ autowrap_mode = 2
 
 [node name="Click" type="Label" parent="." unique_id=2000966844]
 layout_mode = 0
-offset_left = 516.0
-offset_top = 455.0
-offset_right = 1064.0
-offset_bottom = 624.0
-theme_override_font_sizes/font_size = 60
+offset_left = 530.0
+offset_top = 323.0
+offset_right = 1078.0
+offset_bottom = 492.0
+theme_override_font_sizes/font_size = 50
 text = "Click primario para atacar"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="Tabulador" type="Label" parent="." unique_id=72403864]
+layout_mode = 0
+offset_left = 601.0
+offset_top = 531.0
+offset_right = 1060.0
+offset_bottom = 614.0
+theme_override_font_sizes/font_size = 60
+text = "Para ver el deck"
+
 [node name="flecha1" type="TextureRect" parent="." unique_id=1876077735]
 layout_mode = 0
-offset_left = 414.0
-offset_top = 62.0
-offset_right = 503.0
-offset_bottom = 143.0
+offset_left = 388.0
+offset_top = 22.0
+offset_right = 477.0
+offset_bottom = 103.0
 texture = ExtResource("2_kx7rf")
 
 [node name="flecha2" type="TextureRect" parent="." unique_id=745282771]
 layout_mode = 0
-offset_left = 406.0
-offset_top = 275.0
-offset_right = 495.0
-offset_bottom = 356.0
+offset_left = 387.0
+offset_top = 211.0
+offset_right = 476.0
+offset_bottom = 292.0
 texture = ExtResource("2_kx7rf")
 
 [node name="flecha3" type="TextureRect" parent="." unique_id=131259895]
 layout_mode = 0
-offset_left = 434.0
-offset_top = 503.0
-offset_right = 523.0
-offset_bottom = 584.0
+offset_left = 403.0
+offset_top = 394.0
+offset_right = 492.0
+offset_bottom = 475.0
+texture = ExtResource("2_kx7rf")
+
+[node name="flecha4" type="TextureRect" parent="." unique_id=498561898]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 540.0
+offset_right = 512.0
+offset_bottom = 621.0
 texture = ExtResource("2_kx7rf")
 
 [node name="Salir" type="Button" parent="." unique_id=1474127087]
