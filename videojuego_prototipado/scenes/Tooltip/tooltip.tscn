@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cuy2bbpygl0m7"]
+
+[ext_resource type="Script" uid="uid://cu35kxtn713bf" path="res://tooltip.gd" id="1_er1w5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yerjd"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+bg_color = Color(0.01607666, 0.01607666, 0.01607666, 0.39607844)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Tooltip" type="PanelContainer" unique_id=1670063379]
+custom_minimum_size = Vector2(4, 4)
+layout_direction = 2
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1019.0
+offset_bottom = -508.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yerjd")
+script = ExtResource("1_er1w5")
+
+[node name="MarginContainer" type="VBoxContainer" parent="." unique_id=1131278105]
+layout_mode = 2
+
+[node name="Tipo" type="Label" parent="MarginContainer" unique_id=848085072]
+layout_mode = 2
+text = "TIPO"
+
+[node name="Elemento" type="Label" parent="MarginContainer" unique_id=598205293]
+layout_mode = 2
+text = "ELEMENTO"

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cce8a1qmbu52u"]
 
 [ext_resource type="Script" uid="uid://b647kbt416bx8" path="res://scripts/card.gd" id="1_d81rb"]
+[ext_resource type="PackedScene" uid="uid://cuy2bbpygl0m7" path="res://scenes/Tooltip/tooltip.tscn" id="2_6u4wf"]
 
 [node name="Card" type="Panel" unique_id=424601836]
 custom_minimum_size = Vector2(120, 250)
@@ -16,3 +17,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
+
+[node name="Tooltip" parent="." unique_id=1670063379 instance=ExtResource("2_6u4wf")]
+top_level = true
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 49.0
+offset_bottom = 94.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[connection signal="mouse_entered" from="." to="Tooltip" method="toggle" binds= [true]]
+[connection signal="mouse_exited" from="." to="Tooltip" method="toggle" binds= [false]]
