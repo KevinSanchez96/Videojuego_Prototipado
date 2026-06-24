@@ -773,6 +773,7 @@ texture = ExtResource("2_d2wvv")
 libraries/ = SubResource("AnimationLibrary_fulsm")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=964986331]
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
 
