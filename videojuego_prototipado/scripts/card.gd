@@ -30,13 +30,15 @@ var padre_original : Node
 var elemento : Elemento
 @export var tipo_carta : CardType
 @onready var imagen : TextureRect = $TextureRect
+func _ready() -> void:
+	print("DECK:", deck)
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton: ## es un evento de input de mouse?
 		if event.button_index == MOUSE_BUTTON_LEFT: ## lo que se apreta es el boton izquierdo? 
 			if event.pressed: ## el evento es presionar dicho click? 
 				sostener = true
-				
+				print("CLICK EN CARTA")
 				padre_original = get_parent()
 				posicion_original = position
 				offset = get_global_mouse_position()-global_position ## guarda la distancia entre el mouse - la posicion global de la carta
@@ -79,7 +81,7 @@ func snapear():
 	if get_parent() != padre_original:
 		reparent(padre_original)
 	position = posicion_original
-	
+
 func destruir_carta_reward():
 	for reward_slot in reward_container.get_children():
 		reward_slot.queue_free()

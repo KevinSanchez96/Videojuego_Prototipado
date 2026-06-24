@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var state_machine = $State_Machine
 @onready var state_speed = $State_Machine/Chase
 @onready var coin = preload("res://scenes/moneda/moneda.tscn")
+@onready var attack_direction = $AreaAttack
 
 @export var max_health = 100
 
@@ -19,11 +20,17 @@ var health = 0
 var hurt_time = 0.0
 var hurt_duration = 0.3
 var attack = 3
-var estoy_quemado = false
-var estoy_cogelado = false
 var tiempo_efecto = 0.0
 var daño_efecto = 0.0
 var velocidad_normal = 120
+var direccion_mirada = Vector2.DOWN
+
+var estoy_quemado = false
+var estoy_cogelado = false
+var chase = false
+var spawn_point = false
+var can_attack = true
+
 var mi_elemento := Elemento.NORMAL
 
 
@@ -35,7 +42,6 @@ func _ready():
 			state.state_machine = state_machine
 	
 	$CollisionShape2D.disabled = true
-	$Animacion.visible = false
 	
 	state_machine.change_state($State_Machine/Sleep)
 
@@ -47,8 +53,8 @@ func take_damage(amount, elemento_ataque = -1):
 		if mi_elemento == elemento_ataque:
 			daño_final *= 0.75
 	health -= daño_final
-	print(health)
-	print("Daño:", daño_final)
+	#print(health)
+	#print("Daño:", daño_final)
 	hurt_time = hurt_duration
 	
 	if health <= 0:
@@ -66,17 +72,13 @@ func die():
 func _physics_process(delta):
 	move_and_slide()
 	
-	if hurt_time > 0:
-		hurt_time -= delta
-		$Animacion.play("hurt")
-		if hurt_time <= 0:
-			$Animacion.play("walk")
-	
 	if estoy_quemado == true:
 		tiempo_efecto -= delta
 		if tiempo_efecto <= 0:
 			estoy_quemado = false
 			$TiempoQuemadura.stop()
+	if is_instance_valid(player):
+		direccion_mirada = (player.get_global_position() - global_position).normalized()
 
 func _on_detection_spawn_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -104,3 +106,7 @@ func aplicar_congelacion(duracion, daño):
 func _on_tiempo_congelado_timeout() -> void:
 	estoy_cogelado = false
 	state_speed.speed = velocidad_normal
+
+func _on_area_attack_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		body.take_damage(attack)
