@@ -23,6 +23,9 @@ var offset = Vector2.ZERO
 var posicion_original : Vector2
 var padre_original : Node
 
+#tooltip
+@onready var tooltip = $Tooltip
+
 #tipo cartas
 var elemento : Elemento
 @export var tipo_carta : CardType
@@ -118,3 +121,24 @@ func actualizar_sprite():
 
 	elif tipo_carta == CardType.ATAQUE_FUERTE and elemento == Elemento.NORMAL:
 		imagen.texture = preload("res://assets/sprites/sprites cartas/Normal-Type-Strong.png")
+
+func get_tipo_carta() -> String:
+	match tipo_carta:
+		CardType.ATAQUE_DEBIL:
+			return "Débil"
+		CardType.ATAQUE_FUERTE:
+			return "Fuerte"
+	return "Desconocido"
+func get_elemento() -> String:
+	match elemento:
+		Elemento.AGUA:
+			return "AGUA"
+		Elemento.FUEGO:
+			return "FUEGO"
+		Elemento.TIERRA:
+			return "TIERRA"
+		Elemento.VIENTO:
+			return "VIENTO"
+		Elemento.NORMAL:
+			return "NORMAL"
+	return "Desconocido"
