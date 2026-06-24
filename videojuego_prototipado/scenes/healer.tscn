@@ -1,29 +1,95 @@
 [gd_scene format=3 uid="uid://cmlixrqva7ufa"]
 
 [ext_resource type="Script" uid="uid://cjgeg7ugmstq5" path="res://scripts/healer.gd" id="1_idgs8"]
-[ext_resource type="Texture2D" uid="uid://dw7osoejcpmge" path="res://assets/sprites/icon.svg" id="2_ul1qm"]
+[ext_resource type="Texture2D" uid="uid://dgy60qxjqf8cs" path="res://assets/spritesheets/traditional-kimono-girl-idle-85fc.png" id="2_idgs8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul1qm"]
+atlas = ExtResource("2_idgs8")
+region = Rect2(0, 0, 30, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8m7qu"]
+atlas = ExtResource("2_idgs8")
+region = Rect2(30, 0, 30, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32hxe"]
+atlas = ExtResource("2_idgs8")
+region = Rect2(60, 0, 30, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfao8"]
+atlas = ExtResource("2_idgs8")
+region = Rect2(90, 0, 30, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbdlm"]
+atlas = ExtResource("2_idgs8")
+region = Rect2(120, 0, 30, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g876o"]
+atlas = ExtResource("2_idgs8")
+region = Rect2(150, 0, 30, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owuni"]
+atlas = ExtResource("2_idgs8")
+region = Rect2(180, 0, 30, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtcjb"]
+atlas = ExtResource("2_idgs8")
+region = Rect2(210, 0, 30, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_70gjf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ul1qm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8m7qu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32hxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfao8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbdlm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g876o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owuni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtcjb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8m7qu"]
-size = Vector2(102, 90)
+size = Vector2(25, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_idgs8"]
-size = Vector2(132, 108)
+size = Vector2(57, 85)
 
 [node name="Healer" type="StaticBody2D" unique_id=1281093866]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_idgs8")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1700125400]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=5437172]
 position = Vector2(0, -1.9073486e-06)
-scale = Vector2(0.8046875, 0.7421875)
-texture = ExtResource("2_ul1qm")
+sprite_frames = SubResource("SpriteFrames_70gjf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=107541334]
-position = Vector2(-1, -1)
+position = Vector2(0.5, 25)
 shape = SubResource("RectangleShape2D_8m7qu")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=722274557]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1272085922]
+position = Vector2(-1.5, 10.5)
 shape = SubResource("RectangleShape2D_idgs8")
 
 [node name="Label" type="Label" parent="." unique_id=633219821]

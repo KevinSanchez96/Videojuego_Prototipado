@@ -40,6 +40,7 @@ size = Vector2(72, 73)
 
 [node name="Merchant" type="StaticBody2D" unique_id=273819640]
 position = Vector2(0, 9)
+collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_7rnkl")
 
