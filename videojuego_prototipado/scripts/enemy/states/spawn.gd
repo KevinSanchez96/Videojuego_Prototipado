@@ -4,8 +4,7 @@ var timer_spawn := 0.0
 
 func enter():
 	entity.spawn_point = true
-	$"../../Sprite2D/AnimationPlayer".play("spawn")
-	
+	#$"../../Sprite2D/AnimationPlayer".play("spawn")
 	
 	entity.get_node("CollisionShape2D").set_deferred("disabled",false)
 	

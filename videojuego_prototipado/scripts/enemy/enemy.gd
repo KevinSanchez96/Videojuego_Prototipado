@@ -72,18 +72,13 @@ func die():
 func _physics_process(delta):
 	move_and_slide()
 	
-	#if hurt_time > 0:
-		#hurt_time -= delta
-		#if hurt_time <= 0:
-			#$Animacion.play("walk")
-	
 	if estoy_quemado == true:
 		tiempo_efecto -= delta
 		if tiempo_efecto <= 0:
 			estoy_quemado = false
 			$TiempoQuemadura.stop()
-			
-	direccion_mirada = (player.get_global_position() - global_position).normalized()
+	if is_instance_valid(player):
+		direccion_mirada = (player.get_global_position() - global_position).normalized()
 
 func _on_detection_spawn_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -115,8 +110,3 @@ func _on_tiempo_congelado_timeout() -> void:
 func _on_area_attack_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		body.take_damage(attack)
-
-#func look_at_player():
-	#if !is_instance_valid(player):
-		#return
-	#get_node("AreaAttack").look_at(player.get_global_position())

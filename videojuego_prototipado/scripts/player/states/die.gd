@@ -4,6 +4,7 @@ var timer := 0.0
 
 func enter():
 	entity.die = true
+	entity.control_habilitado = false
 	entity.velocity = Vector2.ZERO
 	if abs(entity.direccion_mirada.x) > abs(entity.direccion_mirada.y):
 		if entity.direccion_mirada.x > 0:
@@ -18,6 +19,7 @@ func enter():
 	
 	mostrar_gameover()
 	timer = 3.0
+	
 
 
 func update(delta):

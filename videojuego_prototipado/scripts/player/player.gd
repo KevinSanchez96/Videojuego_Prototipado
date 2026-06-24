@@ -128,10 +128,10 @@ func activar_deck():
 		deck_instance = null
 		deck_open = false
 		control_habilitado = true
-		Engine.time_scale = 1
+		#Engine.time_scale = 1
 	else:
 		deck_instance = deck_escene.instantiate()
 		get_tree().current_scene.add_child(deck_instance)
 		deck_open = true
 		control_habilitado = false
-		Engine.time_scale = 0
+		#Engine.time_scale = 0
