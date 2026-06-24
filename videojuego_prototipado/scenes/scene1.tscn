@@ -83,7 +83,8 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_s8jmr"]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_ogaks")
 
 [node name="Scene1" type="Node2D" unique_id=2093691251]
@@ -110,6 +111,7 @@ visible = false
 
 [node name="Door" parent="." unique_id=461972240 instance=ExtResource("3_007yp")]
 position = Vector2(604, -53)
+collision_layer = 4
 
 [node name="SpawnPlayer" type="Marker2D" parent="." unique_id=361662970]
 position = Vector2(542, -34)
