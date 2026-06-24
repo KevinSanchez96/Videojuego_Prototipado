@@ -10,7 +10,6 @@ var ultimo_slot_usado := -1
 var combo_inicio = -1
 var combo_slot_actual = -1
 
-
 func _ready() -> void:
 	if mazo_cartas.is_empty():
 		crear_mazo_inicial()
@@ -127,7 +126,7 @@ func get_tamaño_combo(combo):
 func get_base_damage(card):
 	match card["tipo"]:
 		Cards.CardType.ATAQUE_DEBIL:
-			return 10
+			return 5
 		Cards.CardType.ATAQUE_FUERTE:
 			return 20
 	return 0
