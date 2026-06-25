@@ -3,6 +3,7 @@ extends State
 var timer_dead := 0.0
 
 func enter():
+	entity.i_die = true
 	entity.velocity = Vector2.ZERO
 	
 	if abs(entity.direccion_mirada.x) > abs(entity.direccion_mirada.y):
@@ -16,7 +17,7 @@ func enter():
 		else:
 			$"../../Sprite2D/AnimationPlayer".play("dead_left")
 	
-	timer_dead = 1.4
+	timer_dead = 1.3
 	
 
 func update(delta):

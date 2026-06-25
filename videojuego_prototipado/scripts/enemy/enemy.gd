@@ -30,6 +30,7 @@ var estoy_cogelado = false
 var chase = false
 var spawn_point = false
 var can_attack = true
+var i_die = false
 
 var mi_elemento := Elemento.NORMAL
 
@@ -74,7 +75,7 @@ func _physics_process(delta):
 	
 	if estoy_quemado == true:
 		tiempo_efecto -= delta
-		if tiempo_efecto <= 0:
+		if tiempo_efecto <= 0 or i_die:
 			estoy_quemado = false
 			$TiempoQuemadura.stop()
 	if is_instance_valid(player):

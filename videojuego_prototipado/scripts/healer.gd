@@ -10,6 +10,7 @@ var ui_open = false
 
 
 func _ready() -> void:
+	$Sprite2D.play()
 	label_no_mony.visible = false
 	label.visible = false
 	confirmacion_mensage.hide()
