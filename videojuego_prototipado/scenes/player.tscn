@@ -747,10 +747,11 @@ collision_mask = 6
 script = ExtResource("1_qo1am")
 
 [node name="ColisionPlayer" type="CollisionShape2D" parent="." unique_id=1547670883]
-position = Vector2(3, 20)
+position = Vector2(-1, 3)
 shape = SubResource("CapsuleShape2D_0bpox")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=771650985]
+position = Vector2(0, -13)
 collision_layer = 0
 collision_mask = 2
 
@@ -767,6 +768,7 @@ disabled = true
 debug_color = Color(0.47186732, 0.55891055, 0.5313635, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=98699282]
+position = Vector2(-2, -17)
 texture = ExtResource("2_d2wvv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=701544515]

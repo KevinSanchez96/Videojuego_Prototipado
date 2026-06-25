@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cjgeg7ugmstq5" path="res://scripts/healer.gd" id="1_idgs8"]
 [ext_resource type="Texture2D" uid="uid://dgy60qxjqf8cs" path="res://assets/spritesheets/traditional-kimono-girl-idle-85fc.png" id="2_idgs8"]
+[ext_resource type="Texture2D" uid="uid://dfx5lu7lpnet" path="res://assets/spritesheets/manta.png" id="3_8m7qu"]
+[ext_resource type="Texture2D" uid="uid://ctpsgcd8kt00n" path="res://assets/spritesheets/medicina.png" id="4_32hxe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ul1qm"]
 atlas = ExtResource("2_idgs8")
@@ -67,11 +69,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8m7qu"]
-size = Vector2(25, 16)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_idgs8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_idgs8"]
 size = Vector2(57, 85)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qfao8"]
 
 [node name="Healer" type="StaticBody2D" unique_id=1281093866]
 collision_layer = 4
@@ -83,8 +86,8 @@ position = Vector2(0, -1.9073486e-06)
 sprite_frames = SubResource("SpriteFrames_70gjf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=107541334]
-position = Vector2(0.5, 25)
-shape = SubResource("RectangleShape2D_8m7qu")
+position = Vector2(-1, 17)
+shape = SubResource("CapsuleShape2D_idgs8")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=722274557]
 
@@ -106,6 +109,28 @@ offset_left = -86.0
 offset_top = 4.0
 offset_right = 115.0
 offset_bottom = 81.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_qfao8")
+
+[node name="TextureRect" type="TextureRect" parent="Mensaje de confirmación" unique_id=1890305827]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = 3.0
+offset_right = 9.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8m7qu")
+
+[node name="TextureRect2" type="TextureRect" parent="Mensaje de confirmación" unique_id=1419109279]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 26.0
+offset_right = 149.0
+offset_bottom = 62.0
+texture = ExtResource("4_32hxe")
 
 [node name="VidaxMonedas" type="Label" parent="Mensaje de confirmación" unique_id=213175244]
 layout_mode = 1
@@ -114,10 +139,10 @@ anchor_left = 0.497
 anchor_top = 0.24000001
 anchor_right = 0.497
 anchor_bottom = 0.24000001
-offset_left = -98.91501
-offset_top = -12.480001
-offset_right = 101.103
-offset_bottom = 10.52
+offset_left = -102.897
+offset_top = -75.48
+offset_right = 97.121
+offset_bottom = -52.480003
 text = "2 monedas por 20 de vida"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -130,10 +155,10 @@ anchor_left = 0.24400002
 anchor_top = 0.77300006
 anchor_right = 0.24400002
 anchor_bottom = 0.77300006
-offset_left = -34.58
-offset_top = -15.521004
-offset_right = 34.42
-offset_bottom = 15.478996
+offset_left = -35.044006
+offset_top = 4.4789963
+offset_right = 33.955997
+offset_bottom = 35.478996
 text = "Aceptar"
 
 [node name="cancelar" type="Button" parent="Mensaje de confirmación" unique_id=1794321772]
@@ -144,18 +169,18 @@ anchor_left = 0.744
 anchor_top = 0.77300006
 anchor_right = 0.744
 anchor_bottom = 0.77300006
-offset_left = -38.08
-offset_top = -15.521004
-offset_right = 37.92
-offset_bottom = 15.478996
+offset_left = -36.544006
+offset_top = 3.4789963
+offset_right = 39.455994
+offset_bottom = 34.478996
 text = "Cancelar"
 
 [node name="NoTeAlcanza" type="Label" parent="." unique_id=784888629]
 visible = false
-offset_left = -109.0
-offset_top = 48.0
-offset_right = 128.0
-offset_bottom = 71.0
+offset_left = -107.0
+offset_top = 8.0
+offset_right = 130.0
+offset_bottom = 31.0
 text = "No tienes suficientes monedas"
 horizontal_alignment = 1
 vertical_alignment = 1

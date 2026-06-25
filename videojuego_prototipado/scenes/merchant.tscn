@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://r6f3acmw6vls" path="res://scripts/merchant.gd" id="1_7rnkl"]
 [ext_resource type="Texture2D" uid="uid://cc4okyddpqfxt" path="res://assets/spritesheets/Vendedor.png" id="2_12ke4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xj0k"]
-size = Vector2(45, 12)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_12ke4"]
+height = 40.04963
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7rnkl"]
 atlas = ExtResource("2_12ke4")
@@ -36,27 +36,28 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_krsg3"]
-size = Vector2(72, 73)
+size = Vector2(72, 67)
 
 [node name="Merchant" type="StaticBody2D" unique_id=273819640]
-position = Vector2(0, 9)
+position = Vector2(0, 14)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_7rnkl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2023323910]
-position = Vector2(0, -9)
-shape = SubResource("RectangleShape2D_1xj0k")
+position = Vector2(0, -3)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_12ke4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1884063150]
-position = Vector2(-5.9604645e-08, -39)
+position = Vector2(0, -28)
 sprite_frames = SubResource("SpriteFrames_krsg3")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=209659920]
-position = Vector2(0, -33)
+position = Vector2(0, -9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1702154555]
-position = Vector2(1, -4.5)
+position = Vector2(1, -1.5)
 shape = SubResource("RectangleShape2D_krsg3")
 
 [node name="Label" type="Label" parent="." unique_id=1392910212]
